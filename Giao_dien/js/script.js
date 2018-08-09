@@ -20,10 +20,4 @@ $(document).ready(function(){
 		function(){ $(this).animate({ top: 3 }, 'fast'); },
 		function(){ $(this).animate({ top: 0 }, 'fast'); }
 	);
-
- 
-
-	 
-
-
 });

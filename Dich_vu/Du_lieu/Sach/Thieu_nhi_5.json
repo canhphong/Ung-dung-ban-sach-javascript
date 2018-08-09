@@ -1,0 +1,13 @@
+{
+	"Ten": "Sách thiếu nhi 5",
+	"Ma_so": "Thieu_nhi_5",
+	"Don_gia_Ban": 224000,
+	"Don_gia_Nhap": 124000,
+	"Mo_ta": "Sau quá trình nghiên cứu, tôi nhận thấy những thuật ngữ do các tác giả tiền bối đưa ra như bleus de Hué hay đồ sứ men lam Huế, lẫn các thuật ngữ mới sau này đều có những hạn chế nhất định. Vì thế, tôi mạnh dạn sử dụng thuật ngữ đồ sứ ký kiểu (ĐSKK) để gọi tên nhóm đồ sứ này và tùy theo niên đại ký kiểu đồ sứ mà thuật ngữ này có thêm các định ngữ chỉ thời gian đi kèm...",
+	"Nhom_Sach": {
+		"Ten": "Thieu_nhi",
+		"Ma_so": "THIEU_NHI",
+		"Tac_gia": "NGUYEN_ANH",
+		"Nha_phat_hanh": "NXB_VH"
+	}
+}
