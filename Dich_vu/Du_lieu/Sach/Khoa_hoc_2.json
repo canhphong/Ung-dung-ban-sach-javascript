@@ -1,0 +1,12 @@
+{
+	"Ten": "Sách khoa hoc 2",
+	"Ma_so": "Khoa_hoc_2",
+	"Don_gia_Ban": 324000,
+	"Don_gia_Nhap": 284000,
+	"Nhom_Sach": {
+		"Ten": "Khoa_hoc",
+		"Ma_so": "KHOA_HOC",
+		"Tac_gia":"Nguyen_Trai",
+		"Nha_phat_hanh":"Kim_Thu"
+	}
+}
