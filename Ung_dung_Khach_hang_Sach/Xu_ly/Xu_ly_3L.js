@@ -1,4 +1,3 @@
-
 var Dia_chi_Dich_vu = "http://localhost:1000"
 var Dia_chi_Media = "http://localhost:1001"
 //************** Xử lý Lưu trữ ***********
@@ -40,13 +39,16 @@ function Tai_tap_tin(tap_tin, ten_moi) {
 
 function XL_Upload() {
     var Ngay = Tao_Chuoi_The_hien_Ngay()
-    Ngay = Ngay.replace(/[/]/g,"_")
+    Ngay = Ngay.replace(/[/]/g, "_")
     var Ma_so = `Don_Xin_Ung_tuyen-${Ngay}-${Th_Dien_thoai.value}.pdf`
     var reader = new FileReader();
     var Du_lieu_pdf = "";
     reader.onload = function (e) {
         Du_lieu_pdf = e.target.result;
-        var Du_lieu = { "Chuoi_nhi_phan": Du_lieu_pdf, "Ten": Ma_so };
+        var Du_lieu = {
+            "Chuoi_nhi_phan": Du_lieu_pdf,
+            "Ten": Ma_so
+        };
         var Xu_ly_HTTP = new XMLHttpRequest()
         var Dia_chi_Xu_ly = `${Dia_chi_Media}/Ghi_PDF`
         Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
@@ -55,7 +57,7 @@ function XL_Upload() {
         var Chuoi_KQ = Xu_ly_HTTP.responseText
         return Chuoi_KQ
     }
-    Th_Thong_bao.innerHTML="Cửa hàng Chúng tôi đã nhận đơn của bạn.<br>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất"
+    Th_Thong_bao.innerHTML = "Cửa hàng Chúng tôi đã nhận đơn của bạn.<br>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất"
     reader.readAsDataURL(Th_file.files[0]);
     Th_Close.click()
 }
@@ -88,31 +90,15 @@ function Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha) {
     the_hien.setAttribute("data", JSON.stringify(Dien_thoai))
     Th_Cha.appendChild(the_hien)
     var Chuoi_HTML = `
-    <div class="w3ls_mobiles_grid_right_grid3">
-    <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_mobiles">
-        <div class="agile_ecommerce_tab_left mobiles_grid">
-            <div class="hs-wrapper hs-wrapper2">
-                <img src="http://localhost:1001/${Dien_thoai.Ma_so}.png" alt="">
-                <div class="w3_hs_bottom w3_hs_bottom_sub1">
-                    <ul>
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal9">
-                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <h5>
-                <a href="single.html">Smart Phone</a>
-            </h5>
-            <div class="simpleCart_shelfItem">
-                <h5 class="text-primary">${Dien_thoai.Ten}</h5>
-                <p class="text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)} đ</p>
-                Loại nhóm: ${Dien_thoai.Nhom_Sach.Ten}
-                <buttom class="w3ls-cart">Xem chi tiết</buttom>
-            </div>
-        </div>
+    <div class="col-md-4">
+    <img src="http://localhost:1001/${Dien_thoai.Ma_so}.png" alt="">
+    <div>
+        <h4 class="text-primary">${Dien_thoai.Ten}</h5>
+        <p class="text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)} đ</p>
+        Loại nhóm: ${Dien_thoai.Nhom_Sach.Ten}
+        <div class="col-md-4 text-center"> 
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Xem chi tiết</button> 
+</div>
     </div>
 </div>
     `
@@ -267,8 +253,3 @@ function Nhap_Ngay(Th_Ngay) {
 
     return Kq
 }
-
-
-
-
-
