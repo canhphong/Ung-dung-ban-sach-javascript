@@ -96,9 +96,9 @@ function Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha) {
         <h4 class="text-primary">${Dien_thoai.Ten}</h5>
         <p class="text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)} đ</p>
         Loại nhóm: ${Dien_thoai.Nhom_Sach.Ten}
-        <div class="col-md-4 text-center"> 
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Xem chi tiết</button> 
-</div>
+        <div class="text-center"> 
+            <button class="btn btn-primary">Xem chi tiết</button> 
+        </div>
     </div>
 </div>
     `

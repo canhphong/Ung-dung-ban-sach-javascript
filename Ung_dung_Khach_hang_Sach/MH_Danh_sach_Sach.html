@@ -324,20 +324,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 				</div>
 				<div class="col-md-8">
-					<div class="w3ls_mobiles_grid_right_grid2">
+					<div class="row">
+						<div class="col-md-6">
 							<div id="Th_Thong_bao"></div>
+						</div>
+						<div class="col-md-6">
+							<select class="btn btn-outline-danger" onchange="Xuat_Dien_thoai_theo_Don_gia(this.value)">
+									<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
+									<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
+									<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
+									<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
+							</select>
+							</div>
 					</div>
-						<div class="w3ls_mobiles_grid_right_grid2_left"></div>
+					
 						
 							<!-- My Code -->
-						
-						
 									<div class="row">
 										<div id="Th_Cha"></div>
 									</div>
-						
 							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary btn-lg d-none" id="Th_Show" data-toggle="modal" data-target="#modelId">
+							<button style="display:none" type="button" class="btn btn-primary btn-lg d-none" id="Th_Show" data-toggle="modal" data-target="#modelId">
 								Launch
 							</button>
 						
@@ -365,25 +372,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 							<!-- End My Code -->
 
-
-
-							
 						</div>
-						<div class="w3ls_mobiles_grid_right_grid2_right">
-							<!-- <select name="select_item" class="select_item">
-								<option selected="selected">Chọn giá tiền cần lọc</option>
-								<option>Từ 50.000 đến 200.000</option>
-								<option>Từ 200.000 đến 300.000</option>
-								<option>Từ 300.00 trở lên</option>
-							</select> -->
-							<select class="btn btn-outline-danger" onchange="Xuat_Dien_thoai_theo_Don_gia(this.value)">
-									<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
-									<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
-									<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
-									<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
-								</select>
-						</div>
-						<div class="clearfix"> </div>
 					</div>
 
 					<!-- <div class="w3ls_mobiles_grid_right_grid3">
