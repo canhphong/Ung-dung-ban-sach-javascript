@@ -107,7 +107,7 @@
 
                 </div>
                 <div class="modal-body" id="Th_Chi_tiet">
-                    
+
                 </div>
                 <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -127,7 +127,6 @@
     <script src="../Xu_ly/Xu_ly_3L.js?pet=123"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw3QZ5hhReTIJLSWz7o_582Wm3p6PV-EM&language=vi"></script>
     <script>
-
         var Du_lieu = Doc_Danh_sach_Dien_thoai();
         var Danh_sach_Dien_thoai = Du_lieu.Danh_sach_Dien_thoai
         var Cua_hang = Du_lieu.Cua_hang
@@ -137,8 +136,7 @@
         if (Danh_sach_Dien_thoai.length > 0) {
 
             Xuat_Danh_sach(Danh_sach_Dien_thoai, Th_Thong_bao)
-        }
-        else {
+        } else {
             Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
         }
 
@@ -155,12 +153,13 @@
                 The_hien.childNodes[1].onclick = () => {
                     //console.log(The_hien.childNodes[1].parentNode.getAttribute("data"))
                     var Dien_thoai_Chon = JSON.parse(The_hien.childNodes[1].parentNode.getAttribute("data"))
-                    var noi_dung_HTML = `
+                    var noi_dung_HTML =
+                        `
                         <h4 class="text-primary">${Dien_thoai_Chon.Ten}</h4>
                         <img src="http://localhost:1001/${Dien_thoai_Chon.Ma_so}.png" />
                     `
                     Th_Chi_tiet.innerHTML = noi_dung_HTML
-                     Th_Show.click()
+                    Th_Show.click()
                 }
 
 
@@ -174,7 +173,8 @@
             var Thanh_phan_con = chuoi_dieu_kien.split('-')
             if (Thanh_phan_con.length > 0) {
 
-                var Danh_sach_Dien_thoai_theo_Gia = Danh_sach_Dien_thoai.filter(x => x.Don_gia_Ban >= Thanh_phan_con[0] && x.Don_gia_Ban <= Thanh_phan_con[1])
+                var Danh_sach_Dien_thoai_theo_Gia = Danh_sach_Dien_thoai.filter(x => x.Don_gia_Ban >= Thanh_phan_con[0] &&
+                    x.Don_gia_Ban <= Thanh_phan_con[1])
                 Xuat_Danh_sach(Danh_sach_Dien_thoai_theo_Gia, Th_Thong_bao)
             }
         }
@@ -186,6 +186,7 @@
             Danh_sach_Dien_thoai.sort((a, b) => a.Ten.localeCompare(b.Ten))
             Xuat_Danh_sach(Danh_sach_Dien_thoai, Th_Thong_bao)
         }
+
         function Sap_Giam() {
             // Danh_sach_Dien_thoai.sort((a,b)=>{
             //     //return b.Don_gia_Ban-a.Don_gia_Ban 
@@ -199,11 +200,13 @@
             Xuat_Danh_sach(Danh_sach_Dien_thoai, Th_Thong_bao)
         }
         Th_Android.onclick = () => {
-            var Danh_sach_Dien_thoai_theo_Nhom = Danh_sach_Dien_thoai.filter(x => x.Nhom_Dien_thoai.Ma_so == "ANDROID")
+            var Danh_sach_Dien_thoai_theo_Nhom = Danh_sach_Dien_thoai.filter(x => x.Nhom_Dien_thoai.Ma_so ==
+                "ANDROID")
             Xuat_Danh_sach(Danh_sach_Dien_thoai_theo_Nhom, Th_Thong_bao)
         }
         Th_Iphone.onclick = () => {
-            var Danh_sach_Dien_thoai_theo_Nhom = Danh_sach_Dien_thoai.filter(x => x.Nhom_Dien_thoai.Ma_so == "IPHONE")
+            var Danh_sach_Dien_thoai_theo_Nhom = Danh_sach_Dien_thoai.filter(x => x.Nhom_Dien_thoai.Ma_so ==
+                "IPHONE")
             Xuat_Danh_sach(Danh_sach_Dien_thoai_theo_Nhom, Th_Thong_bao)
         }
         Th_Tim.onclick = () => {
@@ -212,6 +215,7 @@
             Xuat_Danh_sach(Danh_sach_Dien_thoai_tim, Th_Thong_bao)
             Th_Gia_tri_Tim.value = ""
         }
+
         function KeyCode(event) {
             if (event.keyCode == 13) {
                 var gtTim = event.target.value
@@ -219,32 +223,33 @@
                 Xuat_Danh_sach(Danh_sach_Dien_thoai_tim, Th_Thong_bao)
             }
         }
-        Th_Tai_tap_tin.onclick=()=>{
-            var tap_tin="Don_Du_tuyen.pdf"
-            var ten_moi="Don_Du_tuyen_2018"
-            Tai_tap_tin(tap_tin,ten_moi)
+        Th_Tai_tap_tin.onclick = () => {
+            var tap_tin = "Don_Du_tuyen.pdf"
+            var ten_moi = "Don_Du_tuyen_2018"
+            Tai_tap_tin(tap_tin, ten_moi)
         }
-        Th_Nop_don.onclick=()=>{
+        Th_Nop_don.onclick = () => {
             Tao_the_hien_Upload(Th_Chi_tiet)
-            modelId.setAttribute("data-keyboard",false)
-            modelId.setAttribute("data-backdrop","static")
-            modelTitleId.innerHTML="Nộp Đơn Dự Tuyển"
+            modelId.setAttribute("data-keyboard", false)
+            modelId.setAttribute("data-backdrop", "static")
+            modelTitleId.innerHTML = "Nộp Đơn Dự Tuyển"
             Th_Show.click()
         }
-        
+
 
         Th_Dia_diem.onclick = () => {
-            
-            
-            modelId.childNodes[1].setAttribute("style","max-width:50rem")
-            
-            Th_Chi_tiet.style.height="30rem"
+
+
+            modelId.childNodes[1].setAttribute("style", "max-width:50rem")
+
+            Th_Chi_tiet.style.height = "30rem"
 
             Hien_thi_vi_tri_Cong_ty(Cua_hang)
             Th_Show.click()
         }
+
         function Khoi_tao_Ban_do() {
-            
+
             var latlng = new google.maps.LatLng(10.823099, 106.629664); // Vĩ độ, Kinh độ Tp Hồ Chí Minh
             var myOptions = {
                 zoom: 16,
@@ -257,7 +262,7 @@
 
         function Hien_thi_vi_tri_Cong_ty(Cua_hang) {
 
-            modelTitleId.innerHTML=`${Cua_hang.Ten} - ${Cua_hang.Dien_thoai} `
+            modelTitleId.innerHTML = `${Cua_hang.Ten} - ${Cua_hang.Dien_thoai} `
             geocoder.geocode({
                 'address': Cua_hang.Dia_chi
             }, function (results, status) {
@@ -266,14 +271,16 @@
                     var marker = new google.maps.Marker({
                         map: map,
                         position: results[0].geometry.location,
-                        title: `${Cua_hang.Ten} - ${Cua_hang.Dien_thoai} ` 
+                        title: `${Cua_hang.Ten} - ${Cua_hang.Dien_thoai} `
                     });
 
                     if (results[0].formatted_address) {
                         region = results[0].formatted_address + '<br />';
                     }
                     var infowindow = new google.maps.InfoWindow({
-                        content: '<div style =width:500px; height:400px;><h5>' + Cua_hang.Ten + '</h5><br/>Địa chỉ:' + region + '<br/>LatLng:' + results[0].geometry.location + '</div>'
+                        content: '<div style =width:500px; height:400px;><h5>' + Cua_hang.Ten +
+                            '</h5><br/>Địa chỉ:' + region + '<br/>LatLng:' + results[0].geometry.location +
+                            '</div>'
                     });
                     infowindow.open(map, marker);
                     google.maps.event.addListener(marker, 'click', function () {
@@ -286,8 +293,6 @@
             });
             Khoi_tao_Ban_do()
         }
-
-
     </script>
 </body>
 

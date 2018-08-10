@@ -87,14 +87,35 @@ function Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(Dien_thoai))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem">
-  <img class="card-img-top" src="http://localhost:1001/${Dien_thoai.Ma_so}.png" alt="">
-  <div class="card-body">
-      <h5 class="card-title text-primary">${Dien_thoai.Ten}</h5>
-      <p class="card-text text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)} đ</p>
-      Loại nhóm: ${Dien_thoai.Nhom_Sach.Ten}
-  </div>
-</div><buttom class="btn btn-sm btn-danger">Xem chi tiết</buttom>`
+    var Chuoi_HTML = `
+    <div class="w3ls_mobiles_grid_right_grid3">
+    <div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_mobiles">
+        <div class="agile_ecommerce_tab_left mobiles_grid">
+            <div class="hs-wrapper hs-wrapper2">
+                <img src="http://localhost:1001/${Dien_thoai.Ma_so}.png" alt="">
+                <div class="w3_hs_bottom w3_hs_bottom_sub1">
+                    <ul>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#myModal9">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h5>
+                <a href="single.html">Smart Phone</a>
+            </h5>
+            <div class="simpleCart_shelfItem">
+                <h5 class="text-primary">${Dien_thoai.Ten}</h5>
+                <p class="text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)} đ</p>
+                Loại nhóm: ${Dien_thoai.Nhom_Sach.Ten}
+                <buttom class="w3ls-cart">Xem chi tiết</buttom>
+            </div>
+        </div>
+    </div>
+</div>
+    `
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }

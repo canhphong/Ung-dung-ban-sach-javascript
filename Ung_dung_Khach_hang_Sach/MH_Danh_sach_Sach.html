@@ -35,11 +35,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- js -->
 	<script src="js/jquery.min.js"></script>
 	<!-- //js -->
-	<!-- web fonts -->
-	<link href='//fonts.googleapis.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
-	    rel='stylesheet' type='text/css'>
-	<!-- //web fonts -->
 	<!-- for bootstrap working -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 	<!-- //for bootstrap working -->
@@ -327,35 +322,71 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 						</div>
 					</div>
-
-
 				</div>
 				<div class="col-md-8 w3ls_mobiles_grid_right">
-					<div class="col-md-6 w3ls_mobiles_grid_right_left">
-
-					</div>
-					<div class="col-md-6 w3ls_mobiles_grid_right_left">
-
-					</div>
-					<div class="clearfix"> </div>
-
 					<div class="w3ls_mobiles_grid_right_grid2">
-						<div class="w3ls_mobiles_grid_right_grid2_left">
-							<h3>Kết quả tìm thấy: 0-1</h3>
-							<div id="Th_Thong_bao">Thông báo</div>
+							<div id="Th_Thong_bao"></div>
+					</div>
+						<div class="w3ls_mobiles_grid_right_grid2_left"></div>
+						
+							<!-- My Code -->
+						
+							<div class="container">
+									<div class="row">
+										<div id="Th_Cha"></div>
+									</div>
+							</div>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary btn-lg d-none" id="Th_Show" data-toggle="modal" data-target="#modelId">
+								Launch
+							</button>
+						
+							<!-- Modal -->
+							<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title text-danger" id="modelTitleId"></h4>
+											<button type="button" id="Th_Close" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+						
+										</div>
+										<div class="modal-body" id="Th_Chi_tiet">
+						
+										</div>
+										<!-- <div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											<button type="button" class="btn btn-primary">Save</button>
+										</div> -->
+									</div>
+								</div>
+							</div>
+
+							<!-- End My Code -->
+
+
+
+							
 						</div>
 						<div class="w3ls_mobiles_grid_right_grid2_right">
-							<select name="select_item" class="select_item">
+							<!-- <select name="select_item" class="select_item">
 								<option selected="selected">Chọn giá tiền cần lọc</option>
 								<option>Từ 50.000 đến 200.000</option>
 								<option>Từ 200.000 đến 300.000</option>
 								<option>Từ 300.00 trở lên</option>
-							</select>
+							</select> -->
+							<select class="btn btn-outline-danger" onchange="Xuat_Dien_thoai_theo_Don_gia(this.value)">
+									<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
+									<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
+									<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
+									<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
+								</select>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 
-						<!-- <div class="w3ls_mobiles_grid_right_grid3">
+					<!-- <div class="w3ls_mobiles_grid_right_grid3">
 						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_mobiles">
 							<div class="agile_ecommerce_tab_left mobiles_grid">
 								<div class="hs-wrapper hs-wrapper2">
@@ -391,32 +422,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="clearfix"> </div>
 					</div> -->
 
-						<!-- MY CODE -->
-						<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<!-- <h4 class="modal-title" id="modelTitleId"></h4> -->
-										<button type="button" id="Th_Close" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-
-									</div>
-									<div class="modal-body" id="Th_Chi_tiet">
-										Body
-									</div>
-									<!-- <div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Save</button>
-								</div> -->
+					<!-- MY CODE -->
+					<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<!-- <h4 class="modal-title" id="modelTitleId"></h4> -->
+									<button type="button" id="Th_Close" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
 								</div>
 							</div>
 						</div>
+					</div>
 				</div>
-				<!-- MY CODE -->
-				<div class="clearfix"> </div>
 			</div>
+			<!-- MY CODE -->
+			<div class="clearfix"> </div>
 		</div>
+	</div>
 	</div>
 	<div class="modal video-modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModal9">
 		<div class="modal-dialog" role="document">
@@ -942,8 +966,60 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</script>
 	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script src="../Xu_ly/Xu_ly_3L.js"></script>
+	<!-- <script src="js/minicart.js"></script> -->
+	<script src="Xu_ly/Xu_ly_3L.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw3QZ5hhReTIJLSWz7o_582Wm3p6PV-EM&language=vi"></script>
+	<script>
+		var Du_lieu = Doc_Danh_sach_Dien_thoai();
+        var Danh_sach_Dien_thoai = Du_lieu.Danh_sach_Dien_thoai
+        // var Cua_hang = Du_lieu.Cua_hang
+        var map
+        var geocoder = new google.maps.Geocoder();
+        // Xuat_Thong_tin_Cua_hang(Cua_hang, Th_PET)
+        if (Danh_sach_Dien_thoai.length > 0) {
+
+            Xuat_Danh_sach(Danh_sach_Dien_thoai, Th_Thong_bao)
+        } else {
+            Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
+        }
+
+        function Xuat_Danh_sach(Danh_sach_Dien_thoai, Th_thong_bao) {
+            Th_Cha.innerHTML = ""
+            Danh_sach_Dien_thoai.forEach(Dien_thoai => {
+                var The_hien = Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha)
+                The_hien.childNodes[0].onclick = () => {
+                    //The_hien.childNodes[0].classList.toggle("CHON")
+                    var Dien_thoai = The_hien.childNodes[0].parentNode.getAttribute("data")
+                    sessionStorage.setItem("giohang", Dien_thoai)
+                    window.location = "MH_Gio_hang.html"
+                }
+                The_hien.childNodes[1].onclick = () => {
+                    //console.log(The_hien.childNodes[1].parentNode.getAttribute("data"))
+                    var Dien_thoai_Chon = JSON.parse(The_hien.childNodes[1].parentNode.getAttribute("data"))
+                    var noi_dung_HTML =
+                        `
+                        <h4 class="text-primary">${Dien_thoai_Chon.Ten}</h4>
+                        <img src="http://localhost:1001/${Dien_thoai_Chon.Ma_so}.png" />
+                    `
+                    Th_Chi_tiet.innerHTML = noi_dung_HTML
+                    Th_Show.click()
+                }
+
+
+            });
+            Th_Thong_bao.innerHTML = `<h3>Kết quả tìm thấy:  (${Danh_sach_Dien_thoai.length}) </h3>`
+        }
+
+		function Xuat_Dien_thoai_theo_Don_gia(chuoi_dieu_kien) {
+            var Thanh_phan_con = chuoi_dieu_kien.split('-')
+            if (Thanh_phan_con.length > 0) {
+
+                var Danh_sach_Dien_thoai_theo_Gia = Danh_sach_Dien_thoai.filter(x => x.Don_gia_Ban >= Thanh_phan_con[0] &&
+                    x.Don_gia_Ban <= Thanh_phan_con[1])
+                Xuat_Danh_sach(Danh_sach_Dien_thoai_theo_Gia, Th_Thong_bao)
+            }
+        }
+	</script>
 </body>
 
 </html>
