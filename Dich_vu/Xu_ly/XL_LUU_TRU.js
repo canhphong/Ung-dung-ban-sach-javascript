@@ -2,6 +2,7 @@ var File = require("fs")
 var Thu_muc_Du_lieu = "Du_lieu"
 var Thu_muc_Media = "Media"
 var Thu_muc_PDF = "Tap_tin"
+<<<<<<< HEAD
 var Cong_nghe = "xml"
 
 function decodeBase64Image(dataString) {
