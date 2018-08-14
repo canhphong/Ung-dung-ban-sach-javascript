@@ -2,8 +2,8 @@ var File = require("fs")
 var Thu_muc_Du_lieu = "Du_lieu"
 var Thu_muc_Media = "Media"
 var Thu_muc_PDF = "Tap_tin"
-var Cong_nghe = "json"
-
+var Cong_nghe = "ruby"
+// var Cong_nghe = "json"
 function decodeBase64Image(dataString) {
   var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
     response = {};
