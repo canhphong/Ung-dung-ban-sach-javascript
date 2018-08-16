@@ -29,7 +29,7 @@
     </div>
     <div class="container-fluid">
         <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
-            XÓA Sách
+            XÓA THỂ LOẠI
         </div>
     </div>
     <div class="container-fluid">
@@ -49,33 +49,33 @@
     <script>
         Danh_sach_Cap_nhat = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"))
         //console.log(Danh_sach_Cap_nhat)
-        Tao_The_hien_Xoa(Th_Cha, Danh_sach_Cap_nhat)
+        Tao_The_hien_Xoa_The_loai(Th_Cha, Danh_sach_Cap_nhat)
 
-        function XL_Xoa_Sach() {
+        function XL_Xoa_The_loai() {
             var Danh_sach_Cap_nhat = document.querySelectorAll(".CAP_NHAP")
 
             var Danh_sach = []
-            Danh_sach_Cap_nhat.forEach(Dien_thoai => {
+            Danh_sach_Cap_nhat.forEach(The_loai => {
 
-                var Ma_so = Dien_thoai.getAttribute("Ma_so")
-                var Dien_thoai_Xoa = {
+                var Ma_so = The_loai.getAttribute("Ma_so")
+                var The_loai_Xoa = {
                     "Ma_so": Ma_so,
                 }
-                Danh_sach.push(Dien_thoai_Xoa)
+                Danh_sach.push(The_loai_Xoa)
             })
 
             //console.log(Danh_sach)
             // Ghi Sửa  Điện thoai
-            var Kq = Ghi_Xoa_Sach(Danh_sach)
+            var Kq = Ghi_Xoa_The_loai(Danh_sach)
             return Kq
             
         }
 
         Th_Dong_y.onclick = () => {
-            var Kq = XL_Xoa_Sach()
+            var Kq = XL_Xoa_The_loai()
             //console.log(Kq)
             if (Kq == "OK") {
-                Th_Thong_bao.innerHTML = "Xóa thành công Sách";
+                Th_Thong_bao.innerHTML = "Xóa thành công Thể loại";
                 sessionStorage.removeItem("Danh_sach_Chon")
 
             }
@@ -84,7 +84,7 @@
 
         Th_Bo_qua.onclick = () => {
             sessionStorage.removeItem("Danh_sach_Chon")
-            window.location = "MH_Danh_sach_Sach.html"
+            window.location = "MH_Danh_sach_The_loai.html"
         }
 
     </script>

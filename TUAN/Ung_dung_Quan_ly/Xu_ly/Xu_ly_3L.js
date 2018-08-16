@@ -567,6 +567,35 @@ function Tao_The_hien_Xoa_Nha_phat_hanh(Th_Cha, Danh_sach_Cap_nhat) {
     Th_Cha.innerHTML = noi_dung_HTML
 }
 
+function Tao_The_hien_Xoa_The_loai(Th_Cha, Danh_sach_Cap_nhat) {
+    var noi_dung_HTML = `
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Cap_nhat.forEach(The_loai => {
+        noi_dung_HTML += `
+        <tr Ma_so="${The_loai.Ma_so}" class="CAP_NHAP">
+            <td scope="row">${The_loai.Ma_so}</td>
+            <td>${The_loai.Ten_the_loai}</td>
+            <td>${The_loai.Mo_ta_the_loai}</td>
+        </tr>
+        `
+
+    })
+
+    noi_dung_HTML += `
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML = noi_dung_HTML
+}
+
 function Tao_The_hien_Cap_nhat(Th_Cha, Danh_sach_Cap_nhat) {
     var noi_dung_HTML = `
     <table class="table">
