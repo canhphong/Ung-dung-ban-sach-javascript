@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Cửa hàng Điện thoại</title>
+    <title>Cửa hàng Sách</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,13 +36,13 @@
         <div class="float-right">
             <div class="row">
                 <div class="btn">
-                    <input placeholder="Nhập Tên Điện thoại ...Enter" type="text" class="btn btn-outline-danger" style="width:20rem" onkeyup="Tim_Ten_Sach(event)"
+                    <input placeholder="Nhập Tên Sách ...Enter" type="text" class="btn btn-outline-danger" style="width:20rem" onkeyup="Tim_Ten_Sach(event)"
                         id="Th_Gia_tri_Tim">
                     <!-- <i class="fa fa-search mr-3" id="Th_Tim"></i> -->
                 </div>
                 <div class="btn">
                     <select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
-                        <option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
+                        <option value="0-50000000">Lọc Sách theo Đơn giá Bán</option>
                         <option value="0-1000000">Đơn giá Bán dưới 1 triệu </option>
                         <option value="1000000-3000000">Đơn giá Bán lớn 1 triệu và nhỏ 3 triệu </option>
                         <option value="3000000-50000000">Đơn giá Bán lớn 3 triệu </option>
@@ -107,7 +107,7 @@
                 }
 
             });
-            Th_Thong_bao.innerHTML = `<h3>Danh sách Điện thoại (${Danh_sach_Sach.length}) </h3>`
+            Th_Thong_bao.innerHTML = `<h3>Danh sách Sách (${Danh_sach_Sach.length}) </h3>`
         }
 
 
