@@ -416,6 +416,32 @@ function Tao_The_hien_Them_The_loai(Th_Cha) {
     `
     Th_Cha.innerHTML = Chuoi_HTML
 }
+
+function Tao_The_hien_Them_Tac_gia(Th_Cha) {
+    var Chuoi_HTML = `
+        <div class="form m-3 p-3">
+        <div class="form-group" style="display:none">
+            <select id="Th_Nhom_Tac_gia" onchange="Lay_Ma_so_cuoi_Tac_gia()">
+                <option value="Tac_gia">Tác giả</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Th_Ma_so">Mã số Tác giả</label>
+            <input type="text" class="form-control" id="Th_Ma_so" readonly>
+        </div>
+        <div class="form-group">
+            <label for="Th_Ten_the_loai">Tên Tác giả</label>
+            <input type="text" class="form-control" id="Th_Tac_gia" placeholder="Nhập tên Tác giả">
+        </div>
+        <div class="form-group">
+            <label for="Th_Mo_ta_the_loai">Mô tả Tác giả</label>
+            <input type="text" class="form-control" id="Th_Mo_ta_Tac_gia" placeholder="Nhập mô tả Tác giả">
+        </div>
+    </div>
+    `
+    Th_Cha.innerHTML = Chuoi_HTML
+}
+
 // function Tao_The_hien_Phuc_hoi(Th_Cha,Danh_sach_Phuc_hoi){
 //     var noi_dung_HTML=`
 //     <table class="table">
@@ -667,7 +693,6 @@ function Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha) {
     return the_hien
 }
 
-// Tạo thể hiện thể loại ở trsng chủ
 function Tao_The_hien_The_loai(The_loai, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(The_loai))
@@ -675,6 +700,19 @@ function Tao_The_hien_The_loai(The_loai, Th_Cha) {
     var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${The_loai.Ma_so}">
   <div class="card-body">
       <h5 class="card-title text-primary">${The_loai.Ten_the_loai}</h5>
+  </div>
+</div>`
+    the_hien.innerHTML = Chuoi_HTML;
+    return the_hien
+}
+
+function Tao_The_hien_Tac_gia(Tac_gia, Th_Cha) {
+    var the_hien = document.createElement("div")
+    the_hien.setAttribute("data", JSON.stringify(Tac_gia))
+    Th_Cha.appendChild(the_hien)
+    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Tac_gia.Ma_so}">
+  <div class="card-body">
+      <h5 class="card-title text-primary">${Tac_gia.Tac_gia}</h5>
   </div>
 </div>`
     the_hien.innerHTML = Chuoi_HTML;

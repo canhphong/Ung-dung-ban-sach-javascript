@@ -9,6 +9,10 @@ Du_lieu.Danh_sach_Tac_gia = Luu_tru.Doc_Danh_sach("TAC_GIA")
 Du_lieu.Danh_sach_Nha_phat_hanh = Luu_tru.Doc_Danh_sach("NHA_PHAT_HANH")
 Du_lieu.Cua_hang = Luu_tru.Doc_Thong_tin_Cua_hang()
 Du_lieu.Nguoi_dung = Luu_tru.Doc_Thong_tin_Nguoi_dung()
+Du_lieu.Danh_sach_Xoa_Nha_phat_hanh = Luu_tru.Doc_Danh_sach_Xoa("NHA_PHAT_HANH")
+Du_lieu.Danh_sach_Xoa_Sach = Luu_tru.Doc_Danh_sach_Xoa("SACH")
+Du_lieu.Danh_sach_Xoa_The_loai = Luu_tru.Doc_Danh_sach_Xoa("THE_LOAI")
+Du_lieu.Danh_sach_Xoa_Tac_gia = Luu_tru.Doc_Danh_sach_Xoa("TAC_GIA")
 //Du_lieu.Danh_sach_Thanh_ly = Luu_tru.Doc_Danh_sach_Thanh_ly("DIEN_THOAI")
 var Dich_vu = http.createServer(
     (Yeu_cau, Dap_ung) => {
@@ -31,10 +35,28 @@ var Dich_vu = http.createServer(
                     delete Sach.Don_gia_Nhap
                 })
                 Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
-            // } else if (Ma_so_Xu_ly == "Doc_Danh_sach_Thanh_ly_Dien_thoai") {
-            //     var Doi_tuong_Kq = {}
-            //     Doi_tuong_Kq.Danh_sach_Thanh_ly = Du_lieu.Danh_sach_Thanh_ly
-            //     Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
+                // } else if (Ma_so_Xu_ly == "Doc_Danh_sach_Thanh_ly_Dien_thoai") {
+                //     var Doi_tuong_Kq = {}
+                //     Doi_tuong_Kq.Danh_sach_Thanh_ly = Du_lieu.Danh_sach_Thanh_ly
+                //     Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
+
+            } else if (Ma_so_Xu_ly == "Doc_Danh_sach_Xoa_Nha_phat_hanh") {
+                var Doi_tuong_Kq = {}
+                Doi_tuong_Kq.Danh_sach_Xoa_Nha_phat_hanh = Du_lieu.Danh_sach_Xoa_Nha_phat_hanh
+                Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
+            } else if (Ma_so_Xu_ly == "Doc_Danh_sach_Xoa_The_loai") {
+                var Doi_tuong_Kq = {}
+                Doi_tuong_Kq.Danh_sach_Xoa_The_loai = Du_lieu.Danh_sach_Xoa_The_loai
+                Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
+            } else if (Ma_so_Xu_ly == "Doc_Danh_sach_Xoa_Tac_gia") {
+                var Doi_tuong_Kq = {}
+                Doi_tuong_Kq.Danh_sach_Xoa_Tac_gia = Du_lieu.Danh_sach_Xoa_Tac_gia
+                Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
+            } else if (Ma_so_Xu_ly == "Doc_Danh_sach_Xoa_Sach") {
+                var Doi_tuong_Kq = {}
+                Doi_tuong_Kq.Danh_sach_Xoa_Sach = Du_lieu.Danh_sach_Xoa_Sach
+                Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
+
             } else if (Ma_so_Xu_ly == "Dang_nhap") {
                 var Doi_tuong_Kq = {}
                 var Thong_tin = JSON.parse(Chuoi_Nhan)
@@ -222,6 +244,7 @@ var Dich_vu = http.createServer(
                     Kq = Luu_tru.Xoa_Doi_tuong("Sach", Sach)
                     if (Kq == "") {
                         Du_lieu.Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Ma_so != Sach_Xoa.Ma_so)
+                        Du_lieu.Danh_sach_Xoa_Sach.push(Sach)
                         Chuoi_Kq = "OK"
                     } else {
                         Chuoi_Kq = "Error"
@@ -236,6 +259,7 @@ var Dich_vu = http.createServer(
                     Kq = Luu_tru.Xoa_Doi_tuong("The_loai", The_loai)
                     if (Kq == "") {
                         Du_lieu.Danh_sach_The_loai = Du_lieu.Danh_sach_The_loai.filter(x => x.Ma_so != The_loai_Xoa.Ma_so)
+                        Du_lieu.Danh_sach_Xoa_The_loai.push(The_loai)
                         Chuoi_Kq = "OK"
                     } else {
                         Chuoi_Kq = "Error"
@@ -250,6 +274,7 @@ var Dich_vu = http.createServer(
                     Kq = Luu_tru.Xoa_Doi_tuong("Tac_gia", Tac_gia)
                     if (Kq == "") {
                         Du_lieu.Danh_sach_Tac_gia = Du_lieu.Danh_sach_Tac_gia.filter(x => x.Ma_so != Tac_gia_Xoa.Ma_so)
+                        Du_lieu.Danh_sach_Xoa_Tac_gia.push(Tac_gia)
                         Chuoi_Kq = "OK"
                     } else {
                         Chuoi_Kq = "Error"
@@ -263,7 +288,8 @@ var Dich_vu = http.createServer(
                     var Nha_phat_hanh = Du_lieu.Danh_sach_Nha_phat_hanh.find(x => x.Ma_so == Nha_phat_hanh_Xoa.Ma_so)
                     Kq = Luu_tru.Xoa_Doi_tuong("Nha_phat_hanh", Nha_phat_hanh)
                     if (Kq == "") {
-                        Du_lieu.Nha_phat_hanh = Du_lieu.Danh_sach_Nha_phat_hanh.filter(x => x.Ma_so != Nha_phat_hanh_Xoa.Ma_so)
+                        Du_lieu.Danh_sach_Nha_phat_hanh = Du_lieu.Danh_sach_Nha_phat_hanh.filter(x => x.Ma_so != Nha_phat_hanh_Xoa.Ma_so)
+                        Du_lieu.Danh_sach_Xoa_Nha_phat_hanh.push(Nha_phat_hanh)
                         Chuoi_Kq = "OK"
                     } else {
                         Chuoi_Kq = "Error"
@@ -290,11 +316,11 @@ var Dich_vu = http.createServer(
                 var Kq = ""
                 var Danh_sach_Phuc_hoi = JSON.parse(Chuoi_Nhan)
                 Danh_sach_Phuc_hoi.forEach(Sach_Phuc_Hoi => {
-                    var Sach = Du_lieu.Danh_sach_Xoa.find(x => x.Ma_so == Sach_Phuc_Hoi.Ma_so)
+                    var Sach = Du_lieu.Danh_sach_Xoa_sach.find(x => x.Ma_so == Sach_Phuc_Hoi.Ma_so)
                     Kq = Luu_tru.Phuc_hoi_Doi_tuong_da_Xoa("Sach", Sach)
                     if (Kq == "") {
                         Du_lieu.Danh_sach_Sach.push(Sach)
-                        Du_lieu.Danh_sach_Xoa = Du_lieu.Danh_sach_Xoa.filter(x => x.Ma_so != Sach_Phuc_Hoi.Ma_so)
+                        Du_lieu.Danh_sach_Xoa_sach = Du_lieu.Danh_sach_Xoa_sach.filter(x => x.Ma_so != Sach_Phuc_Hoi.Ma_so)
                         Chuoi_Kq = "OK"
                     } else {
                         Chuoi_Kq = "Error"
@@ -306,11 +332,11 @@ var Dich_vu = http.createServer(
                 var Kq = ""
                 var Danh_sach_Phuc_hoi = JSON.parse(Chuoi_Nhan)
                 Danh_sach_Phuc_hoi.forEach(The_loai_Phuc_Hoi => {
-                    var The_loai = Du_lieu.Danh_sach_Xoa.find(x => x.Ma_so == The_loai_Phuc_Hoi.Ma_so)
+                    var The_loai = Du_lieu.Danh_sach_Xoa_The_loai.find(x => x.Ma_so == The_loai_Phuc_Hoi.Ma_so)
                     Kq = Luu_tru.Phuc_hoi_Doi_tuong_da_Xoa("The_loai", The_loai)
                     if (Kq == "") {
                         Du_lieu.Danh_sach_The_loai.push(The_loai)
-                        Du_lieu.Danh_sach_Xoa = Du_lieu.Danh_sach_Xoa.filter(x => x.Ma_so != The_loai_Phuc_Hoi.Ma_so)
+                        Du_lieu.Danh_sach_Xoa = Du_lieu.Danh_sach_Xoa_The_loai.filter(x => x.Ma_so != The_loai_Phuc_Hoi.Ma_so)
                         Chuoi_Kq = "OK"
                     } else {
                         Chuoi_Kq = "Error"
@@ -322,11 +348,11 @@ var Dich_vu = http.createServer(
                 var Kq = ""
                 var Danh_sach_Phuc_hoi = JSON.parse(Chuoi_Nhan)
                 Danh_sach_Phuc_hoi.forEach(Tac_gia_Phuc_Hoi => {
-                    var Tac_gia = Du_lieu.Danh_sach_Xoa.find(x => x.Ma_so == Tac_gia_Phuc_Hoi.Ma_so)
+                    var Tac_gia = Du_lieu.Danh_sach_Xoa_Tac_gia.find(x => x.Ma_so == Tac_gia_Phuc_Hoi.Ma_so)
                     Kq = Luu_tru.Phuc_hoi_Doi_tuong_da_Xoa("Tac_gia", Tac_gia)
                     if (Kq == "") {
                         Du_lieu.Danh_sach_Tac_gia.push(Tac_gia)
-                        Du_lieu.Danh_sach_Xoa = Du_lieu.Danh_sach_Xoa.filter(x => x.Ma_so != Tac_gia_Phuc_Hoi.Ma_so)
+                        Du_lieu.Danh_sach_Xoa = Du_lieu.Danh_sach_Xoa_Tac_gia.filter(x => x.Ma_so != Tac_gia_Phuc_Hoi.Ma_so)
                         Chuoi_Kq = "OK"
                     } else {
                         Chuoi_Kq = "Error"
@@ -337,11 +363,11 @@ var Dich_vu = http.createServer(
                 var Kq = ""
                 var Danh_sach_Phuc_hoi = JSON.parse(Chuoi_Nhan)
                 Danh_sach_Phuc_hoi.forEach(Nha_phat_hanh_Phuc_Hoi => {
-                    var Nha_phat_hanh = Du_lieu.Danh_sach_Xoa.find(x => x.Ma_so == Nha_phat_hanh_Phuc_Hoi.Ma_so)
+                    var Nha_phat_hanh = Du_lieu.Danh_sach_Xoa_Nha_phat_hanh.find(x => x.Ma_so == Nha_phat_hanh_Phuc_Hoi.Ma_so)
                     Kq = Luu_tru.Phuc_hoi_Doi_tuong_da_Xoa("Nha_phat_hanh", Nha_phat_hanh)
                     if (Kq == "") {
                         Du_lieu.Danh_sach_Nha_phat_hanh.push(Nha_phat_hanh)
-                        Du_lieu.Danh_sach_Xoa = Du_lieu.Danh_sach_Xoa.filter(x => x.Ma_so != Nha_phat_hanh_Phuc_Hoi.Ma_so)
+                        Du_lieu.Danh_sach_Xoa_Nha_phat_hanh = Du_lieu.Danh_sach_Xoa_Nha_phat_hanh.filter(x => x.Ma_so != Nha_phat_hanh_Phuc_Hoi.Ma_so)
                         Chuoi_Kq = "OK"
                     } else {
                         Chuoi_Kq = "Error"

@@ -85,28 +85,28 @@
     <script src="../Xu_ly/Xu_ly_3L.js"></script>
     <script>
 
-        var Du_lieu = Doc_Danh_sach_The_loai();
-        var Danh_sach_The_loai = Du_lieu.Danh_sach_The_loai
+        var Du_lieu = Doc_Danh_sach_Tac_gia();
+        var Danh_sach_Tac_gia = Du_lieu.Danh_sach_Tac_gia
         
         var Cua_hang = Du_lieu.Cua_hang
 
-        if (Danh_sach_The_loai.length > 0) {
+        if (Danh_sach_Tac_gia.length > 0) {
 
-            Xuat_Danh_sach(Danh_sach_The_loai, Th_Thong_bao)
+            Xuat_Danh_sach(Danh_sach_Tac_gia, Th_Thong_bao)
         }
         else {
             Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
         }
 
-        function Xuat_Danh_sach(Danh_sach_The_loai, Th_thong_bao) {
+        function Xuat_Danh_sach(Danh_sach_Tac_gia, Th_thong_bao) {
             Th_Cha.innerHTML = ""
-            Danh_sach_The_loai.forEach(The_loai => {
-                var The_hien = Tao_The_hien_The_loai(The_loai, Th_Cha)
+            Danh_sach_Tac_gia.forEach(Tac_gia => {
+                var The_hien = Tao_The_hien_Tac_gia(Tac_gia, Th_Cha)
                 The_hien.onclick = () => {
                     The_hien.childNodes[0].classList.toggle("CHON")
                 }
             });
-            Th_Thong_bao.innerHTML = `<h3>Danh sách Thể loại (${Danh_sach_The_loai.length}) </h3>`
+            Th_Thong_bao.innerHTML = `<h3>Danh sách Tác giả (${Danh_sach_Tac_gia.length}) </h3>`
         }
 
 

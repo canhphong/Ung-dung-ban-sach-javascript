@@ -45,9 +45,9 @@
     <script src="../Xu_ly/Xu_ly_3L.js"></script>
     <script>
         var Du_lieu = Doc_Danh_sach_The_loai();
-        var Danh_sach_The_loai = Du_lieu.Danh_sach_The_loai
-        Tao_The_hien_Them_The_loai(Th_Cha)
-        Th_Nhom_The_loai.onchange()
+        var Danh_sach_The_loai = Du_lieu.Danh_sach_The_loai;
+        Tao_The_hien_Them_The_loai(Th_Cha);
+        Th_Nhom_The_loai.onchange();
 
         // function XL_Ghi_Media() {
 
@@ -124,7 +124,7 @@
         Th_Dong_y.onclick = () => {
             var Kq = XL_Ghi_Them_The_loai()
             if (Kq == "OK") {
-                Th_Thong_bao.innerHTML = "Thêm thành công Sách mới";
+                Th_Thong_bao.innerHTML = "Thêm thành công Thể loại mới";
             }
         }
 
