@@ -430,11 +430,11 @@ function Tao_The_hien_Them_Tac_gia(Th_Cha) {
             <input type="text" class="form-control" id="Th_Ma_so" readonly>
         </div>
         <div class="form-group">
-            <label for="Th_Ten_the_loai">Tên Tác giả</label>
+            <label for="Th_Tac_gia">Tên Tác giả</label>
             <input type="text" class="form-control" id="Th_Tac_gia" placeholder="Nhập tên Tác giả">
         </div>
         <div class="form-group">
-            <label for="Th_Mo_ta_the_loai">Mô tả Tác giả</label>
+            <label for="Th_Mo_ta_tac_gia">Mô tả Tác giả</label>
             <input type="text" class="form-control" id="Th_Mo_ta_Tac_gia" placeholder="Nhập mô tả Tác giả">
         </div>
     </div>
@@ -596,6 +596,36 @@ function Tao_The_hien_Xoa_The_loai(Th_Cha, Danh_sach_Cap_nhat) {
     Th_Cha.innerHTML = noi_dung_HTML
 }
 
+function Tao_The_hien_Xoa_Tac_gia(Th_Cha, Danh_sach_Cap_nhat) {
+    var noi_dung_HTML = `
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Cap_nhat.forEach(Tac_gia => {
+        noi_dung_HTML += `
+        <tr Ma_so="${Tac_gia.Ma_so}" class="CAP_NHAP">
+            <td scope="row">${Tac_gia.Ma_so}</td>
+            <td>${Tac_gia.Tac_gia}</td>
+            <td>${Tac_gia.Mo_ta_tac_gia}</td>
+        </tr>
+        `
+
+    })
+
+    noi_dung_HTML += `
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML = noi_dung_HTML
+}
+
+
 function Tao_The_hien_Cap_nhat(Th_Cha, Danh_sach_Cap_nhat) {
     var noi_dung_HTML = `
     <table class="table">
@@ -677,6 +707,33 @@ function Tao_The_hien_Cap_nhat_The_loai(Th_Cha, Danh_sach_Cap_nhat) {
             <td scope="row"><input type="text" value="${The_loai.Ma_so}" readonly/></td>
             <td><input type="text" value="${The_loai.Ten_the_loai}" class="text-right" /></td>
             <td><input type="text" value="${The_loai.Mo_ta_the_loai}" class="text-right" /></td>
+        </tr>
+        `
+    })
+    noi_dung_HTML += `
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML = noi_dung_HTML
+}
+
+function Tao_The_hien_Cap_nhat_Tac_gia(Th_Cha, Danh_sach_Cap_nhat) {
+    var noi_dung_HTML = `
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Cap_nhat.forEach(Tac_gia => {
+        noi_dung_HTML += `
+        <tr Ma_so="${Tac_gia.Ma_so}" class="CAP_NHAP">
+            <td scope="row"><input type="text" value="${Tac_gia.Ma_so}" readonly/></td>
+            <td><input type="text" value="${Tac_gia.Tac_gia}" class="text-right" /></td>
+            <td><input type="text" value="${Tac_gia.Mo_ta_tac_gia}" class="text-right" /></td>
         </tr>
         `
     })
