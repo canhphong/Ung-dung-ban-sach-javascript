@@ -1,2 +1,2 @@
-# Ung-dung-ban-sach-javascript
-Ung dung ban sach javascript
+Ứng dụng bán sách viết bằng Javascript, NodeJS, MongoDB
+
