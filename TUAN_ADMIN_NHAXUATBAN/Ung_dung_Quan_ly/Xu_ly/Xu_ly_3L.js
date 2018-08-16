@@ -1,9 +1,10 @@
+
 var Dia_chi_Dich_vu = "http://localhost:1000"
 var Dia_chi_Media = "http://localhost:1001"
 //************** Xử lý Lưu trữ ***********
 
 
-//=======================================
+//========================================
 
 function Doc_Danh_sach_Sach() {
     var Du_lieu = {}
@@ -17,7 +18,6 @@ function Doc_Danh_sach_Sach() {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
 function Doc_Danh_sach_The_loai() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -81,10 +81,8 @@ function Doc_Danh_sach_Xoa_Nha_phat_hanh() {
     return Du_lieu
 }
 
-//HÀM GHI========================================
-
 function Ghi_Media(Hinh) {
-
+    
     var Xu_ly_HTTP = new XMLHttpRequest()
     var Dia_chi_Xu_ly = `${Dia_chi_Media}`
     Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
@@ -306,21 +304,21 @@ function Dang_nhap_He_thong(Thong_tin) {
     return Du_lieu
 }
 
-//HÀM TẠO HIỂN THỊ==============================================
-function Tao_The_hien_Them_Sach(Th_Cha) {
+//==============================================
+function Tao_The_hien_Them_Dien_thoai(Th_Cha) {
     var Chuoi_HTML = `
         <div class="form m-3 p-3">
         
         <div class="form-group">
-            <label for="Th_Nhom_Sach">Nhóm Điện thoại</label>
-            <select id="Th_Nhom_Sach" onchange="Lay_Ma_so_cuoi()">
+            <label for="Th_Nhom_Dien_thoai">Nhóm Điện thoại</label>
+            <select id="Th_Nhom_Dien_thoai" onchange="Lay_Ma_so_cuoi()">
                 <option value="IPHONE">IPHONE</option>
                 <option value="ANDROID">ANDROID</option>
             </select>
         </div>
         <div class="form-group">
             <label for="Th_Ma_so">Mã số Điện thoại</label>
-            <input type="text" class="form-control" id="Th_Ma_so" readonly>
+            <input  type="text" class="form-control" id="Th_Ma_so" readonly>
         </div>
         <div class="form-group">
             <label for="Th_Ten">Tên Điện thoại</label>
@@ -343,14 +341,12 @@ function Tao_The_hien_Them_Sach(Th_Cha) {
     `
     Th_Cha.innerHTML = Chuoi_HTML
 }
-
-
 function Tao_The_hien_Them_Nha_phat_hanh(Th_Cha) {
     var Chuoi_HTML = `
         <div class="form m-3 p-3">
         
         <div class="form-group">
-            <label style="display:none" for="Th_Nhom_Nha_phat_hanh">NhÃ³m Äiá»‡n thoáº¡i</label>
+            <label style="display:none" for="Th_Nhom_Nha_phat_hanh">Nhóm Điện thoại</label>
             <select style="display:none" id="Th_Nhom_Nha_phat_hanh" onchange="Lay_Ma_so_cuoi_Nha_phat_hanh()">
                 <option value="Nha_phat_hanh">Nha_phat_hanh</option>
                 
@@ -358,44 +354,18 @@ function Tao_The_hien_Them_Nha_phat_hanh(Th_Cha) {
         </div>
         
         <div class="form-group">
-            <label for="Th_Ma_so">MÃ£ sá»‘:</label>
+            <label for="Th_Ma_so">Mã số:</label>
             <input type="text" class="form-control" id="Th_Ma_so" readonly>
         </div>
         <div class="form-group">
-            <label for="Th_Ten">TÃªn nhÃ  phÃ¡t hÃ nh</label>
-            <input type="text" class="form-control" id="Th_Ten" placeholder="Nháº­p TÃªn nhÃ  phÃ¡t hÃ nh">
+            <label for="Th_Ten">Tên nhà phát hành</label>
+            <input type="text" class="form-control" id="Th_Ten" placeholder="Nhập Tên nhà phát hành">
         </div>
         <div class="form-group">
-            <label for="Th_Mo_ta_nha_phat_hanh">MÃ´ táº£</label>
-            <textarea rows="4" class="form-control" placeholder="MÃ´ táº£ nhÃ  phÃ¡t hÃ nh" cols="50" id="Th_Mo_ta_nha_phat_hanh" form="usrform"></textarea>
+            <label for="Th_Mo_ta_nha_phat_hanh">Mô tả</label>
+            <textarea rows="4" class="form-control" placeholder="Mô tả nhà phát hành" cols="50" id="Th_Mo_ta_nha_phat_hanh" form="usrform"></textarea>
         </div>
         
-    </div>
-    `
-    Th_Cha.innerHTML = Chuoi_HTML
-}
-
-
-function Tao_The_hien_Them_The_loai(Th_Cha) {
-    var Chuoi_HTML = `
-        <div class="form m-3 p-3">
-        <div class="form-group" style="display:none">
-            <select id="Th_Nhom_The_loai" onchange="Lay_Ma_so_cuoi_The_loai()">
-                <option value="The_loai">Thể loại</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="Th_Ma_so">Mã số Thể loại</label>
-            <input type="text" class="form-control" id="Th_Ma_so" readonly>
-        </div>
-        <div class="form-group">
-            <label for="Th_Ten_the_loai">Tên thể loại</label>
-            <input type="text" class="form-control" id="Th_Ten_the_loai" placeholder="Nhập tên thể loại">
-        </div>
-        <div class="form-group">
-            <label for="Th_Mo_ta_the_loai">Mô tả thể loại</label>
-            <input type="text" class="form-control" id="Th_Mo_ta_the_loai" placeholder="Nhập mô tả thể loại">
-        </div>
     </div>
     `
     Th_Cha.innerHTML = Chuoi_HTML
@@ -454,18 +424,18 @@ function Tao_The_hien_Phuc_hoi_Nha_phat_hanh(Th_Cha,Danh_sach_Phuc_hoi){
             <td><input type="checkbox" Ma_so="${Nha_phat_hanh.Ma_so}" class="PHUC_HOI" /></td>
         </tr>
         `
-
-    })
-
-    noi_dung_HTML += `
+    
+    })            
+    
+    noi_dung_HTML+=`
                 </tbody>
             </table>
     `
-    Th_Cha.innerHTML = noi_dung_HTML
+    Th_Cha.innerHTML=noi_dung_HTML
 }
 
-function Tao_The_hien_Xoa(Th_Cha, Danh_sach_Cap_nhat) {
-    var noi_dung_HTML = `
+function Tao_The_hien_Xoa(Th_Cha,Danh_sach_Cap_nhat){
+    var noi_dung_HTML=`
     <table class="table">
                 <thead>
                     <tr>
@@ -476,9 +446,9 @@ function Tao_The_hien_Xoa(Th_Cha, Danh_sach_Cap_nhat) {
                     </tr>
                 </thead>
                 <tbody>`
-    Danh_sach_Cap_nhat.forEach(Dien_thoai => {
-        var Nhom = Dien_thoai.Nhom_Sach.Ma_so
-        noi_dung_HTML += `
+    Danh_sach_Cap_nhat.forEach(Dien_thoai=>{
+        var Nhom=Dien_thoai.Nhom_Sach.Ma_so
+        noi_dung_HTML+=`
         <tr Ma_so="${Dien_thoai.Ma_so}" class="CAP_NHAP">
             <td scope="row">${Dien_thoai.Ten}</td>
             <td>${Nhom}</td>
@@ -486,14 +456,14 @@ function Tao_The_hien_Xoa(Th_Cha, Danh_sach_Cap_nhat) {
             <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)}đ</td>
         </tr>
         `
-
-    })
-
-    noi_dung_HTML += `
+    
+    })            
+    
+    noi_dung_HTML+=`
                 </tbody>
             </table>
     `
-    Th_Cha.innerHTML = noi_dung_HTML
+    Th_Cha.innerHTML=noi_dung_HTML
 }
 
 function Tao_The_hien_Xoa_Nha_phat_hanh(Th_Cha,Danh_sach_Cap_nhat){
@@ -537,13 +507,13 @@ function Tao_The_hien_Cap_nhat(Th_Cha,Danh_sach_Cap_nhat){
                     </tr>
                 </thead>
                 <tbody>`
-    Danh_sach_Cap_nhat.forEach(Dien_thoai => {
-        var Nhom = Dien_thoai.Nhom_Sach.Ma_so
-        noi_dung_HTML += `
+    Danh_sach_Cap_nhat.forEach(Dien_thoai=>{
+        var Nhom=Dien_thoai.Nhom_Sach.Ma_so
+        noi_dung_HTML+=`
         <tr Ma_so="${Dien_thoai.Ma_so}" class="CAP_NHAP">
             <td scope="row"><input type="text" value="${Dien_thoai.Ten}"/></td>
             <td>
-            <select id="Th_Nhom_Sach">
+            <select id="Th_Nhom_Dien_thoai">
                 <option value="ANDROID" ${Nhom=='ANDROID'?'selected':''} >ANDROID</option>
                 <option value="IPHONE" ${Nhom=='IPHONE'?'selected':''}  >IPHONE</option>
             </select>
@@ -552,14 +522,14 @@ function Tao_The_hien_Cap_nhat(Th_Cha,Danh_sach_Cap_nhat){
             <td><input type="text" value="${Dien_thoai.Don_gia_Ban}" class="text-right" /></td>
         </tr>
         `
-
-    })
-
-    noi_dung_HTML += `
+    
+    })            
+    
+    noi_dung_HTML+=`
                 </tbody>
             </table>
     `
-    Th_Cha.innerHTML = noi_dung_HTML
+    Th_Cha.innerHTML=noi_dung_HTML
 }
 function Tao_The_hien_Cap_nhat_Nha_phat_hanh(Th_Cha,Danh_sach_Cap_nhat){
     var noi_dung_HTML=`
@@ -591,29 +561,9 @@ function Tao_The_hien_Cap_nhat_Nha_phat_hanh(Th_Cha,Danh_sach_Cap_nhat){
     Th_Cha.innerHTML=noi_dung_HTML
 }
 
-
-function Tao_The_hien_Nha_phat_hanh(Nha_phat_hanh, Th_Cha) {
-    var the_hien = document.createElement("div")
-    the_hien.setAttribute("data",JSON.stringify(Nha_phat_hanh))
-    Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Nha_phat_hanh.Ma_so}">
-  
-  <div class="card-body">
-      <h5 class="card-title text-primary"> TÃªn:${Nha_phat_hanh.Nha_phat_hanh}</h5>
-      <p class="card-text text-danger">MÃ´ táº£: ${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</p>
-      MÃ£ sá»‘: ${Nha_phat_hanh.Ma_so}
-  </div>
-</div>
-
-`
-    the_hien.innerHTML = Chuoi_HTML;
-    return the_hien
-}
-
-
 function Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha) {
     var the_hien = document.createElement("div")
-    the_hien.setAttribute("data", JSON.stringify(Dien_thoai))
+    the_hien.setAttribute("data",JSON.stringify(Dien_thoai))
     Th_Cha.appendChild(the_hien)
     var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Dien_thoai.Ma_so}">
   <img class="card-img-top" src="http://localhost:1001/${Dien_thoai.Ma_so}.png" alt="">
@@ -626,21 +576,23 @@ function Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha) {
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
-
-// Tạo thể hiện thể loại ở trsng chủ
-function Tao_The_hien_The_loai(The_loai, Th_Cha) {
+function Tao_The_hien_Nha_phat_hanh(Nha_phat_hanh, Th_Cha) {
     var the_hien = document.createElement("div")
-    the_hien.setAttribute("data", JSON.stringify(The_loai))
+    the_hien.setAttribute("data",JSON.stringify(Nha_phat_hanh))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${The_loai.Ma_so}">
+    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Nha_phat_hanh.Ma_so}">
+  
   <div class="card-body">
-      <h5 class="card-title text-primary">${The_loai.Ten_the_loai}</h5>
+      <h5 class="card-title text-primary"> Tên:${Nha_phat_hanh.Nha_phat_hanh}</h5>
+      <p class="card-text text-danger">Mô tả: ${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</p>
+      Mã số: ${Nha_phat_hanh.Ma_so}
   </div>
-</div>`
+</div>
+
+`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
-
 
 function Tao_The_hien_Dang_nhap(Th_Cha) {
     var noi_dung_HTML = `<div  style="width:30rem; margin:auto; padding:10px" id="Th_Khung_Dang_nhap" class="table-bordered">
@@ -656,7 +608,7 @@ function Tao_The_hien_Dang_nhap(Th_Cha) {
     <button type="button" class="btn btn-primary" id="Th_Dang_nhap">Đăng nhập</button>
   </div>`
     Th_Cha.innerHTML = noi_dung_HTML
-
+    
 }
 
 //==============================================================================
