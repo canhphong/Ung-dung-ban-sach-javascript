@@ -24,7 +24,7 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
                 <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" id="Th_Close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title text-danger" id="modelTitleId">${Sach_Chon.Ten}</h4>
                 </div>
                 <div class="modal-body">
@@ -114,8 +114,11 @@ function Tao_the_hien_Upload(Th_Cha) {
     Th_Cha.innerHTML = ""
     var The_hien = document.createElement("table");
     Th_Cha.appendChild(The_hien);
-    The_hien.className = "table table-bordered";
+    The_hien.className = "table table-bordered"; 
     var noi_dung = "";
+    noi_dung += `<tr>`
+    noi_dung += `<td><h4 class="modal-title text-danger" id="modelTitleId"></h4></td>`
+    noi_dung += `</tr>`
     noi_dung += `<tr>`
     noi_dung += `<td>Họ Tên</td><td><input type="text" id="Th_Ten" style="width:20rem" /></td>`
     noi_dung += `</tr>`
@@ -126,7 +129,7 @@ function Tao_the_hien_Upload(Th_Cha) {
     noi_dung += `<td>Tập tin (pdf)</td><td><input type="file" id="Th_file" /></td>`
     noi_dung += `</tr>`
     noi_dung += `<tr align="center">`
-    noi_dung += `<td colspan=2><button class="btn btn-danger" onclick="XL_Upload()">Đồng ý</button> </td>`
+    noi_dung += `<td colspan=2><button class="btn btn-danger" onclick="XL_Upload()" id="Th_Close">Đồng ý</button> </td>`
     noi_dung += `</tr>`
     The_hien.innerHTML = noi_dung
 }
@@ -146,7 +149,7 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
         <h5>Tác giả: ${Sach.Nhom_Sach.Tac_gia}</h5>
         <h5>Nhà phát hành: ${Sach.Nhom_Sach.Nha_phat_hanh}</h5>
         <div class="text-left"> 
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Xem chi tiết</button>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modelId">Xem chi tiết</button>
         </div>
     </div>
 </div>
