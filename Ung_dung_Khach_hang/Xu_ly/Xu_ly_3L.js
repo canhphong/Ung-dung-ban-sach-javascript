@@ -5,6 +5,55 @@ var Dia_chi_Media = "http://localhost:1001"
 var Thu_muc_PDF = "../Tap_tin_PDF"
 
 //========================================
+
+function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
+    Th_Cha.innerHTML = ""
+    Danh_sach_Sach.forEach(Sach => {
+        var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
+        The_hien.childNodes[0].onclick = () => {
+            //The_hien.childNodes[0].classList.toggle("CHON")
+            // var Sach = The_hien.childNodes[0].parentNode.getAttribute("data")
+            // sessionStorage.setItem("giohang", Sach)
+            // window.location = "MH_Gio_hang.html"
+        }
+        The_hien.childNodes[1].onclick = () => {
+            //console.log(The_hien.childNodes[1].parentNode.getAttribute("data"))
+            var Sach_Chon = JSON.parse(The_hien.childNodes[1].parentNode.getAttribute("data"))
+            var noi_dung_HTML =
+                `
+                <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-danger" id="modelTitleId">${Sach_Chon.Ten}</h4>
+                </div>
+                <div class="modal-body">
+                        <div class="row">
+                        <div class="col-md-6">
+                            <img src="http://localhost:1001/${Sach_Chon.Ma_so}.png" />
+                        </div>
+                        <div class="col-md-6">
+                            Thể loại: <h5 >${Sach_Chon.Nhom_Sach.Ten_the_loai}</h5>
+                            Nhà xuất bản: <h5 >${Sach_Chon.Nhom_Sach.Nha_phat_hanh}</h5>
+                            Tác giả: <h5 >${Sach_Chon.Nhom_Sach.Tac_gia}</h5>
+                            Giá bán: <h5 >${Sach_Chon.Don_gia_Ban}</h5>
+                            Mô tả: <h5 >${Sach_Chon.Mo_ta}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            `
+            Th_Chi_tiet.innerHTML = noi_dung_HTML
+            // Th_Show.click()
+        }
+    });
+    Th_Thong_bao.innerHTML = `<h3> Cửa hàng có tất cả ${Danh_sach_Sach.length} cuốn sách</h3>`
+}
+
+
 function Doc_Danh_sach_Sach() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -88,12 +137,14 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
     the_hien.setAttribute("data", JSON.stringify(Sach))
     Th_Cha.appendChild(the_hien)
     var Chuoi_HTML = `
-    <div class="col-md-3">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
     <img src="http://localhost:1001/${Sach.Ma_so}.png" alt="">
     <div>
         <h4 class="text-primary">${Sach.Ten}</h5>
         <p class="text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</p>
-        Loại nhóm: ${Sach.Nhom_Sach.Ten}
+        <h5>Thể loại: ${Sach.Nhom_Sach.Ten_the_loai}</h5>
+        <h5>Tác giả: ${Sach.Nhom_Sach.Tac_gia}</h5>
+        <h5>Nhà phát hành: ${Sach.Nhom_Sach.Nha_phat_hanh}</h5>
         <div class="text-left"> 
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Xem chi tiết</button>
         </div>

@@ -34,19 +34,19 @@
                         </a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="#">Thể loại 1</a>
+                                <a href="#" id="Th_Khoa_hoc">Khoa học</a>
                             </li>
                             <li>
-                                <a href="#">Thể loại 2</a>
+                                <a href="#" id="Th_The_thao">Thể thao</a>
                             </li>
                             <li>
-                                <a href="#">Thể loại 3</a>
+                                <a href="#" id="Th_Thieu_nhi">Thiếu nhi</a>
                             </li>
                             <li>
-                                <a href="#">Thể loại 4</a>
+                                <a href="#" id="Th_Tinh_cam">Tình cảm</a>
                             </li>
                             <li>
-                                <a href="#">Thể loại 5</a>
+                                <a href="#" id="Th_Van_hoc">Văn học</a>
                             </li>
                         </ul>
                     </li>
@@ -59,19 +59,19 @@
                         </a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="#">Tác giả 1</a>
+                                <a href="#" id="Th_NGOC_TRINH">Ngọc Trinh</a>
                             </li>
                             <li>
-                                <a href="#">Tác giả 2</a>
+                                <a href="#" id="Th_KIM_DUNG">Kim Dung</a>
                             </li>
                             <li>
-                                <a href="#">Tác giả 3</a>
+                                <a href="#" id="Th_NGUYEN_ANH">Nguyễn Ánh</a>
                             </li>
                             <li>
-                                <a href="#">Tác giả 4</a>
+                                <a href="#" id="Th_TO_HUU">Tố Hữu</a>
                             </li>
                             <li>
-                                <a href="#">Tác giả 5</a>
+                                <a href="#" id="Th_QUOC_TUAN">Quốc Tuấn</a>
                             </li>
                         </ul>
                     </li>
@@ -83,19 +83,19 @@
                         </a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="#">Nhà phát hành 1</a>
+                                <a href="#" id="Th_KIM_DONG">Kim Đồng</a>
                             </li>
                             <li>
-                                <a href="#">Nhà phát hành 2</a>
+                                <a href="#" id="Th_NXB_TRE">Nhà Xuất Bản Trẻ</a>
                             </li>
                             <li>
-                                <a href="#">Nhà phát hành 3</a>
+                                <a href="#" id="Th_FAHASHA">FAHASHA</a>
                             </li>
                             <li>
-                                <a href="#">Nhà phát hành 4</a>
+                                <a href="#" id="Th_NXB_VN">Nhà Xuất Bản Văn Nghệ</a>
                             </li>
                             <li>
-                                <a href="#">Nhà phát hành 5</a>
+                                <a href="#" id="Th_NXB_VH">Nhà Xuất Bản Văn Học</a>
                             </li>
                         </ul>
                     </li>
@@ -215,7 +215,7 @@
         <script src="js/inspinia.js"></script>
         <script src="js/plugins/pace/pace.min.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw3QZ5hhReTIJLSWz7o_582Wm3p6PV-EM&language=vi"></script>
-        <script src="../Xu_ly/Xu_ly_3L.js?pet=123"></script>
+        <script src="../Xu_ly/Xu_ly_3L.js"></script>
 
         <script>
             var Du_lieu = Doc_Danh_sach_Sach();
@@ -225,72 +225,95 @@
             var geocoder = new google.maps.Geocoder();
             //Xuat_Thong_tin_Cua_hang(Cua_hang, Th_PET)
             if (Danh_sach_Sach.length > 0) {
-                Xuat_Danh_Sach(Danh_sach_Sach, Th_Thong_bao)
+                Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
             } else {
                 Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
             }
 
-            function Xuat_Danh_Sach(Danh_sach_Sach, Th_thong_bao) {
-                Th_Cha.innerHTML = ""
-                Danh_sach_Sach.forEach(Sach => {
-                    var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
-                    The_hien.childNodes[0].onclick = () => {
-                        //The_hien.childNodes[0].classList.toggle("CHON")
-                        // var Sach = The_hien.childNodes[0].parentNode.getAttribute("data")
-                        // sessionStorage.setItem("giohang", Sach)
-                        // window.location = "MH_Gio_hang.html"
-                    }
-                    The_hien.childNodes[1].onclick = () => {
-                        //console.log(The_hien.childNodes[1].parentNode.getAttribute("data"))
-                        var Sach_Chon = JSON.parse(The_hien.childNodes[1].parentNode.getAttribute("data"))
-                        var noi_dung_HTML =
-                            `
-                            <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title text-danger" id="modelTitleId">${Sach_Chon.Ten}</h4>
-                            </div>
-                            <div class="modal-body">
-                                    <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="http://localhost:1001/${Sach_Chon.Ma_so}.png" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        Thể loại: <h5 >${Sach_Chon.Nhom_Sach.Ten_the_loai}</h5>
-                                        Nhà xuất bản: <h5 >${Sach_Chon.Nhom_Sach.Nha_phat_hanh}</h5>
-                                        Tác giả: <h5 >${Sach_Chon.Nhom_Sach.Tac_gia}</h5>
-                                        Giá bán: <h5 >${Sach_Chon.Don_gia_Ban}</h5>
-                                        Mô tả: <h5 >${Sach_Chon.Mo_ta}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                            
-                        `
-                        Th_Chi_tiet.innerHTML = noi_dung_HTML
-                        // Th_Show.click()
-                    }
-                });
-                Th_Thong_bao.innerHTML = `<h3> Cửa hàng có tất cả ${Danh_sach_Sach.length} cuốn sách</h3>`
-            }
-
-
             Th_Trang_chu.onclick = () => {
-                Xuat_Danh_sach(Danh_sach_Sach, Th_Thong_bao)
+                Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
             }
-            Th_Android.onclick = () => {
+
+            // Thể loại
+
+            Th_Khoa_hoc.onclick = () => {
                 var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
                     "Khoa học")
-                Xuat_Danh_sach(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
             }
-            Th_Iphone.onclick = () => {
-                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ma_so ==
-                    "IPHONE")
-                Xuat_Danh_sach(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            Th_The_thao.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
+                    "Thể thao")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_Thieu_nhi.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
+                    "Thiếu nhi")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_Tinh_cam.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
+                    "Tình cảm")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_Van_hoc.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
+                    "Văn học")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+
+            // Tác giả
+            Th_NGOC_TRINH.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+                    "Ngọc Trinh")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_KIM_DUNG.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+                    "Kim Dung")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_NGUYEN_ANH.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+                    "Nguyễn Ánh")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_TO_HUU.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+                    "Tố Hữu")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_QUOC_TUAN.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+                    "Quốc Tuấn")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+
+            // Nhà phát hành
+            Th_KIM_DONG.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+                    "Kim Đồng")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_NXB_TRE.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+                    "NXB Trẻ")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_FAHASHA.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+                    "Fahasha")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_NXB_VN.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+                    "NXB Văn Nghệ")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+            }
+            Th_NXB_VH.onclick = () => {
+                var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+                    "NXB Văn Học")
+                    Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
             }
 
 
@@ -322,7 +345,7 @@
             }
 
 
-            
+
             Th_Tim.onclick = () => {
                 var gtTim = Th_Gia_tri_Tim.value
                 var Danh_sach_Sach_tim = Danh_sach_Sach.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()))
