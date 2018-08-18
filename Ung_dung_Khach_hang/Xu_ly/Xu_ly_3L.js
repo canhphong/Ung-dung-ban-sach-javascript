@@ -25,19 +25,19 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" id="Th_Close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-danger" id="modelTitleId">${Sach_Chon.Ten}</h4>
+                    <h1 class="modal-title text-success text-center info-book" id="modelTitleId">${Sach_Chon.Ten}</h1>
                 </div>
                 <div class="modal-body">
                         <div class="row">
                         <div class="col-md-6">
-                            <img src="http://localhost:1001/${Sach_Chon.Ma_so}.png" />
+                            <img class="img-full" src="http://localhost:1001/${Sach_Chon.Ma_so}.png" />
                         </div>
                         <div class="col-md-6">
-                            Thể loại: <h5 >${Sach_Chon.Nhom_Sach.Ten_the_loai}</h5>
-                            Nhà xuất bản: <h5 >${Sach_Chon.Nhom_Sach.Nha_phat_hanh}</h5>
-                            Tác giả: <h5 >${Sach_Chon.Nhom_Sach.Tac_gia}</h5>
-                            Giá bán: <h5 >${Sach_Chon.Don_gia_Ban}</h5>
-                            Mô tả: <h5 >${Sach_Chon.Mo_ta}</h5>
+                        <h2 class="text-success">Thể loại: ${Sach_Chon.Nhom_Sach.Ten_the_loai}</h2>
+                        <h2 class="text-warning">Nhà xuất bản: ${Sach_Chon.Nhom_Sach.Nha_phat_hanh}</h2>
+                        <h2 class="text-danger">Tác giả: ${Sach_Chon.Nhom_Sach.Tac_gia} </h2>
+                        <h2 class="text-success">Giá bán: <span class="bg-success">${Sach_Chon.Don_gia_Ban}</span> đồng</h2>
+                        <h2 class="text-muted">Mô tả:</h2> <p>${Sach_Chon.Mo_ta}</p>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
             // Th_Show.click()
         }
     });
-    Th_Thong_bao.innerHTML = `<h3> Cửa hàng có tất cả ${Danh_sach_Sach.length} cuốn sách</h3>`
+    Th_Thong_bao.innerHTML = `<h3> Cửa hàng có tất cả <span class="text-danger">${Danh_sach_Sach.length}</span> cuốn sách</h3>`
 }
 
 
@@ -141,16 +141,15 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
     Th_Cha.appendChild(the_hien)
     var Chuoi_HTML = `
     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-    <img src="http://localhost:1001/${Sach.Ma_so}.png" alt="">
-    <div>
-        <h4 class="text-primary">${Sach.Ten}</h5>
-        <p class="text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</p>
-        <h5>Thể loại: ${Sach.Nhom_Sach.Ten_the_loai}</h5>
-        <h5>Tác giả: ${Sach.Nhom_Sach.Tac_gia}</h5>
-        <h5>Nhà phát hành: ${Sach.Nhom_Sach.Nha_phat_hanh}</h5>
-        <div class="text-left"> 
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modelId">Xem chi tiết</button>
-        </div>
+    <div class="info-book">
+    <img class="img-full" src="http://localhost:1001/${Sach.Ma_so}.png" alt="">
+    <h2 class="text-success">${Sach.Ten}</h2>
+    <h3 class="text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</h3>
+    <h3 class="text-muted">Thể loại: ${Sach.Nhom_Sach.Ten_the_loai}</h3>
+    <h3 class="text-muted">Tác giả: ${Sach.Nhom_Sach.Tac_gia}</h3>
+    <h3 class="text-muted">Nhà phát hành: ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
+    <div class="text-center">
+        <button type="button" class="btn btn-info btn-rounded dim" data-toggle="modal" data-target="#modelId">Xem chi tiết</button>
     </div>
 </div>
     `

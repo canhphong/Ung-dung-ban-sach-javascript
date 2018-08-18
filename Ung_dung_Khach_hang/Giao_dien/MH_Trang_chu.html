@@ -9,20 +9,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Empty Page</title>
+    <title>WEB BÁN SÁCH PHONG TUẤN VIẾT BẰNG JAVASCRIPT</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/my_custom.css" rel="stylesheet">
 
 </head>
 
-<body class="">
-
+<body id="page-top">
     <div id="wrapper">
-
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
@@ -111,19 +110,16 @@
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
                             <i class="fa fa-bars"></i>
                         </a>
-                        <!-- <form role="search" class="navbar-form-custom"> -->
+                       
+                        <form role="search" class="navbar-form-custom">
                             <div class="form-group navbar-form-custom">
                                 <input type="text" placeholder="Bạn muốn tìm sách gì ?" class="form-control" name="top-search" id="Th_Gia_tri_Tim" onkeyup="KeyCode(event)">
-                                <!-- <i class="fa fa-search mr-3" id="Th_Tim"></i> -->
                             </div>
-                            
-                        <!-- </form> -->
-                       
-
-                     
-
+                        </form>
+                        <a class="minimalize-styl-2 btn btn-primary " href="#">
+                                <i class="fa fa-search" id="Th_Tim"></i>
+                            </a>
                     </div>
-
                 </nav>
             </div>
             <!-- <div class="row wrapper border-bottom white-bg page-heading">
@@ -151,14 +147,6 @@
                     <button type="button" class="btn btn-lg btn-outline-danger" id="Th_Trang_chu">
                         <i class="fa fa-home"></i>
                     </button>
-                    <button type="button" class="btn btn-lg btn-outline-danger" id="Th_Android">
-                        <i class="fa fa-android"></i>
-                    </button>
-                    <button type="button" class="btn btn-lg btn-outline-danger" id="Th_Iphone">
-
-                        <i class="fa fa-apple"></i>
-
-                    </button>
                     <button type="button" class="btn btn-lg btn-success" id="Th_Dia_diem">
                         <i class="fa fa-map"></i>
                         Xem Địa điểm Sách
@@ -172,9 +160,9 @@
                         Nộp Đơn Tuyển dụng
                     </button>
                 </div>
-                <div class="float-right">
-                    <div class="row">
-                       
+
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="btn">
                             <select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
                                 <option value="0-400000">Lọc Sách theo Đơn giá Bán</option>
@@ -184,7 +172,18 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-lg btn-outline-danger" id="Th_Tang" onclick="Sap_Tang()">
+                            <i class="fa fa-sort-alpha-asc"></i>
+                        </button>
+                        <button type="button" class="btn btn-lg btn-outline-danger" id="Th_Giam" onclick="Sap_Giam()">
+                            <i class="fa fa-sort-alpha-desc"></i>
+                        </button>
+                    </div>
+
                 </div>
+
+
                 <div class="container">
                     <div class="row">
                         <div id="Th_Thong_bao">
@@ -240,12 +239,12 @@
                 Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
             }
 
-            // Th_Tim.onclick = () => {
-            //     var gtTim = Th_Gia_tri_Tim.value;
-            //     var Danh_sach_Sach_tim = Danh_sach_Sach.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()));
-            //     Xuat_Danh_Sach_Tong(Danh_sach_Sach_tim, Th_Thong_bao);
-            //     Th_Gia_tri_Tim.value = "";
-            // }
+            Th_Tim.onclick = () => {
+                var gtTim = Th_Gia_tri_Tim.value;
+                var Danh_sach_Sach_tim = Danh_sach_Sach.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()));
+                Xuat_Danh_Sach_Tong(Danh_sach_Sach_tim, Th_Thong_bao);
+                Th_Gia_tri_Tim.value = "";
+            }
 
             function KeyCode(event) {
                 if (event.keyCode == 13) {
@@ -353,7 +352,7 @@
                 //     //return a.Don_gia_Ban-b.Don_gia_Ban
                 // })
                 Danh_sach_Sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
-                Xuat_Danh_sach(Danh_sach_Sach, Th_Thong_bao)
+                Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
             }
 
             function Sap_Giam() {
@@ -361,7 +360,7 @@
                 //     //return b.Don_gia_Ban-a.Don_gia_Ban 
                 // })
                 Danh_sach_Sach.sort((a, b) => b.Ten.localeCompare(a.Ten))
-                Xuat_Danh_sach(Danh_sach_Sach, Th_Thong_bao)
+                Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
             }
 
             Th_Tai_tap_tin.onclick = () => {
@@ -398,8 +397,7 @@
             }
 
             function Hien_thi_vi_tri_Cong_ty(Cua_hang) {
-
-                modelTitleId.innerHTML = `${Cua_hang.Ten} - ${Cua_hang.Sach} `
+                // modelTitleId.innerHTML = `${Cua_hang.Ten} - ${Cua_hang.Sach} `
                 geocoder.geocode({
                     'address': Cua_hang.Dia_chi
                 }, function (results, status) {
@@ -415,7 +413,7 @@
                             region = results[0].formatted_address + '<br />';
                         }
                         var infowindow = new google.maps.InfoWindow({
-                            content: '<div style =width:500px; height:400px;><h5>' + Cua_hang.Ten +
+                            content: '<div style =width:100%; height:500px;><h5>' + Cua_hang.Ten +
                                 '</h5><br/>Địa chỉ:' + region + '<br/>LatLng:' + results[0].geometry.location +
                                 '</div>'
                         });
