@@ -5,17 +5,58 @@ var Dia_chi_Media = "http://localhost:1001"
 var Thu_muc_PDF = "../Tap_tin_PDF"
 
 //========================================
+// TAB 1
+function Tao_The_hien_Sach(Sach, Th_Cha) {
+    var the_hien = document.createElement("div")
+    the_hien.setAttribute("data", JSON.stringify(Sach))
+    Th_Cha.appendChild(the_hien)
+    var Chuoi_HTML = `
+<!-- giao diện hiển thị -->
+<div class="col-md-3 product-men">
+    <div class="info-book">
+	<div class="men-pro-item simpleCart_shelfItem">
+		<div class="men-thumb-item">
+			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-front img-full">
+			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-back img-full">
+			<div class="men-cart-pro">
+				<div class="inner-men-cart-pro">
+					<a href="#" class="link-product-add-cart" data-toggle="modal" data-target="#modelId">Xem nhanh</a>
+				</div>
+			</div>
+			<span class="product-new-top">New</span>
+		</div>
+		<div class="item-info-product ">
+        <h4 class="">${Sach.Ten}</h4>
+			<div class="info-product-price">
+				<span class="item_price">${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</span>
+            </div>
+            <h5 class="text-muted"><strong>Thể loại:</strong> ${Sach.Nhom_Sach.Ten_the_loai}</h5>
+            <h5 class="text-muted"><strong>Tác giả:</strong> ${Sach.Nhom_Sach.Tac_gia}</h5>
+            <h5 class="text-muted"><strong>Nhà phát hành:</strong> ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
+			
+            <button type="button" class="btn btn-info btn-rounded dim" data-toggle="modal" data-target="#modelId" id="Th_Chi_tiet">Xem chi tiết</button>
+
+		</div>
+    </div>
+    </div>
+</div>
+    `
+    the_hien.innerHTML = Chuoi_HTML;
+    return the_hien
+}
+
 
 function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
     Th_Cha.innerHTML = ""
     Danh_sach_Sach.forEach(Sach => {
         var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
         The_hien.childNodes[0].onclick = () => {
+            
             //The_hien.childNodes[0].classList.toggle("CHON")
             // var Sach = The_hien.childNodes[0].parentNode.getAttribute("data")
             // sessionStorage.setItem("giohang", Sach)
             // window.location = "MH_Gio_hang.html"
-        }
+         }
         The_hien.childNodes[1].onclick = () => {
             //console.log(The_hien.childNodes[1].parentNode.getAttribute("data"))
             var Sach_Chon = JSON.parse(The_hien.childNodes[1].parentNode.getAttribute("data"))
@@ -47,12 +88,11 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
             </div>
             `
             Th_Chi_tiet.innerHTML = noi_dung_HTML
-            // Th_Show.click()
+            Th_Show.click()
         }
     });
     Th_Thong_bao.innerHTML = `<h3> Cửa hàng có tất cả <span class="text-danger">${Danh_sach_Sach.length}</span> cuốn sách</h3>`
 }
-
 
 function Doc_Danh_sach_Sach() {
     var Du_lieu = {}
@@ -135,27 +175,7 @@ function Tao_the_hien_Upload(Th_Cha) {
 }
 
 
-function Tao_The_hien_Sach(Sach, Th_Cha) {
-    var the_hien = document.createElement("div")
-    the_hien.setAttribute("data", JSON.stringify(Sach))
-    Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `
-    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-    <div class="info-book">
-    <img class="img-full" src="http://localhost:1001/${Sach.Ma_so}.png" alt="">
-    <h2 class="text-success">${Sach.Ten}</h2>
-    <h3 class="text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</h3>
-    <h3 class="text-muted">Thể loại: ${Sach.Nhom_Sach.Ten_the_loai}</h3>
-    <h3 class="text-muted">Tác giả: ${Sach.Nhom_Sach.Tac_gia}</h3>
-    <h3 class="text-muted">Nhà phát hành: ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
-    <div class="text-center">
-        <button type="button" class="btn btn-info btn-rounded dim" data-toggle="modal" data-target="#modelId">Xem chi tiết</button>
-    </div>
-</div>
-    `
-    the_hien.innerHTML = Chuoi_HTML;
-    return the_hien
-}
+
 
 function Xuat_Thong_tin_Cua_hang(Cua_hang, Th_Cha) {
     var The_hien = document.createElement("div")
