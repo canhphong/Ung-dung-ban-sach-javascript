@@ -29,7 +29,7 @@
     </div>
     <div class="container-fluid">
         <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
-            XÓA Sách
+            XÓA Nhà phát hành
         </div>
     </div>
     <div class="container-fluid">
@@ -49,33 +49,33 @@
     <script>
         Danh_sach_Cap_nhat = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"))
         //console.log(Danh_sach_Cap_nhat)
-        Tao_The_hien_Xoa_Sach(Th_Cha, Danh_sach_Cap_nhat)
+        Tao_The_hien_Xoa_Nha_phat_hanh(Th_Cha, Danh_sach_Cap_nhat)
 
-        function XL_Xoa_Sach() {
+        function XL_Xoa_Nha_phat_hanh() {
             var Danh_sach_Cap_nhat = document.querySelectorAll(".CAP_NHAP")
 
             var Danh_sach = []
-            Danh_sach_Cap_nhat.forEach(Sach => {
+            Danh_sach_Cap_nhat.forEach(Nha_phat_hanh => {
 
-                var Ma_so = Sach.getAttribute("Ma_so")
-                var Sach_Xoa = {
+                var Ma_so = Nha_phat_hanh.getAttribute("Ma_so")
+                var Nha_phat_hanh_Xoa = {
                     "Ma_so": Ma_so,
                 }
-                Danh_sach.push(Sach_Xoa)
+                Danh_sach.push(Nha_phat_hanh_Xoa)
             })
 
             //console.log(Danh_sach)
             // Ghi Sửa  Điện thoai
-            var Kq = Ghi_Xoa_Sach(Danh_sach)
+            var Kq = Ghi_Xoa_Nha_phat_hanh(Danh_sach)
             return Kq
             
         }
 
         Th_Dong_y.onclick = () => {
-            var Kq = XL_Xoa_Sach()
+            var Kq = XL_Xoa_Nha_phat_hanh()
             //console.log(Kq)
             if (Kq == "OK") {
-                Th_Thong_bao.innerHTML = "Xóa thành công Sách";
+                Th_Thong_bao.innerHTML = "Xóa thành công Nhà phát hành";
                 sessionStorage.removeItem("Danh_sach_Chon")
 
             }
@@ -84,7 +84,7 @@
 
         Th_Bo_qua.onclick = () => {
             sessionStorage.removeItem("Danh_sach_Chon")
-            window.location = "MH_Danh_sach_Sach.html"
+            window.location = "MH_Danh_sach_Nha_phat_hanh.html"
         }
 
     </script>

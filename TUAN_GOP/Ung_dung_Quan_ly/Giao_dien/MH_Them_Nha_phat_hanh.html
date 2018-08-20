@@ -28,7 +28,7 @@
     </div>
     <div class="container-fluid">
         <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
-            THÊM Nhà Sách
+            THÊM Nhà phát hành MỚI
         </div>
     </div>
     <div class="container-fluid">
@@ -44,17 +44,10 @@
         crossorigin="anonymous"></script>
     <script src="../Xu_ly/Xu_ly_3L.js"></script>
     <script>
-        var Du_lieu = Doc_Danh_sach_Sach()
-        var Danh_sach_Sach = Du_lieu.Danh_sach_Sach
-        var Danh_sach_The_loai = Doc_Danh_sach_The_loai().Danh_sach_The_loai
-        var Danh_sach_Tac_gia = Doc_Danh_sach_Tac_gia().Danh_sach_Tac_gia
-        var Danh_sach_Nha_phat_hanh = Doc_Danh_sach_Nha_phat_hanh().Danh_sach_Nha_phat_hanh
-        Tao_The_hien_Them_Sach(Th_Cha)
-        Th_Nhom_Sach.onchange()
-        Tao_The_hien_List_The_loai(Th_Nhom_The_loai,Danh_sach_The_loai)
-        Tao_The_hien_List_Tac_gia(Th_Nhom_Tac_gia,Danh_sach_Tac_gia)
-        Tao_The_hien_List_Nha_phat_hanh(Th_Nhom_Nha_phat_hanh,Danh_sach_Nha_phat_hanh)
-
+        var Du_lieu = Doc_Danh_sach_Nha_phat_hanh();
+        var Danh_sach_Nha_phat_hanh = Du_lieu.Danh_sach_Nha_phat_hanh
+        Tao_The_hien_Them_Nha_phat_hanh(Th_Cha)
+        Th_Nhom_Nha_phat_hanh.onchange()
 
         // function XL_Ghi_Media() {
 
@@ -92,16 +85,14 @@
             Th_Ma_so.value = Nhom_Dien_thoai + "_" + Ma_so_Sau_cung.toString()
         }
 
-        function Lay_Ma_so_cuoi_Sach() {
-            Nhom_Sach = Th_Nhom_Sach.value;
+        function Lay_Ma_so_cuoi_Nha_phat_hanh() {
+            Nhom_Nha_phat_hanh = Th_Nhom_Nha_phat_hanh.value;
             var Danh_sach_Ma_so = []
             
 
-            Danh_sach_Sach.forEach(Sach => {
-                
-                var Thanh_phan_con = Sach.Ma_so.trim().split("_")
-                Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[1]))
-                
+            Danh_sach_Nha_phat_hanh.forEach(Nha_phat_hanh => {
+                var Thanh_phan_con = Nha_phat_hanh.Ma_so.trim().split("_")
+                Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[3]))
             })
 
             Danh_sach_Ma_so.sort(function (a, b) {
@@ -110,9 +101,7 @@
 
             var Ma_so_Sau_cung = Danh_sach_Ma_so[Danh_sach_Ma_so.length - 1]
             Ma_so_Sau_cung += 1
-            Th_Ma_so.value = Nhom_Sach + "_" + Ma_so_Sau_cung.toString()
-
-
+            Th_Ma_so.value = Nhom_Nha_phat_hanh + "_" + Ma_so_Sau_cung.toString()
         }
 
         // Xử lý Xem trước Media
@@ -126,40 +115,31 @@
 
         }
         function XL_Ghi_Them() {
-            var Ten = Th_Ten.value
+
             var Ma_so = Th_Ma_so.value
-            var Don_gia_Ban = Th_Don_gia_Ban.value
-            var Mo_ta = Th_Mo_ta.value
-            var The_loai = Th_Nhom_The_loai.value
-            var Tac_gia = Th_Nhom_Tac_gia.value
-            var Nha_phat_hanh = Th_Nhom_Nha_phat_hanh.value
-            var Sach = {
-                "Ten": Ten,
+            var Nha_phat_hanh = Th_Ten.value
+            var Mo_ta_nha_phat_hanh = Th_Mo_ta_nha_phat_hanh.value
+            var Nha_phat_hanh = {
                 "Ma_so": Ma_so,
-                "Don_gia_Ban": Don_gia_Ban,
-                "Mo_ta": Mo_ta,
-                "Nhom_Sach": {
-                    "Ten_the_loai": The_loai,
-                    "Tac_gia": Tac_gia,
-                    "Nha_phat_hanh": Nha_phat_hanh
-                }
+                "Nha_phat_hanh": Nha_phat_hanh,
+                "Mo_ta_nha_phat_hanh": Mo_ta_nha_phat_hanh,
             }
            
-            var Sach = Ghi_Sach_Moi(Sach)
-            if (Sach) {
-                Du_lieu.Danh_sach_Sach.push(Sach)
+            var Nha_phat_hanh = Ghi_Nha_phat_hanh_Moi(Nha_phat_hanh)
+            if (Nha_phat_hanh) {
+                Du_lieu.Danh_sach_Nha_phat_hanh.push(Nha_phat_hanh)
                 // // Cập nhật Media
-                var reader = new FileReader()
-                var Chuoi_nhi_phan = ""
-                var Ten_Hinh = `${Ma_so}.png`
-                var Kq = ""
-                reader.onload = function (e) {
-                    Chuoi_nhi_phan = e.target.result;
-                    var Doi_tuong = { "Ten": Ten_Hinh, "Chuoi_nhi_phan": Chuoi_nhi_phan }
-                    Kq = Ghi_Media(Doi_tuong)
-                }
-                reader.readAsDataURL(Th_file.files[0])
-                return Kq
+                // var reader = new FileReader()
+                // var Chuoi_nhi_phan = ""
+                // var Ten_Hinh = `${Ma_so}.png`
+                // var Kq = ""
+                // reader.onload = function (e) {
+                //     Chuoi_nhi_phan = e.target.result;
+                //     var Doi_tuong = { "Ten": Ten_Hinh, "Chuoi_nhi_phan": Chuoi_nhi_phan }
+                //     Kq = Ghi_Media(Doi_tuong)
+                // }
+                // reader.readAsDataURL(Th_file.files[0])
+                // return Kq
             }
 
         }
@@ -167,13 +147,13 @@
         Th_Dong_y.onclick = () => {
             var Kq=XL_Ghi_Them()
             if(Kq=="OK"){
-                Th_Thong_bao.innerHTML="Thêm thành công Sách mới";
+                Th_Thong_bao.innerHTML="Thêm thành công Nha phat hanh mới";
                 
             }
         }
 
         Th_Bo_qua.onclick = () => {
-            window.location = "MH_Danh_sach_Sach.html"
+            window.location = "MH_Danh_sach_Nha_phat_hanh.html"
         }
 
     </script>

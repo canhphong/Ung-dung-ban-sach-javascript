@@ -28,7 +28,7 @@
     </div>
     <div class="container-fluid">
         <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
-            THÊM Nhà Sách
+            THÊM ĐIỆN THOẠI MỚI
         </div>
     </div>
     <div class="container-fluid">
@@ -44,17 +44,10 @@
         crossorigin="anonymous"></script>
     <script src="../Xu_ly/Xu_ly_3L.js"></script>
     <script>
-        var Du_lieu = Doc_Danh_sach_Sach()
-        var Danh_sach_Sach = Du_lieu.Danh_sach_Sach
-        var Danh_sach_The_loai = Doc_Danh_sach_The_loai().Danh_sach_The_loai
-        var Danh_sach_Tac_gia = Doc_Danh_sach_Tac_gia().Danh_sach_Tac_gia
-        var Danh_sach_Nha_phat_hanh = Doc_Danh_sach_Nha_phat_hanh().Danh_sach_Nha_phat_hanh
-        Tao_The_hien_Them_Sach(Th_Cha)
-        Th_Nhom_Sach.onchange()
-        Tao_The_hien_List_The_loai(Th_Nhom_The_loai,Danh_sach_The_loai)
-        Tao_The_hien_List_Tac_gia(Th_Nhom_Tac_gia,Danh_sach_Tac_gia)
-        Tao_The_hien_List_Nha_phat_hanh(Th_Nhom_Nha_phat_hanh,Danh_sach_Nha_phat_hanh)
-
+        var Du_lieu = Doc_Danh_sach_Dien_thoai();
+        var Danh_sach_Dien_thoai = Du_lieu.Danh_sach_Dien_thoai
+        Tao_The_hien_Them_Dien_thoai(Th_Cha)
+        Th_Nhom_Dien_thoai.onchange()
 
         // function XL_Ghi_Media() {
 
@@ -92,29 +85,6 @@
             Th_Ma_so.value = Nhom_Dien_thoai + "_" + Ma_so_Sau_cung.toString()
         }
 
-        function Lay_Ma_so_cuoi_Sach() {
-            Nhom_Sach = Th_Nhom_Sach.value;
-            var Danh_sach_Ma_so = []
-            
-
-            Danh_sach_Sach.forEach(Sach => {
-                
-                var Thanh_phan_con = Sach.Ma_so.trim().split("_")
-                Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[1]))
-                
-            })
-
-            Danh_sach_Ma_so.sort(function (a, b) {
-                return a - b
-            })
-
-            var Ma_so_Sau_cung = Danh_sach_Ma_so[Danh_sach_Ma_so.length - 1]
-            Ma_so_Sau_cung += 1
-            Th_Ma_so.value = Nhom_Sach + "_" + Ma_so_Sau_cung.toString()
-
-
-        }
-
         // Xử lý Xem trước Media
         function Xem_truoc_Media() {
             var reader = new FileReader();
@@ -126,28 +96,30 @@
 
         }
         function XL_Ghi_Them() {
-            var Ten = Th_Ten.value
+
             var Ma_so = Th_Ma_so.value
+            var Ten = Th_Ten.value
+            var Don_gia_Nhap = Th_Don_gia_Nhap.value
             var Don_gia_Ban = Th_Don_gia_Ban.value
-            var Mo_ta = Th_Mo_ta.value
-            var The_loai = Th_Nhom_The_loai.value
-            var Tac_gia = Th_Nhom_Tac_gia.value
-            var Nha_phat_hanh = Th_Nhom_Nha_phat_hanh.value
-            var Sach = {
+            var Nhom_Dien_thoai_Ten = Th_Nhom_Dien_thoai.value
+            var Nhom_Dien_thoai_Ma_so = Th_Nhom_Dien_thoai.value
+            var Dien_thoai = {
                 "Ten": Ten,
                 "Ma_so": Ma_so,
                 "Don_gia_Ban": Don_gia_Ban,
-                "Mo_ta": Mo_ta,
-                "Nhom_Sach": {
-                    "Ten_the_loai": The_loai,
-                    "Tac_gia": Tac_gia,
-                    "Nha_phat_hanh": Nha_phat_hanh
-                }
+                "Don_gia_Nhap": Don_gia_Nhap,
+                "Nhom_Dien_thoai": {
+                    "Ten": Nhom_Dien_thoai_Ten,
+                    "Ma_so": Nhom_Dien_thoai_Ma_so
+                },
+                "Danh_sach_Phieu_Dat":[],
+                "Danh_sach_Phieu_Ban":[],
+                "Danh_sach_Phieu_Nhap":[]
             }
-           
-            var Sach = Ghi_Sach_Moi(Sach)
-            if (Sach) {
-                Du_lieu.Danh_sach_Sach.push(Sach)
+            // Them Dien thoai
+            var Dien_thoai = Ghi_Dien_thoai_Moi(Dien_thoai)
+            if (Dien_thoai) {
+                Du_lieu.Danh_sach_Dien_thoai.push(Dien_thoai)
                 // // Cập nhật Media
                 var reader = new FileReader()
                 var Chuoi_nhi_phan = ""
@@ -167,13 +139,13 @@
         Th_Dong_y.onclick = () => {
             var Kq=XL_Ghi_Them()
             if(Kq=="OK"){
-                Th_Thong_bao.innerHTML="Thêm thành công Sách mới";
+                Th_Thong_bao.innerHTML="Thêm thành công Điện thoại mới";
                 
             }
         }
 
         Th_Bo_qua.onclick = () => {
-            window.location = "MH_Danh_sach_Sach.html"
+            window.location = "MH_Danh_sach_Dien_thoai.html"
         }
 
     </script>

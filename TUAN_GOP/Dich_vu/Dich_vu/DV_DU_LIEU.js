@@ -23,9 +23,7 @@ var Dich_vu = http.createServer(
             .replace("/", "").replace("?", "")
         var Tham_so = Xu_ly_Tham_so.parse(Dia_chi)
         var Ma_so_Xu_ly = Tham_so.Ma_so_Xu_ly
-        Yeu_cau.on('data', (chunk) => {
-            Chuoi_Nhan += chunk
-        })
+        Yeu_cau.on('data', (chunk) => { Chuoi_Nhan += chunk })
         Yeu_cau.on('end', () => {
             if (Ma_so_Xu_ly == "Doc_Danh_sach_Sach") {
                 var Doi_tuong_Kq = {}
@@ -38,6 +36,7 @@ var Dich_vu = http.createServer(
                 //     Doi_tuong_Kq.Danh_sach_Thanh_ly = Du_lieu.Danh_sach_Thanh_ly
                 //     Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
 
+            
             } else if (Ma_so_Xu_ly == "Doc_Danh_sach_Xoa_Nha_phat_hanh") {
                 var Doi_tuong_Kq = {}
                 Doi_tuong_Kq.Danh_sach_Xoa_Nha_phat_hanh = Du_lieu.Danh_sach_Xoa_Nha_phat_hanh
@@ -54,7 +53,6 @@ var Dich_vu = http.createServer(
                 var Doi_tuong_Kq = {}
                 Doi_tuong_Kq.Danh_sach_Xoa_Sach = Du_lieu.Danh_sach_Xoa_Sach
                 Chuoi_Kq = JSON.stringify(Doi_tuong_Kq)
-
             } else if (Ma_so_Xu_ly == "Dang_nhap") {
                 var Doi_tuong_Kq = {}
                 var Thong_tin = JSON.parse(Chuoi_Nhan)
@@ -384,3 +382,4 @@ var Dich_vu = http.createServer(
 Dich_vu.listen(Port,
     console.log("Dịch vụ Dữ liệu đang thực thi ...: " + Port)
 );
+

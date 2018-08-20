@@ -85,28 +85,28 @@
     <script src="../Xu_ly/Xu_ly_3L.js"></script>
     <script>
 
-        var Du_lieu = Doc_Danh_sach_Sach();
-        var Danh_sach_Sach = Du_lieu.Danh_sach_Sach
+        var Du_lieu = Doc_Danh_sach_Dien_thoai();
+        var Danh_sach_Dien_thoai = Du_lieu.Danh_sach_Dien_thoai
         var Cua_hang = Du_lieu.Cua_hang
 
-        if (Danh_sach_Sach.length > 0) {
-            Danh_sach_Sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
-            Xuat_Danh_sach(Danh_sach_Sach, Th_Thong_bao)
+        if (Danh_sach_Dien_thoai.length > 0) {
+
+            Xuat_Danh_sach(Danh_sach_Dien_thoai, Th_Thong_bao)
         }
         else {
             Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
         }
 
-        function Xuat_Danh_sach(Danh_sach_Sach, Th_thong_bao) {
+        function Xuat_Danh_sach(Danh_sach_Dien_thoai, Th_thong_bao) {
             Th_Cha.innerHTML = ""
-            Danh_sach_Sach.forEach(Sach => {
-                var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
+            Danh_sach_Dien_thoai.forEach(Dien_thoai => {
+                var The_hien = Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha)
                 The_hien.onclick = () => {
                     The_hien.childNodes[0].classList.toggle("CHON")
                 }
 
             });
-            Th_Thong_bao.innerHTML = `<h3>Danh sách Sách (${Danh_sach_Sach.length}) </h3>`
+            Th_Thong_bao.innerHTML = `<h3>Danh sách Điện thoại (${Danh_sach_Dien_thoai.length}) </h3>`
         }
 
 
