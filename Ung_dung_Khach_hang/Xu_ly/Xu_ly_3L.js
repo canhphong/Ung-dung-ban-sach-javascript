@@ -91,7 +91,7 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
             Th_Show.click()
         }
     });
-    Th_Thong_bao.innerHTML = `<h3> Cửa hàng có tất cả <span class="text-danger">${Danh_sach_Sach.length}</span> cuốn sách</h3>`
+    Th_Thong_bao.innerHTML = `<h4> Cửa hàng có tất cả <span class="text-danger">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
 }
 
 function Doc_Danh_sach_Sach() {
