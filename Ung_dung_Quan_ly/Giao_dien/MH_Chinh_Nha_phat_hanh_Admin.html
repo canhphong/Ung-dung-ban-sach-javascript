@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUẢN LÝ SÁCH</title>
+    <title>QUẢN LÝ NHÀ PHÁT HÀNH</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -169,10 +169,7 @@
             function Xuat_Thong_tin_Cua_hang(Cua_hang) {
                 if (sessionStorage.getItem("Nguoi_dung")) {
                     var Kq = JSON.parse(sessionStorage.getItem("Nguoi_dung"))
-                    var noi_dung_HTML = `
-                   
-     
-                    <div class="dropdown profile-element"> <span>
+                    var noi_dung_HTML = `<div class="dropdown profile-element"> <span>
                             <img alt="image" class="img-circle" src="http://localhost:1001/${Kq.Ma_so}.png" style="width:5em" />
                              </span>
                        
@@ -181,36 +178,32 @@
                                     <i class="fa fa-sign-out"></i>
                                 </button>
                                 </span>
-                                
-                    </div>
-
-
-                    `
+                    </div>`
                     Th_Nguoi_dung.innerHTML = noi_dung_HTML
                 }
             }
 
             Th_Trang_chu.onclick = () => {
-                var trang = "MH_Danh_sach_Sach_Admin.html"
+                var trang = "MH_Danh_sach_Nha_phat_hanh_Admin.html"
                 Hien_thi_Trang(trang)
             }
             Th_Them.onclick = () => {
-                var trang = "MH_Them_Sach.html"
+                var trang = "MH_Them_Nha_phat_hanh_Admin.html"
                 Hien_thi_Trang(trang)
     
             }
             Th_Sua.onclick=()=>{
-                var trang = "MH_Sua_Sach.html"
+                var trang = "MH_Sua_Nha_phat_hanh_Admin.html"
                 XL_Danh_sach_Chon(trang)
             }
     
             Th_Xoa.onclick=()=>{
-                var trang = "MH_Xoa_Sach.html"
+                var trang = "MH_Xoa_Nha_phat_hanh_Admin.html"
                 XL_Danh_sach_Chon(trang)
             }
             
             Th_Phuc_hoi.onclick=()=>{
-                var trang = "MH_Phuc_hoi_Sach.html"
+                var trang = "MH_Phuc_hoi_Nha_phat_hanh_Admin.html"
                 Hien_thi_Trang(trang)
             }
             

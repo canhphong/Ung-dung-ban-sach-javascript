@@ -27,6 +27,7 @@
 
 <body>
     <div class="container-fluid btn" id="Th_Nguoi_dung">
+
     </div>
     <div class="container-fluid btn" id="Th_PET">
 
@@ -78,7 +79,6 @@
             window.location = "MH_Dang_nhap.html"
         }
         var Du_lieu = Doc_Danh_sach_Sach();
-
         var Cua_hang = Du_lieu.Cua_hang
         Xuat_Thong_tin_Cua_hang(Cua_hang)
         
@@ -105,9 +105,10 @@
                 </div>`
                 Th_Nguoi_dung.innerHTML = noi_dung_HTML
             }
+
         }
         Th_Trang_chu.onclick = () => {
-            var trang = "MH_Danh_sach_Sach_Admin.html"
+            var trang = "MH_Danh_sach_Sach.html"
             Hien_thi_Trang(trang)
         }
         Th_Them.onclick = () => {

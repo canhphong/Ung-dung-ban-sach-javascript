@@ -20,7 +20,46 @@
 </style>
 
 <body>
+    <!-- <div class="container-fluid btn" id="Th_PET">
 
+    </div> -->
+    <div class="container-fluid">
+
+        <div class="float-left">
+            <button type="button" class="btn btn-lg btn-outline-danger" id="Th_Android">
+                <i class="fa fa-android"></i>
+            </button>
+            <button type="button" class="btn btn-lg btn-outline-danger" id="Th_Iphone">
+                <i class="fa fa-apple"></i>
+            </button>
+        </div>
+        <div class="float-right">
+            <div class="row">
+                <div class="btn">
+                    <input placeholder="Nhập Tên Sách ...Enter" type="text" class="btn btn-outline-danger" style="width:20rem" onkeyup="Tim_Ten_Sach(event)"
+                        id="Th_Gia_tri_Tim">
+                    <!-- <i class="fa fa-search mr-3" id="Th_Tim"></i> -->
+                </div>
+                <div class="btn">
+                    <select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
+                        <option value="0-50000000">Lọc Sách theo Đơn giá Bán</option>
+                        <option value="0-1000000">Đơn giá Bán dưới 1 triệu </option>
+                        <option value="1000000-3000000">Đơn giá Bán lớn 1 triệu và nhỏ 3 triệu </option>
+                        <option value="3000000-50000000">Đơn giá Bán lớn 3 triệu </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid btn clearfix text-right">
+        <button type="button" class="btn btn-outline" id="Th_Tang" onclick="Sap_Tang()">
+            <i class="fa fa-sort-alpha-asc"></i>
+        </button>
+        <button type="button" class="btn btn-outline" id="Th_Giam" onclick="Sap_Giam()">
+            <i class="fa fa-sort-alpha-desc"></i>
+        </button>
+    </div>
     <div class="container-fluid">
         <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
             KHUNG THÔNG BÁO
@@ -31,7 +70,9 @@
             <legend></legend>
 
             <div class="row" id="Th_Cha"></div>
+
         </fieldset>
+
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -47,7 +88,7 @@
         var Du_lieu = Doc_Danh_sach_The_loai();
         var Danh_sach_The_loai = Du_lieu.Danh_sach_The_loai
         
-        //var Cua_hang = Du_lieu.Cua_hang
+        var Cua_hang = Du_lieu.Cua_hang
 
         if (Danh_sach_The_loai.length > 0) {
             Danh_sach_The_loai.sort((a, b) => a.Ten_the_loai.localeCompare(b.Ten_the_loai))

@@ -3,65 +3,6 @@ var Dia_chi_Dich_vu = "http://localhost:1000"
 var Dia_chi_Media = "http://localhost:1001"
 //************** Xử lý Lưu trữ ***********
 
-function Tao_The_hien_Sach(Sach, Th_Cha) {
-    var the_hien = document.createElement("div");
-    the_hien.setAttribute("data", JSON.stringify(Sach));
-    Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="col-md-3 product-men">
-    <div class="info-book">
-	<div class="men-pro-item simpleCart_shelfItem">
-		<div class="men-thumb-item">
-			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-front img-full">
-			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-back img-full">
-		
-			<span class="product-new-top">New</span>
-		</div>
-		<div class="item-info-product ">
-        <h4 class="">${Sach.Ten}</h4>
-			<div class="info-product-price">
-				<span class="item_price">${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</span>
-            </div>
-            <h5 class="text-muted"><strong>Thể loại:</strong> ${Sach.Nhom_Sach.Ten_the_loai}</h5>
-            <h5 class="text-muted"><strong>Tác giả:</strong> ${Sach.Nhom_Sach.Tac_gia}</h5>
-            <h5 class="text-muted"><strong>Nhà phát hành:</strong> ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
-		</div>
-    </div>
-    </div>
-</div>`
-    the_hien.innerHTML = Chuoi_HTML;
-    return the_hien
-}
-
-function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
-    Th_Cha.innerHTML = ""
-    Danh_sach_Sach.forEach(Sach => {
-        var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
-        The_hien.onclick = () => {
-            The_hien.childNodes[0].classList.toggle("CHON");
-        }
-
-    });
-    Th_Thong_bao.innerHTML = `<h3>Danh sách Sách (${Danh_sach_Sach.length}) </h3>`
-}
-
-// function Tao_The_hien_Sach(Sach, Th_Cha) {
-//     var the_hien = document.createElement("div")
-//     the_hien.setAttribute("data",JSON.stringify(Sach))
-//     Th_Cha.appendChild(the_hien)
-//     var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Sach.Ma_so}">
-//   <img class="card-img-top" src="http://localhost:1001/${Sach.Ma_so}.png" alt="">
-//   <div class="card-body">
-//       <h5 class="card-title text-primary">${Sach.Ten}</h5>
-//       <h6>Mã số: ${Sach.Ma_so}</h6>
-//       <p class="card-text text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</p>
-//       Thể loại: ${Sach.Nhom_Sach.Ten_the_loai}<br>
-//       Tác giả: ${Sach.Nhom_Sach.Tac_gia}<br>
-//       Nhà phát hành: ${Sach.Nhom_Sach.Nha_phat_hanh}
-//   </div>
-// </div>`
-//     the_hien.innerHTML = Chuoi_HTML;
-//     return the_hien
-// }
 
 //========================================
 // Đọc danh sách
@@ -77,7 +18,6 @@ function Doc_Danh_sach_Sach() {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
 function Doc_Danh_sach_The_loai() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -984,28 +924,39 @@ function Tao_The_hien_Phuc_hoi_The_loai(Th_Cha,Danh_sach_Phuc_hoi){
 }
 
 
-
-
+//Tạo thể hiện danh sách Sách
+function Tao_The_hien_Sach(Sach, Th_Cha) {
+    var the_hien = document.createElement("div")
+    the_hien.setAttribute("data",JSON.stringify(Sach))
+    Th_Cha.appendChild(the_hien)
+    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem">
+  <img class="card-img-top" src="http://localhost:1001/${Sach.Ma_so}.png" alt="">
+  <div class="card-body">
+      <h5 class="card-title text-primary">${Sach.Ten}</h5>
+      <h6>Mã số: ${Sach.Ma_so}</h6>
+      <p class="card-text text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</p>
+      Thể loại: ${Sach.Nhom_Sach.Ten_the_loai}<br>
+      Tác giả: ${Sach.Nhom_Sach.Tac_gia}<br>
+      Nhà phát hành: ${Sach.Nhom_Sach.Nha_phat_hanh}
+  </div>
+</div>`
+    the_hien.innerHTML = Chuoi_HTML;
+    return the_hien
+}
 //Tạo thể hiện danh sách nhà phát hành
 function Tao_The_hien_Nha_phat_hanh(Nha_phat_hanh, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data",JSON.stringify(Nha_phat_hanh))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="col-md-4 style="width:20rem">
-    <div class="contact-box">
-        <div class="col-sm-4">
-            <div class="text-center">
-                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a4.jpg">
-                <div class="m-t-xs font-bold">${Nha_phat_hanh.Ma_so}</div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <h3 style="color:red; font-weight:bold">${Nha_phat_hanh.Nha_phat_hanh}</h3>
-            <h4>${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</h4>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-</div>`
+    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Nha_phat_hanh.Ma_so}">
+  
+  <div class="card-body">
+      <h5 class="card-title text-primary"> Tên:${Nha_phat_hanh.Nha_phat_hanh}</h5>
+      <p class="card-text text-danger">Mô tả: ${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</p>
+      Mã số: ${Nha_phat_hanh.Ma_so}
+  </div>
+</div>
+`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
@@ -1014,20 +965,10 @@ function Tao_The_hien_The_loai(The_loai, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(The_loai))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="col-md-4 style="width:20rem">
-    <div class="contact-box">
-        <div class="col-sm-4">
-            <div class="text-center">
-                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a2.jpg">
-                <div class="m-t-xs font-bold">${The_loai.Ma_so}</div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <h3 style="color:red; font-weight:bold">${The_loai.Ten_the_loai}</h3>
-            <h4>${The_loai.Mo_ta_the_loai}</h4>
-        </div>
-        <div class="clearfix"></div>
-    </div>
+    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${The_loai.Ma_so}">
+  <div class="card-body">
+      <h5 class="card-title text-primary">${The_loai.Ten_the_loai}</h5>
+  </div>
 </div>`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
@@ -1037,20 +978,10 @@ function Tao_The_hien_Tac_gia(Tac_gia, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(Tac_gia))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="col-md-4 style="width:20rem">
-    <div class="contact-box">
-        <div class="col-sm-4">
-            <div class="text-center">
-                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a3.jpg">
-                <div class="m-t-xs font-bold">${Tac_gia.Ma_so}</div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <h3 style="color:red; font-weight:bold">${Tac_gia.Tac_gia}</h3>
-            <h4>${Tac_gia.Mo_ta_tac_gia}</h4>
-        </div>
-        <div class="clearfix"></div> 
-    </div>
+    var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Tac_gia.Ma_so}">
+  <div class="card-body">
+      <h5 class="card-title text-primary">${Tac_gia.Tac_gia}</h5>
+  </div>
 </div>`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
@@ -1061,26 +992,18 @@ function Tao_The_hien_Tac_gia(Tac_gia, Th_Cha) {
 
 //Thể hiện đăng nhập
 function Tao_The_hien_Dang_nhap(Th_Cha) {
-    var noi_dung_HTML = `
+    var noi_dung_HTML = `<div  style="width:30rem; margin:auto; padding:10px" id="Th_Khung_Dang_nhap" class="table-bordered">
+    <div class="form-group">
+      <label for="Th_Ten_Dang_nhap">Tên đăng nhập</label>
+      <input type="text" class="form-control" id="Th_Ten_Dang_nhap" placeholder="Nhập Tên đăng nhập" value="QL_1">
+    </div>
+    <div class="form-group">
+      <label for="Th_Mat_khau">Mật khẩu</label>
+      <input type="password" class="form-control" id="Th_Mat_khau" placeholder="Nhập mật khẩu" value="QL_1">
+    </div>
     
-  <div class="col-md-6">
-  <div class="ibox-content">
-      <form class="m-t" role="form" action="#">
-          <div class="form-group">
-            <label for="Th_Ten_Dang_nhap">Tên đăng nhập</label>
-              <input type="email" class="form-control" id="Th_Ten_Dang_nhap" placeholder="Nhập tên đăng nhập" required="" value="QL_1">
-          </div>
-          <div class="form-group">
-          <label for="Th_Mat_khau">Mật khẩu</label>
-              <input type="password" class="form-control" id="Th_Mat_khau" placeholder="Nhập mật khẩu" required="" value="QL_1">
-          </div>
-          <button type="button" class="btn btn-primary block full-width m-b" id="Th_Dang_nhap">Đăng nhập</button>
-      </form>
-  </div>
-</div>
-
-  
-  `
+    <button type="button" class="btn btn-primary" id="Th_Dang_nhap">Đăng nhập</button>
+  </div>`
     Th_Cha.innerHTML = noi_dung_HTML
 }
 
