@@ -1,11 +1,10 @@
-
 var Dia_chi_Dich_vu = "http://localhost:1000"
 var Dia_chi_Media = "http://localhost:1001"
 //************** Xử lý Lưu trữ ***********
 var Thu_muc_PDF = "../Tap_tin_PDF"
 
 //========================================
-// TAB 1
+
 function Tao_The_hien_Sach(Sach, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(Sach))
@@ -33,9 +32,7 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
             <h5 class="text-muted"><strong>Thể loại:</strong> ${Sach.Nhom_Sach.Ten_the_loai}</h5>
             <h5 class="text-muted"><strong>Tác giả:</strong> ${Sach.Nhom_Sach.Tac_gia}</h5>
             <h5 class="text-muted"><strong>Nhà phát hành:</strong> ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
-			
-            <button type="button" class="btn btn-info btn-rounded dim" data-toggle="modal" data-target="#modelId" id="Th_Chi_tiet">Xem chi tiết</button>
-
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modelId">Xem chi tiết</button>
 		</div>
     </div>
     </div>
@@ -51,15 +48,15 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
     Danh_sach_Sach.forEach(Sach => {
         var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
         The_hien.childNodes[0].onclick = () => {
-            
+
             //The_hien.childNodes[0].classList.toggle("CHON")
             // var Sach = The_hien.childNodes[0].parentNode.getAttribute("data")
             // sessionStorage.setItem("giohang", Sach)
             // window.location = "MH_Gio_hang.html"
-         }
-        The_hien.childNodes[1].onclick = () => {
+        }
+        The_hien.childNodes[2].onclick = () => {
             //console.log(The_hien.childNodes[1].parentNode.getAttribute("data"))
-            var Sach_Chon = JSON.parse(The_hien.childNodes[1].parentNode.getAttribute("data"))
+            var Sach_Chon = JSON.parse(The_hien.childNodes[2].parentNode.getAttribute("data"))
             var noi_dung_HTML =
                 `
                 <!-- Modal content-->
@@ -86,13 +83,18 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
+            
+            <p>modal phong test</p>
             `
             Th_Chi_tiet.innerHTML = noi_dung_HTML
-            Th_Show.click()
+             
         }
     });
     Th_Thong_bao.innerHTML = `<h4> Cửa hàng có tất cả <span class="text-danger">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
 }
+
+
+
 
 function Doc_Danh_sach_Sach() {
     var Du_lieu = {}
@@ -129,13 +131,16 @@ function Tai_tap_tin(tap_tin, ten_moi) {
 
 function XL_Upload() {
     var Ngay = Tao_Chuoi_The_hien_Ngay()
-    Ngay = Ngay.replace(/[/]/g,"_")
+    Ngay = Ngay.replace(/[/]/g, "_")
     var Ma_so = `Don_Xin_Ung_tuyen-${Ngay}-${Th_Dien_thoai.value}.pdf`
     var reader = new FileReader();
     var Du_lieu_pdf = "";
     reader.onload = function (e) {
         Du_lieu_pdf = e.target.result;
-        var Du_lieu = { "Chuoi_nhi_phan": Du_lieu_pdf, "Ten": Ma_so };
+        var Du_lieu = {
+            "Chuoi_nhi_phan": Du_lieu_pdf,
+            "Ten": Ma_so
+        };
         var Xu_ly_HTTP = new XMLHttpRequest()
         var Dia_chi_Xu_ly = `${Dia_chi_Media}/Ghi_PDF`
         Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
@@ -144,7 +149,7 @@ function XL_Upload() {
         var Chuoi_KQ = Xu_ly_HTTP.responseText
         return Chuoi_KQ
     }
-    Th_Thong_bao.innerHTML="Cửa hàng Chúng tôi đã nhận đơn của bạn.<br>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất"
+    Th_Thong_bao.innerHTML = "Cửa hàng Chúng tôi đã nhận đơn của bạn.<br>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất"
     reader.readAsDataURL(Th_file.files[0]);
     Th_Close.click()
 }
@@ -154,7 +159,7 @@ function Tao_the_hien_Upload(Th_Cha) {
     Th_Cha.innerHTML = ""
     var The_hien = document.createElement("table");
     Th_Cha.appendChild(The_hien);
-    The_hien.className = "table table-bordered"; 
+    The_hien.className = "table table-bordered";
     var noi_dung = "";
     noi_dung += `<tr>`
     noi_dung += `<td><h4 class="modal-title text-danger" id="modelTitleId"></h4></td>`
@@ -324,8 +329,3 @@ function Nhap_Ngay(Th_Ngay) {
 
     return Kq
 }
-
-
-
-
-

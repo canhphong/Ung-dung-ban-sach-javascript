@@ -56,15 +56,7 @@
             <button type="button" class="btn btn-lg btn-outline-info" id="Th_Phuc_hoi">
                 <i class="fa">Phục hồi Xóa</i>
             </button>
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-lg btn-danger" id="Th_Thong_ke_Nhap_Xuat">
-                    <i class="fa">Thống kê Nhập Xuất</i>
-                </button>
-                
-                <button type="button" class="btn btn-lg btn-danger" id="Th_Thong_ke_Doanh_thu">
-                    <i class="fa">Thống kê Doanh thu</i>
-                </button>
-            </div>
+            
         </div>
 
     </div>
@@ -100,7 +92,7 @@
             Th_PET.innerHTML = `<img src="http://localhost:1001/${Cua_hang.Ma_so}.png" class="float-left" />
         <h2 class="text-center text-primary">${Cua_hang.Ten}
             <br/>
-            <small style="font-size:16px" class="text-success"><i>Địa chỉ: ${Cua_hang.Dia_chi} </br>Sách: ${Cua_hang.Dien_thoai}</i></small>
+            <small style="font-size:16px" class="text-success"><i>Địa chỉ: ${Cua_hang.Dia_chi} </br>Điện thoại: ${Cua_hang.Dien_thoai}</i></small>
         </h2>`
             if (sessionStorage.getItem("Nguoi_dung")) {
                 var Kq = JSON.parse(sessionStorage.getItem("Nguoi_dung"))
@@ -138,14 +130,7 @@
             var trang = "MH_Phuc_hoi_Nha_phat_hanh.html"
             Hien_thi_Trang(trang)
         }
-        Th_Thong_ke_Doanh_thu.onclick=()=>{
-            var trang = "MH_Thong_ke_Doanh_thu.html"
-            Hien_thi_Trang(trang)
-        }
-        Th_Thong_ke_Nhap_Xuat.onclick=()=>{
-            var trang = "MH_Thong_ke_Nhap_Xuat.html"
-            Hien_thi_Trang(trang)
-        }
+        
         
         
         Th_Trang_chu.click()

@@ -91,7 +91,7 @@
         var Cua_hang = Du_lieu.Cua_hang
 
         if (Danh_sach_Tac_gia.length > 0) {
-
+            Danh_sach_Tac_gia.sort((a, b) => a.Tac_gia.localeCompare(b.Tac_gia))
             Xuat_Danh_sach(Danh_sach_Tac_gia, Th_Thong_bao)
         }
         else {

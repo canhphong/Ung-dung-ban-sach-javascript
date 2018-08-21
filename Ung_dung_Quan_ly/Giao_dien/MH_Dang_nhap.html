@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Cửa hàng Sách PET</title>
+    <title>Cửa hàng Điện thoại PET</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,7 +55,8 @@
             var Kq = Dang_nhap_He_thong(Thong_tin)
             if ("Ma_so" in Kq) {
                 sessionStorage.setItem("Nguoi_dung", JSON.stringify(Kq))
-                window.location = 'MH_TONG.html'
+                //window.location = 'MH_Chinh.html'
+                window.location = 'MH_Quan_ly_tam_thoi.html'
             } else {
                 Th_Thong_bao.innerHTML = "Thông tin đăng nhập không hợp lệ ..."
             }
@@ -65,7 +66,7 @@
             Th_PET.innerHTML = `<img src="http://localhost:1001/${Cua_hang.Ma_so}.png" class="float-left" />
         <h2 class="text-center text-primary">${Cua_hang.Ten}
             <br/>
-            <small style="font-size:16px" class="text-success"><i>Địa chỉ: ${Cua_hang.Dia_chi} </br>Sách: ${Cua_hang.Dien_thoai}</i></small>
+            <small style="font-size:16px" class="text-success"><i>Địa chỉ: ${Cua_hang.Dia_chi} </br>Điện thoại: ${Cua_hang.Dien_thoai}</i></small>
         </h2>`
         }
 

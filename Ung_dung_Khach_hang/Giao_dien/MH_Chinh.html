@@ -109,32 +109,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="row" id="Th_Cha"></div>
 						</div>
 
-						<!-- Modal bootstrap 3 -->
-						<!-- <div class="modal fade" id="modelId" role="dialog" aria-labelledby="modelTitleId">
+						<div class="modal fade" id="modelId" role="dialog" aria-labelledby="modelTitleId">
+								<div class="modal-dialog">
+									<div class="modal-content" id="Th_Chi_tiet">
+									</div>
+								</div>
+						</div>
+			
+							<button type="button" style="display:none" id="Th_Show" data-toggle="modal" data-target="#modelId">
+								Show
+							</button>
+
+
+						
+
+						<!-- Modal -->
+						<!-- <div class="modal fade" id="myModal" role="dialog">
 							<div class="modal-dialog">
-								<div class="modal-content" id="Th_Chi_tiet"></div>
+							
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Modal Header</h4>
+									</div>
+									<div class="modal-body">
+										<div id="Th_Chi_tiet"></div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
 							</div>
 						</div> -->
 
-						<!-- <button type="button" id="Th_Show" data-toggle="modal" data-target="#modelId">
-							Show
-						</button> -->
-						<div class="clearfix"></div>
+
+						
 					</div>
-					<!--//tab_one-->
-					<div class="tab2">
-
-					</div>
-					<!--/tab_2-->
-
-					<!--//tab_2-->
-
-
 				</div>
+
+
+				<div class="clearfix"></div>
 			</div>
+			<!--//tab_one-->
+			<div class="tab2">
+
+			</div>
+			<!--/tab_2-->
+
+			<!--//tab_2-->
 
 
 		</div>
+	</div>
+	</div>
 	</div>
 	<!-- //new_arrivals -->
 
@@ -247,9 +274,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 
 
-		// Th_Trang_chu.onclick = () => {
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
-		// }
 
 		Th_Tim.onclick = () => {
 			var gtTim = Th_Gia_tri_Tim.value;
@@ -267,85 +291,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 
 
-		Th_Khoa_hoc.onclick = () => {
-			var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-				"Khoa học")
-			Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		}
-		// Th_The_thao.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-		// 		"Thể thao")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_Thieu_nhi.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-		// 		"Thiếu nhi")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_Tinh_cam.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-		// 		"Tình cảm")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_Van_hoc.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-		// 		"Văn học")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-
-		// // Tác giả
-		// Th_NGOC_TRINH.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-		// 		"Ngọc Trinh")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_KIM_DUNG.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-		// 		"Kim Dung")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_NGUYEN_ANH.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-		// 		"Nguyễn Ánh")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_TO_HUU.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-		// 		"Tố Hữu")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_QUOC_TUAN.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-		// 		"Quốc Tuấn")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-
-		// // Nhà phát hành
-		// Th_KIM_DONG.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-		// 		"Kim Đồng")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_NXB_TRE.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-		// 		"NXB Trẻ")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_FAHASHA.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-		// 		"Fahasha")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_NXB_VN.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-		// 		"NXB Văn Nghệ")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
-		// Th_NXB_VH.onclick = () => {
-		// 	var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-		// 		"NXB Văn Học")
-		// 	Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-		// }
 
 		function Xuat_Sach_theo_Don_gia(chuoi_dieu_kien) {
 			var Thanh_phan_con = chuoi_dieu_kien.split('-')
@@ -469,72 +414,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			Danh_sach_Sach.sort((a, b) => b.Ten.localeCompare(a.Ten))
 			Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
 		}
-
-		// Th_Tai_tap_tin.onclick = () => {
-		// 		var tap_tin = "Don_Du_tuyen.pdf"
-		// 		var ten_moi = "Don_Du_tuyen_2018"
-		// 		Tai_tap_tin(tap_tin, ten_moi)
-		// }
-		// Th_Nop_don.onclick = () => {
-		// 		Tao_the_hien_Upload(Th_Chi_tiet)
-		// 		modelId.setAttribute("data-keyboard", false)
-		// 		modelId.setAttribute("data-backdrop", "static")
-		// 		modelTitleId.innerHTML = "Nộp Đơn Dự Tuyển"
-		// 		Th_Show.click()
-		// }
-
-
-		// Th_Dia_diem.onclick = () => {
-		// 		modelId.childNodes[1].setAttribute("style", "max-width:50rem")
-		// 		Th_Chi_tiet.style.height = "30rem"
-		// 		Hien_thi_vi_tri_Cong_ty(Cua_hang)
-		// 		Th_Show.click()
-		// }
-
-		// function Khoi_tao_Ban_do() {
-
-		// 		var latlng = new google.maps.LatLng(10.823099, 106.629664); // Vĩ độ, Kinh độ Tp Hồ Chí Minh
-		// 		var myOptions = {
-		// 				zoom: 16,
-		// 				center: latlng,
-		// 				mapTypeId: google.maps.MapTypeId.ROADMAP,
-		// 				disableDefaultUI: true
-		// 		};
-		// 		map = new google.maps.Map(Th_Chi_tiet, myOptions);
-		// }
-
-		// function Hien_thi_vi_tri_Cong_ty(Cua_hang) {
-		// 		// modelTitleId.innerHTML = `${Cua_hang.Ten} - ${Cua_hang.Sach} `
-		// 		geocoder.geocode({
-		// 				'address': Cua_hang.Dia_chi
-		// 		}, function (results, status) {
-		// 				if (status == google.maps.GeocoderStatus.OK) {
-		// 						map.setCenter(results[0].geometry.location);
-		// 						var marker = new google.maps.Marker({
-		// 								map: map,
-		// 								position: results[0].geometry.location,
-		// 								title: `${Cua_hang.Ten} - ${Cua_hang.Sach} `
-		// 						});
-
-		// 						if (results[0].formatted_address) {
-		// 								region = results[0].formatted_address + '<br />';
-		// 						}
-		// 						var infowindow = new google.maps.InfoWindow({
-		// 								content: '<div style =width:100%; height:500px;><h5>' + Cua_hang.Ten +
-		// 										'</h5><br/>Địa chỉ:' + region + '<br/>LatLng:' + results[0].geometry.location +
-		// 										'</div>'
-		// 						});
-		// 						infowindow.open(map, marker);
-		// 						google.maps.event.addListener(marker, 'click', function () {
-		// 								// Calling the open method of the infoWindow 
-		// 								infowindow.open(map, marker);
-		// 						});
-		// 				} else {
-		// 						alert("Geocode was not successful for the following reason: " + status);
-		// 				}
-		// 		});
-		// 		Khoi_tao_Ban_do()
-		// }
 	</script>
 
 </body>

@@ -91,13 +91,13 @@
 
         if (Danh_sach_Sach.length > 0) {
             Danh_sach_Sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
-            Xuat_Danh_sach(Danh_sach_Sach, Th_Thong_bao)
+            Xuat_Danh_sach_Sach(Danh_sach_Sach, Th_Thong_bao)
         }
         else {
             Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
         }
 
-        function Xuat_Danh_sach(Danh_sach_Sach, Th_thong_bao) {
+        function Xuat_Danh_sach_Sach(Danh_sach_Sach, Th_thong_bao) {
             Th_Cha.innerHTML = ""
             Danh_sach_Sach.forEach(Sach => {
                 var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)

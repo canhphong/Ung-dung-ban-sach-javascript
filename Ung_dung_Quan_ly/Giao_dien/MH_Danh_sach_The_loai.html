@@ -91,7 +91,7 @@
         var Cua_hang = Du_lieu.Cua_hang
 
         if (Danh_sach_The_loai.length > 0) {
-
+            Danh_sach_The_loai.sort((a, b) => a.Ten_the_loai.localeCompare(b.Ten_the_loai))
             Xuat_Danh_sach(Danh_sach_The_loai, Th_Thong_bao)
         }
         else {

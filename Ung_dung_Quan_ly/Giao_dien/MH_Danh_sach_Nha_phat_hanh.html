@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Cửa hàng Sách</title>
+    <title>Nhà phát hành</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,13 +36,13 @@
         <div class="float-right">
             <div class="row">
                 <div class="btn">
-                    <input placeholder="Nhập Tên Sách ...Enter" type="text" class="btn btn-outline-danger" style="width:20rem" onkeyup="Tim_Ten_Dien_thoai(event)"
+                    <input placeholder="Nhập Tên Điện thoại ...Enter" type="text" class="btn btn-outline-danger" style="width:20rem" onkeyup="Tim_Ten_Dien_thoai(event)"
                         id="Th_Gia_tri_Tim">
                     <!-- <i class="fa fa-search mr-3" id="Th_Tim"></i> -->
                 </div>
                 <div class="btn">
                     <select class="btn btn-outline-danger" onchange="Xuat_Dien_thoai_theo_Don_gia(this.value)">
-                        <option value="0-50000000">Lọc Sách theo Đơn giá Bán</option>
+                        <option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
                         <option value="0-1000000">Đơn giá Bán dưới 1 triệu </option>
                         <option value="1000000-3000000">Đơn giá Bán lớn 1 triệu và nhỏ 3 triệu </option>
                         <option value="3000000-50000000">Đơn giá Bán lớn 3 triệu </option>
@@ -90,14 +90,14 @@
         var Cua_hang = Doc_Danh_sach_Sach().Cua_hang
 
         if (Danh_sach_Nha_phat_hanh.length > 0) {
-
-            Xuat_Danh_sach(Danh_sach_Nha_phat_hanh, Th_Thong_bao)
+            Danh_sach_Nha_phat_hanh.sort((a, b) => a.Nha_phat_hanh.localeCompare(b.Nha_phat_hanh))
+            Xuat_Danh_sach_Nha_phat_hanh(Danh_sach_Nha_phat_hanh, Th_Thong_bao)
         }
         else {
             Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
         }
 
-        function Xuat_Danh_sach(Danh_sach_Nha_phat_hanh, Th_thong_bao) {
+        function Xuat_Danh_sach_Nha_phat_hanh(Danh_sach_Nha_phat_hanh, Th_thong_bao) {
             Th_Cha.innerHTML = ""
             Danh_sach_Nha_phat_hanh.forEach(Nha_phat_hanh => {
                 var The_hien = Tao_The_hien_Nha_phat_hanh(Nha_phat_hanh, Th_Cha)

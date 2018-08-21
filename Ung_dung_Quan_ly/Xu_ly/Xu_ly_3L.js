@@ -1,10 +1,11 @@
+
 var Dia_chi_Dich_vu = "http://localhost:1000"
 var Dia_chi_Media = "http://localhost:1001"
 //************** Xử lý Lưu trữ ***********
 
 
-//DOC DANH SACH=======================================
-
+//========================================
+// Đọc danh sách
 function Doc_Danh_sach_Sach() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -17,7 +18,6 @@ function Doc_Danh_sach_Sach() {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
 function Doc_Danh_sach_The_loai() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -30,7 +30,6 @@ function Doc_Danh_sach_The_loai() {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
 function Doc_Danh_sach_Tac_gia() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -43,7 +42,6 @@ function Doc_Danh_sach_Tac_gia() {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
 function Doc_Danh_sach_Nha_phat_hanh() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -56,11 +54,11 @@ function Doc_Danh_sach_Nha_phat_hanh() {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
-function Doc_Danh_sach_Sach_The_loai_Tac_gia_Nha_phat_hanh() {
+//Đọc danh sách đã xóa
+function Doc_Danh_sach_Xoa_Sach() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
-    var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Sach_The_loai_Tac_gia_Nha_phat_hanh`
+    var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Xoa_Sach`
     var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
     Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
     Xu_ly_HTTP.send("")
@@ -69,19 +67,30 @@ function Doc_Danh_sach_Sach_The_loai_Tac_gia_Nha_phat_hanh() {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
-// function Doc_Danh_sach_Thanh_ly_Dien_thoai() {
-//     var Du_lieu = {}
-//     var Xu_ly_HTTP = new XMLHttpRequest()
-//     var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Thanh_ly_Dien_thoai`
-//     var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
-//     Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
-//     Xu_ly_HTTP.send("")
-//     var Chuoi_JSON = Xu_ly_HTTP.responseText
-//     if (Chuoi_JSON != "")
-//         Du_lieu = JSON.parse(Chuoi_JSON)
-//     return Du_lieu
-// }
+function Doc_Danh_sach_Xoa_Tac_gia() {
+    var Du_lieu = {}
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Xoa_Tac_gia`
+    var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
+    Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
+    Xu_ly_HTTP.send("")
+    var Chuoi_JSON = Xu_ly_HTTP.responseText
+    if (Chuoi_JSON != "")
+        Du_lieu = JSON.parse(Chuoi_JSON)
+    return Du_lieu
+}
+function Doc_Danh_sach_Xoa_The_loai() {
+    var Du_lieu = {}
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Xoa_The_loai`
+    var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
+    Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
+    Xu_ly_HTTP.send("")
+    var Chuoi_JSON = Xu_ly_HTTP.responseText
+    if (Chuoi_JSON != "")
+        Du_lieu = JSON.parse(Chuoi_JSON)
+    return Du_lieu
+}
 
 function Doc_Danh_sach_Xoa_Nha_phat_hanh() {
     var Du_lieu = {}
@@ -95,11 +104,9 @@ function Doc_Danh_sach_Xoa_Nha_phat_hanh() {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
-//GHI DANH SACH========================================
-
+//Ghi media.
 function Ghi_Media(Hinh) {
-
+    
     var Xu_ly_HTTP = new XMLHttpRequest()
     var Dia_chi_Xu_ly = `${Dia_chi_Media}`
     Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
@@ -108,7 +115,7 @@ function Ghi_Media(Hinh) {
     var Chuoi_KQ = Xu_ly_HTTP.responseText
     return Chuoi_KQ
 }
-
+//Ghi mới
 function Ghi_Sach_Moi(Sach) {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -122,7 +129,6 @@ function Ghi_Sach_Moi(Sach) {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
 function Ghi_The_loai_Moi(The_loai) {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -136,7 +142,6 @@ function Ghi_The_loai_Moi(The_loai) {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
 function Ghi_Tac_gia_Moi(Tac_gia) {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -150,7 +155,6 @@ function Ghi_Tac_gia_Moi(Tac_gia) {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
 function Ghi_Nha_phat_hanh_Moi(Nha_phat_hanh) {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -164,7 +168,7 @@ function Ghi_Nha_phat_hanh_Moi(Nha_phat_hanh) {
         Du_lieu = JSON.parse(Chuoi_JSON)
     return Du_lieu
 }
-
+//Ghi cập nhật
 function Ghi_Cap_nhap_Sach(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -176,7 +180,6 @@ function Ghi_Cap_nhap_Sach(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Cap_nhap_The_loai(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -188,7 +191,6 @@ function Ghi_Cap_nhap_The_loai(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Cap_nhap_Tac_gia(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -200,7 +202,6 @@ function Ghi_Cap_nhap_Tac_gia(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Cap_nhap_Nha_phat_hanh(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -212,7 +213,7 @@ function Ghi_Cap_nhap_Nha_phat_hanh(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
+//Ghi xóa
 function Ghi_Xoa_Sach(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -224,7 +225,6 @@ function Ghi_Xoa_Sach(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Xoa_The_loai(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -236,7 +236,6 @@ function Ghi_Xoa_The_loai(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Xoa_Tac_gia(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -248,7 +247,6 @@ function Ghi_Xoa_Tac_gia(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Xoa_Nha_phat_hanh(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -260,17 +258,7 @@ function Ghi_Xoa_Nha_phat_hanh(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-// function Ghi_Thanh_ly_Dien_thoai(Danh_sach) {
-//     var Kq = ""
-//     var Xu_ly_HTTP = new XMLHttpRequest()
-//     var Tham_so = `Ma_so_Xu_ly=Thanh_ly_Dien_thoai`
-//     var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
-//     Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
-//     var Chuoi_Goi = JSON.stringify(Danh_sach)
-//     Xu_ly_HTTP.send(Chuoi_Goi)
-//     Kq = Xu_ly_HTTP.responseText
-//     return Kq
-// }
+//Ghi phục hồi
 function Ghi_Phuc_hoi_Sach(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -282,7 +270,6 @@ function Ghi_Phuc_hoi_Sach(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Phuc_hoi_The_loai(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -294,7 +281,6 @@ function Ghi_Phuc_hoi_The_loai(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Phuc_hoi_Tac_gia(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -306,7 +292,6 @@ function Ghi_Phuc_hoi_Tac_gia(Danh_sach) {
     Kq = Xu_ly_HTTP.responseText
     return Kq
 }
-
 function Ghi_Phuc_hoi_Nha_phat_hanh(Danh_sach) {
     var Kq = ""
     var Xu_ly_HTTP = new XMLHttpRequest()
@@ -335,8 +320,10 @@ function Dang_nhap_He_thong(Thong_tin) {
     return Du_lieu
 }
 
-//TAO HIEN THI==============================================
+//==============================================
 
+//Tạo các thể hiện
+//Tạo thể hiện thêm Sách
 function Tao_The_hien_Them_Sach(Th_Cha) {
     
     var Chuoi_HTML = 
@@ -393,9 +380,10 @@ function Tao_The_hien_Them_Sach(Th_Cha) {
                 </div>
                 </div>
                 `    
-    Th_Cha.innerHTML = Chuoi_HTML   
+   
+    Th_Cha.innerHTML = Chuoi_HTML
+            
 }
-
 
 function Tao_The_hien_List_The_loai(Th_Nhom_The_loai,Danh_sach_Cap_nhat)
 {
@@ -421,15 +409,13 @@ function Tao_The_hien_List_Nha_phat_hanh(Th_Nhom_Nha_phat_hanh,Danh_sach_Cap_nha
     }) 
     Th_Nhom_Nha_phat_hanh.innerHTML=noi_dung_HTML
 }
-
-
-
+//Tạo thể hiện thêm nhà phát hành
 function Tao_The_hien_Them_Nha_phat_hanh(Th_Cha) {
     var Chuoi_HTML = `
         <div class="form m-3 p-3">
         
         <div class="form-group">
-            <label style="display:none" for="Th_Nhom_Nha_phat_hanh">NhÃ³m Äiá»‡n thoáº¡i</label>
+            <label style="display:none" for="Th_Nhom_Nha_phat_hanh">Nhóm Điện thoại</label>
             <select style="display:none" id="Th_Nhom_Nha_phat_hanh" onchange="Lay_Ma_so_cuoi_Nha_phat_hanh()">
                 <option value="Nha_phat_hanh">Nha_phat_hanh</option>
                 
@@ -437,24 +423,23 @@ function Tao_The_hien_Them_Nha_phat_hanh(Th_Cha) {
         </div>
         
         <div class="form-group">
-            <label for="Th_Ma_so">MÃ£ sá»‘:</label>
+            <label for="Th_Ma_so">Mã số:</label>
             <input type="text" class="form-control" id="Th_Ma_so" readonly>
         </div>
         <div class="form-group">
-            <label for="Th_Ten">TÃªn nhÃ  phÃ¡t hÃ nh</label>
-            <input type="text" class="form-control" id="Th_Ten" placeholder="Nháº­p TÃªn nhÃ  phÃ¡t hÃ nh">
+            <label for="Th_Ten">Tên nhà phát hành</label>
+            <input type="text" class="form-control" id="Th_Ten" placeholder="Nhập Tên nhà phát hành">
         </div>
         <div class="form-group">
-            <label for="Th_Mo_ta_nha_phat_hanh">MÃ´ táº£</label>
-            <textarea rows="4" class="form-control" placeholder="MÃ´ táº£ nhÃ  phÃ¡t hÃ nh" cols="50" id="Th_Mo_ta_nha_phat_hanh" form="usrform"></textarea>
+            <label for="Th_Mo_ta_nha_phat_hanh">Mô tả</label>
+            <textarea rows="4" class="form-control" placeholder="Mô tả nhà phát hành" cols="50" id="Th_Mo_ta_nha_phat_hanh" form="usrform"></textarea>
         </div>
         
     </div>
     `
     Th_Cha.innerHTML = Chuoi_HTML
 }
-
-
+//Tạo thể hiện thêm thể loại
 function Tao_The_hien_Them_The_loai(Th_Cha) {
     var Chuoi_HTML = `
         <div class="form m-3 p-3">
@@ -473,13 +458,13 @@ function Tao_The_hien_Them_The_loai(Th_Cha) {
         </div>
         <div class="form-group">
             <label for="Th_Mo_ta_the_loai">Mô tả thể loại</label>
-            <input type="text" class="form-control" id="Th_Mo_ta_the_loai" placeholder="Nhập mô tả thể loại">
-        </div>
+            <textarea rows="4" class="form-control" placeholder="Mô tả  thể loại" cols="50" id="Th_Mo_ta_the_loai" form="usrform"></textarea>
+            </div>
     </div>
     `
     Th_Cha.innerHTML = Chuoi_HTML
 }
-
+//Tạo thể hiện thêm tác giả
 function Tao_The_hien_Them_Tac_gia(Th_Cha) {
     var Chuoi_HTML = `
         <div class="form m-3 p-3">
@@ -498,318 +483,20 @@ function Tao_The_hien_Them_Tac_gia(Th_Cha) {
         </div>
         <div class="form-group">
             <label for="Th_Mo_ta_tac_gia">Mô tả Tác giả</label>
-            <input type="text" class="form-control" id="Th_Mo_ta_Tac_gia" placeholder="Nhập mô tả Tác giả">
+            <textarea rows="4" class="form-control" placeholder="Nhập mô tả Tác giả" cols="50" id="Th_Mo_ta_Tac_gia" form="usrform"></textarea>
         </div>
     </div>
     `
     Th_Cha.innerHTML = Chuoi_HTML
 }
 
-// function Tao_The_hien_Phuc_hoi(Th_Cha,Danh_sach_Phuc_hoi){
-//     var noi_dung_HTML=`
-//     <table class="table">
-//                 <thead>
-//                     <tr>
-//                         <th>Tên Sách</th>
-//                         <th>Nhóm Sách</th>
-//                         <th>Đơn giá Nhập</th>
-//                         <th>Đơn giá Bán</th>
-//                         <th>Chọn </th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>`
-//     Danh_sach_Phuc_hoi.forEach(Dien_thoai=>{
-//         var Nhom=Dien_thoai.Nhom_Dien_thoai.Ma_so
-//         noi_dung_HTML+=`
-//         <tr>
-//             <td scope="row">${Dien_thoai.Ten}</td>
-//             <td>${Nhom}</td>
-//             <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Nhap)}đ</td>
-//             <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)}đ</td>
-//             <td><input type="checkbox" Ma_so="${Dien_thoai.Ma_so}" class="PHUC_HOI" /></td>
-//         </tr>
-//         `
-
-//     })            
-
-//     noi_dung_HTML+=`
-//                 </tbody>
-//             </table>
-//     `
-//     Th_Cha.innerHTML=noi_dung_HTML
-// }
-
-function Tao_The_hien_Phuc_hoi_Sach(Th_Cha,Danh_sach_Phuc_hoi){
-    var noi_dung_HTML=`
-    <table class="table">
-                <thead>
-                    <tr>
-                    <th>Tên</th>
-                    <th>Mã số</th>
-                    <th>Đơn giá Bán</th>
-                    <th >Mô tả</th> 
-                    <th>Thể loại</th>
-                    <th>Tác giả</th>
-                    <th>Nhà phát hành</th>
-                    </tr>
-                </thead>
-                <tbody>`
-    Danh_sach_Phuc_hoi.forEach(Sach=>{
-        var Nhom=Sach.Nhom_Sach
-        noi_dung_HTML+=`
-        <tr>
-            <td scope="row">${Sach.Ten}</td>
-            <td>${Sach.Ma_so}</td>
-            <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)}đ</td>
-            <td >${Sach.Mo_ta}</td>
-            <td>${Nhom.Ten_the_loai}</td>
-            <td>${Nhom.Tac_gia}</td>
-            <td>${Nhom.Nha_phat_hanh}</td>
-            <td><input type="checkbox" Ma_so="${Sach.Ma_so}" class="PHUC_HOI" /></td>
-        </tr>
-        `
-    
-    })            
-    
-    noi_dung_HTML+=`
-                </tbody>
-            </table>
-    `
-    Th_Cha.innerHTML=noi_dung_HTML
-}
-
-function Tao_The_hien_Phuc_hoi_Nha_phat_hanh(Th_Cha, Danh_sach_Phuc_hoi) {
-    var noi_dung_HTML = `
-    <table class="table">
-                <thead>
-                    <tr>
-                        <th>Mã số</th>
-                        <th>Tên</th>
-                        <th>Mô tả</th>
-                    </tr>
-                </thead>
-                <tbody>`
-    Danh_sach_Phuc_hoi.forEach(Nha_phat_hanh => {
-        noi_dung_HTML += `
-        <tr>
-            <td scope="row">${Nha_phat_hanh.Ma_so}</td>
-            <td>${Nha_phat_hanh.Nha_phat_hanh}</td>
-            <td>${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</td>
-            <td><input type="checkbox" Ma_so="${Nha_phat_hanh.Ma_so}" class="PHUC_HOI" /></td>
-        </tr>
-        `
-
-    })
-
-    noi_dung_HTML += `
-                </tbody>
-            </table>
-    `
-    Th_Cha.innerHTML = noi_dung_HTML
-}
-
-function Tao_The_hien_Xoa(Th_Cha, Danh_sach_Cap_nhat) {
-    var noi_dung_HTML = `
-    <table class="table">
-                <thead>
-                    <tr>
-                        <th>Tên Sách</th>
-                        <th>Nhóm Sách</th>
-                        <th>Đơn giá Nhập</th>
-                        <th>Đơn giá Bán</th>
-                    </tr>
-                </thead>
-                <tbody>`
-    Danh_sach_Cap_nhat.forEach(Dien_thoai => {
-        var Nhom = Dien_thoai.Nhom_Sach.Ma_so
-        noi_dung_HTML += `
-        <tr Ma_so="${Dien_thoai.Ma_so}" class="CAP_NHAP">
-            <td scope="row">${Dien_thoai.Ten}</td>
-            <td>${Nhom}</td>
-            <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Nhap)}đ</td>
-            <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)}đ</td>
-        </tr>
-        `
-
-    })
-
-    noi_dung_HTML += `
-                </tbody>
-            </table>
-    `
-    Th_Cha.innerHTML = noi_dung_HTML
-}
-
-function Tao_The_hien_Xoa_Sach(Th_Cha,Danh_sach_Cap_nhat){
-    var noi_dung_HTML=`
-    <table class="table">
-                <thead>
-                    <tr>
-                        <th>Tên</th>
-                        <th>Mã số</th>
-                        <th>Đơn giá Bán</th>
-                        <th>Mô tả</th> 
-                        <th>Thể loại</th>
-                        <th>Tác giả</th>
-                        <th>Nhà phát hành</th>
-                    </tr>
-                </thead>
-                <tbody>`
-    Danh_sach_Cap_nhat.forEach(Sach=>{
-        var Nhom=Sach.Nhom_Sach
-        noi_dung_HTML+=`
-        <tr Ma_so="${Sach.Ma_so}" class="CAP_NHAP">
-            <td scope="row">${Sach.Ten}</td>
-            <td>${Sach.Ma_so}</td>
-            <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)}đ</td>
-            <td>${Sach.Mo_ta}</td>
-            <td>${Nhom.Ten_the_loai}</td>
-            <td>${Nhom.Tac_gia}</td>
-            <td>${Nhom.Nha_phat_hanh}</td>
-            
-        </tr>
-        `
-    
-    })            
-    
-    noi_dung_HTML+=`
-                </tbody>
-            </table>
-    `
-    Th_Cha.innerHTML=noi_dung_HTML
-}
-
-function Tao_The_hien_Xoa_Nha_phat_hanh(Th_Cha, Danh_sach_Cap_nhat) {
-    var noi_dung_HTML = `
-    <table class="table">
-                <thead>
-                    <tr>
-                        <th>Mã số</th>
-                        <th>Tên</th>
-                        <th>Mô tả</th>
-                    </tr>
-                </thead>
-                <tbody>`
-    Danh_sach_Cap_nhat.forEach(Nha_phat_hanh => {
-        noi_dung_HTML += `
-        <tr Ma_so="${Nha_phat_hanh.Ma_so}" class="CAP_NHAP">
-            <td scope="row">${Nha_phat_hanh.Ma_so}</td>
-            <td>${Nha_phat_hanh.Nha_phat_hanh}</td>
-            <td>${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</td>
-        </tr>
-        `
-
-    })
-
-    noi_dung_HTML += `
-                </tbody>
-            </table>
-    `
-    Th_Cha.innerHTML = noi_dung_HTML
-}
-
-function Tao_The_hien_Xoa_The_loai(Th_Cha, Danh_sach_Cap_nhat) {
-    var noi_dung_HTML = `
-    <table class="table">
-                <thead>
-                    <tr>
-                        <th>Mã số</th>
-                        <th>Tên</th>
-                        <th>Mô tả</th>
-                    </tr>
-                </thead>
-                <tbody>`
-    Danh_sach_Cap_nhat.forEach(The_loai => {
-        noi_dung_HTML += `
-        <tr Ma_so="${The_loai.Ma_so}" class="CAP_NHAP">
-            <td scope="row">${The_loai.Ma_so}</td>
-            <td>${The_loai.Ten_the_loai}</td>
-            <td>${The_loai.Mo_ta_the_loai}</td>
-        </tr>
-        `
-
-    })
-
-    noi_dung_HTML += `
-                </tbody>
-            </table>
-    `
-    Th_Cha.innerHTML = noi_dung_HTML
-}
-
-function Tao_The_hien_Xoa_Tac_gia(Th_Cha, Danh_sach_Cap_nhat) {
-    var noi_dung_HTML = `
-    <table class="table">
-                <thead>
-                    <tr>
-                        <th>Mã số</th>
-                        <th>Tên</th>
-                        <th>Mô tả</th>
-                    </tr>
-                </thead>
-                <tbody>`
-    Danh_sach_Cap_nhat.forEach(Tac_gia => {
-        noi_dung_HTML += `
-        <tr Ma_so="${Tac_gia.Ma_so}" class="CAP_NHAP">
-            <td scope="row">${Tac_gia.Ma_so}</td>
-            <td>${Tac_gia.Tac_gia}</td>
-            <td>${Tac_gia.Mo_ta_tac_gia}</td>
-        </tr>
-        `
-
-    })
-
-    noi_dung_HTML += `
-                </tbody>
-            </table>
-    `
-    Th_Cha.innerHTML = noi_dung_HTML
-}
-
-
-function Tao_The_hien_Cap_nhat(Th_Cha, Danh_sach_Cap_nhat) {
-    var noi_dung_HTML = `
-    <table class="table">
-                <thead>
-                    <tr>
-                        <th>Tên Sách</th>
-                        <th>Nhóm Sách</th>
-                        <th>Đơn giá Nhập</th>
-                        <th>Đơn giá Bán</th>
-                    </tr>
-                </thead>
-                <tbody>`
-    Danh_sach_Cap_nhat.forEach(Dien_thoai => {
-        var Nhom = Dien_thoai.Nhom_Sach.Ma_so
-        noi_dung_HTML += `
-        <tr Ma_so="${Dien_thoai.Ma_so}" class="CAP_NHAP">
-            <td scope="row"><input type="text" value="${Dien_thoai.Ten}"/></td>
-            <td>
-            <select id="Th_Nhom_Sach">
-                <option value="ANDROID" ${Nhom=='ANDROID'?'selected':''} >ANDROID</option>
-                <option value="IPHONE" ${Nhom=='IPHONE'?'selected':''}  >IPHONE</option>
-            </select>
-            </td>
-            <td><input type="text" value="${Dien_thoai.Don_gia_Nhap}" class="text-right" /></td>
-            <td><input type="text" value="${Dien_thoai.Don_gia_Ban}" class="text-right" /></td>
-        </tr>
-        `
-
-    })
-
-    noi_dung_HTML += `
-                </tbody>
-            </table>
-    `
-    Th_Cha.innerHTML = noi_dung_HTML
-}
-
+//Tạo thể hiện cập nhật Sách
 function Tao_The_hien_Cap_nhat_Sach(Th_Cha,Danh_sach_Cap_nhat){
     var noi_dung_HTML=``
     Danh_sach_Cap_nhat.forEach(Sach=>{
         var Nhom=Sach.Nhom_Sach
     noi_dung_HTML=`
-    <div class="form m-3 p-3 CAP_NHAP" Ma_so="${Sach.Ma_so}">
+    <div class="form col-md-4 CAP_NHAP" Ma_so="${Sach.Ma_so}">
     <div class="form-group">
     <label for="Th_Ten">Tên Sách</label>
     <input type="text" class="form-control" id="Th_Ten" value="${Sach.Ten}" placeholder="Nhập Tên Sách">
@@ -860,8 +547,6 @@ function Tao_The_hien_List_Cap_nhat_The_loai(Th_Nhom_The_loai,Danh_sach_The_loai
         noi_dung_HTML=`<option value="${Sach.Nhom_Sach.Ten_the_loai}">Chọn thể loại mới</option>`
     })
     Danh_sach_The_loai.forEach(The_loai=>{
-        //noi_dung_HTML+=`<option value="${The_loai.Ten_the_loai}" ${Sach.Nhom_Sach.Ten_the_loai=='${The_loai.Ten_the_loai}'?'selected':''}>${The_loai.Ten_the_loai}</option>`
-        
         noi_dung_HTML+=`<option value="${The_loai.Ten_the_loai}">${The_loai.Ten_the_loai}</option>`
     }) 
     Th_Nhom_The_loai.innerHTML=noi_dung_HTML
@@ -874,7 +559,7 @@ function Tao_The_hien_List_Cap_nhat_Tac_gia(Th_Nhom_Tac_gia,Danh_sach_Tac_gia,Da
         noi_dung_HTML=`<option value="${Sach.Nhom_Sach.Tac_gia}">Chọn tác giả mới</option>`
     })
     Danh_sach_Tac_gia.forEach(Tac_gia=>{
-        //noi_dung_HTML+=`<option value="${Tac_gia.Tac_gia}" ${Sach.Nhom_Sach.Tac_gia=='${Tac_gia.Tac_gia}'?'selected':''}>${Tac_gia.Tac_gia}</option>`
+        
         noi_dung_HTML+=`<option value="${Tac_gia.Tac_gia}">${Tac_gia.Tac_gia}</option>`
     
     }) 
@@ -888,40 +573,42 @@ function Tao_The_hien_List_Cap_nhat_Nha_phat_hanh(Th_Nhom_Nha_phat_hanh,Danh_sac
         noi_dung_HTML=`<option value="${Sach.Nhom_Sach.Nha_phat_hanh}">Chọn nhà phát hành mới</option>`
     })
     Danh_sach_Nha_phat_hanh.forEach(Nha_phat_hanh=>{
-        //noi_dung_HTML+=`<option value="${Nha_phat_hanh.Nha_phat_hanh}" ${Sach.Nhom_Sach.Nha_phat_hanh=='${Nha_phat_hanh.Nha_phat_hanh}'?'selected':''}>${Nha_phat_hanh.Nha_phat_hanh}</option>`
+        
         noi_dung_HTML+=`<option value="${Nha_phat_hanh.Nha_phat_hanh}">${Nha_phat_hanh.Nha_phat_hanh}</option>`
     }) 
     Th_Nhom_Nha_phat_hanh.innerHTML=noi_dung_HTML
 }
-
-
-function Tao_The_hien_Cap_nhat_Nha_phat_hanh(Th_Cha, Danh_sach_Cap_nhat) {
-    var noi_dung_HTML = `
+//Tạo thể hiện cập nhật nhà phát hành
+function Tao_The_hien_Cap_nhat_Nha_phat_hanh(Th_Cha,Danh_sach_Cap_nhat){
+    var noi_dung_HTML=`
     <table class="table">
                 <thead>
                     <tr>
                         <th>Mã số</th>
                         <th>Tên</th>
                         <th>Mô tả</th>
+                        
                     </tr>
                 </thead>
                 <tbody>`
-    Danh_sach_Cap_nhat.forEach(Nha_phat_hanh => {
-        noi_dung_HTML += `
+    Danh_sach_Cap_nhat.forEach(Nha_phat_hanh=>{
+        noi_dung_HTML+=`
         <tr Ma_so="${Nha_phat_hanh.Ma_so}" class="CAP_NHAP">
             <td scope="row"><input type="text" value="${Nha_phat_hanh.Ma_so}" readonly/></td>
-            <td><input type="text" value="${Nha_phat_hanh.Nha_phat_hanh}" class="text-right" /></td>
-            <td><input type="text" value="${Nha_phat_hanh.Mo_ta_nha_phat_hanh}" class="text-right" /></td>
+            <td><input type="text" value="${Nha_phat_hanh.Nha_phat_hanh}"  /></td>
+            <td><textarea class="form-control" placeholder="Nhập mô tả">${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</textarea></td>
         </tr>
         `
-    })
-    noi_dung_HTML += `
+    
+    })            
+    
+    noi_dung_HTML+=`
                 </tbody>
             </table>
     `
-    Th_Cha.innerHTML = noi_dung_HTML
+    Th_Cha.innerHTML=noi_dung_HTML
 }
-
+//Tạo thể hiện cập nhật thể loại
 function Tao_The_hien_Cap_nhat_The_loai(Th_Cha, Danh_sach_Cap_nhat) {
     var noi_dung_HTML = `
     <table class="table">
@@ -937,8 +624,9 @@ function Tao_The_hien_Cap_nhat_The_loai(Th_Cha, Danh_sach_Cap_nhat) {
         noi_dung_HTML += `
         <tr Ma_so="${The_loai.Ma_so}" class="CAP_NHAP">
             <td scope="row"><input type="text" value="${The_loai.Ma_so}" readonly/></td>
-            <td><input type="text" value="${The_loai.Ten_the_loai}" class="text-right" /></td>
-            <td><input type="text" value="${The_loai.Mo_ta_the_loai}" class="text-right" /></td>
+            <td><input type="text" value="${The_loai.Ten_the_loai}" /></td>
+            <td><textarea class="form-control" placeholder="Nhập mô tả">${The_loai.Mo_ta_the_loai}</textarea>
+            </td>
         </tr>
         `
     })
@@ -948,7 +636,7 @@ function Tao_The_hien_Cap_nhat_The_loai(Th_Cha, Danh_sach_Cap_nhat) {
     `
     Th_Cha.innerHTML = noi_dung_HTML
 }
-
+//Tạo thể hiện cập nhật tác giả
 function Tao_The_hien_Cap_nhat_Tac_gia(Th_Cha, Danh_sach_Cap_nhat) {
     var noi_dung_HTML = `
     <table class="table">
@@ -964,8 +652,9 @@ function Tao_The_hien_Cap_nhat_Tac_gia(Th_Cha, Danh_sach_Cap_nhat) {
         noi_dung_HTML += `
         <tr Ma_so="${Tac_gia.Ma_so}" class="CAP_NHAP">
             <td scope="row"><input type="text" value="${Tac_gia.Ma_so}" readonly/></td>
-            <td><input type="text" value="${Tac_gia.Tac_gia}" class="text-right" /></td>
-            <td><input type="text" value="${Tac_gia.Mo_ta_tac_gia}" class="text-right" /></td>
+            <td><input type="text" value="${Tac_gia.Tac_gia}"  /></td>
+            <td><textarea class="form-control" placeholder="Nhập mô tả">${Tac_gia.Mo_ta_tac_gia}</textarea>
+            </td>
         </tr>
         `
     })
@@ -976,6 +665,266 @@ function Tao_The_hien_Cap_nhat_Tac_gia(Th_Cha, Danh_sach_Cap_nhat) {
     Th_Cha.innerHTML = noi_dung_HTML
 }
 
+//Tạo thể hiện xóa sách
+function Tao_The_hien_Xoa_Sach(Th_Cha,Danh_sach_Cap_nhat){
+    var noi_dung_HTML=`
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Mã số</th>
+                        <th>Đơn giá Bán</th>
+                        <th>Mô tả</th> 
+                        <th>Thể loại</th>
+                        <th>Tác giả</th>
+                        <th>Nhà phát hành</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Cap_nhat.forEach(Sach=>{
+        var Nhom=Sach.Nhom_Sach
+        noi_dung_HTML+=`
+        <tr Ma_so="${Sach.Ma_so}" class="CAP_NHAP">
+            <td scope="row">${Sach.Ten}</td>
+            <td>${Sach.Ma_so}</td>
+            <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)}đ</td>
+            <td>${Sach.Mo_ta}</td>
+            <td>${Nhom.Ten_the_loai}</td>
+            <td>${Nhom.Tac_gia}</td>
+            <td>${Nhom.Nha_phat_hanh}</td>
+            
+        </tr>
+        `
+    
+    })            
+    
+    noi_dung_HTML+=`
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML=noi_dung_HTML
+}
+//Tạo thể hiện xóa nhà phát hành 
+function Tao_The_hien_Xoa_Nha_phat_hanh(Th_Cha,Danh_sach_Cap_nhat){
+    var noi_dung_HTML=`
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Cap_nhat.forEach(Nha_phat_hanh=>{
+        noi_dung_HTML+=`
+        <tr Ma_so="${Nha_phat_hanh.Ma_so}" class="CAP_NHAP">
+            <td scope="row">${Nha_phat_hanh.Ma_so}</td>
+            <td>${Nha_phat_hanh.Nha_phat_hanh}</td>
+            <td>${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</td>
+        </tr>
+        `
+    
+    })            
+    
+    noi_dung_HTML+=`
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML=noi_dung_HTML
+}
+//Tạo thể hiện xóa thể loại
+function Tao_The_hien_Xoa_The_loai(Th_Cha, Danh_sach_Cap_nhat) {
+    var noi_dung_HTML = `
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Cap_nhat.forEach(The_loai => {
+        noi_dung_HTML += `
+        <tr Ma_so="${The_loai.Ma_so}" class="CAP_NHAP">
+            <td scope="row">${The_loai.Ma_so}</td>
+            <td>${The_loai.Ten_the_loai}</td>
+            <td>${The_loai.Mo_ta_the_loai}</td>
+        </tr>
+        `
+
+    })
+
+    noi_dung_HTML += `
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML = noi_dung_HTML
+}
+//Tạo thể hiện xóa tác giả
+function Tao_The_hien_Xoa_Tac_gia(Th_Cha, Danh_sach_Cap_nhat) {
+    var noi_dung_HTML = `
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Cap_nhat.forEach(Tac_gia => {
+        noi_dung_HTML += `
+        <tr Ma_so="${Tac_gia.Ma_so}" class="CAP_NHAP">
+            <td scope="row">${Tac_gia.Ma_so}</td>
+            <td>${Tac_gia.Tac_gia}</td>
+            <td>${Tac_gia.Mo_ta_tac_gia}</td>
+        </tr>
+        `
+
+    })
+
+    noi_dung_HTML += `
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML = noi_dung_HTML
+}
+
+//Tạo thể hiện phục hồi Sách
+function Tao_The_hien_Phuc_hoi_Sach(Th_Cha,Danh_sach_Phuc_hoi){
+    var noi_dung_HTML=`
+    <table class="table">
+                <thead>
+                    <tr>
+                    <th>Tên</th>
+                    <th>Mã số</th>
+                    <th>Đơn giá Bán</th>
+                    <th >Mô tả</th> 
+                    <th>Thể loại</th>
+                    <th>Tác giả</th>
+                    <th>Nhà phát hành</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Phuc_hoi.forEach(Sach=>{
+        var Nhom=Sach.Nhom_Sach
+        noi_dung_HTML+=`
+        <tr>
+            <td scope="row">${Sach.Ten}</td>
+            <td>${Sach.Ma_so}</td>
+            <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)}đ</td>
+            <td >${Sach.Mo_ta}</td>
+            <td>${Nhom.Ten_the_loai}</td>
+            <td>${Nhom.Tac_gia}</td>
+            <td>${Nhom.Nha_phat_hanh}</td>
+            <td><input type="checkbox" Ma_so="${Sach.Ma_so}" class="PHUC_HOI" /></td>
+        </tr>
+        `
+    
+    })            
+    
+    noi_dung_HTML+=`
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML=noi_dung_HTML
+}
+//Tạo thể hiện phục hồi nhà phát hành
+function Tao_The_hien_Phuc_hoi_Nha_phat_hanh(Th_Cha,Danh_sach_Phuc_hoi){
+    var noi_dung_HTML=`
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Phuc_hoi.forEach(Nha_phat_hanh=>{
+        noi_dung_HTML+=`
+        <tr>
+            <td scope="row">${Nha_phat_hanh.Ma_so}</td>
+            <td>${Nha_phat_hanh.Nha_phat_hanh}</td>
+            <td>${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</td>
+            <td><input type="checkbox" Ma_so="${Nha_phat_hanh.Ma_so}" class="PHUC_HOI" /></td>
+        </tr>
+        `
+    
+    })            
+    
+    noi_dung_HTML+=`
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML=noi_dung_HTML
+}
+
+//Tạo thể hiện phục hồi tác giả
+function Tao_The_hien_Phuc_hoi_Tac_gia(Th_Cha,Danh_sach_Phuc_hoi){
+    var noi_dung_HTML=`
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Phuc_hoi.forEach(Tac_gia=>{
+        noi_dung_HTML+=`
+        <tr>
+            <td scope="row">${Tac_gia.Ma_so}</td>
+            <td>${Tac_gia.Tac_gia}</td>
+            <td>${Tac_gia.Mo_ta_tac_gia}</td>
+            <td><input type="checkbox" Ma_so="${Tac_gia.Ma_so}" class="PHUC_HOI" /></td>
+        </tr>
+        `
+    
+    })            
+    
+    noi_dung_HTML+=`
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML=noi_dung_HTML
+}
+//Tạo thể hiện phục hồi thể loại
+function Tao_The_hien_Phuc_hoi_The_loai(Th_Cha,Danh_sach_Phuc_hoi){
+    var noi_dung_HTML=`
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>`
+    Danh_sach_Phuc_hoi.forEach(The_loai=>{
+        noi_dung_HTML+=`
+        <tr>
+            <td scope="row">${The_loai.Ma_so}</td>
+            <td>${The_loai.Ten_the_loai}</td>
+            <td>${The_loai.Mo_ta_the_loai}</td>
+            <td><input type="checkbox" Ma_so="${The_loai.Ma_so}" class="PHUC_HOI" /></td>
+        </tr>
+        `
+    
+    })            
+    
+    noi_dung_HTML+=`
+                </tbody>
+            </table>
+    `
+    Th_Cha.innerHTML=noi_dung_HTML
+}
+
+
+//Tạo thể hiện danh sách Sách
 function Tao_The_hien_Sach(Sach, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data",JSON.stringify(Sach))
@@ -984,6 +933,7 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
   <img class="card-img-top" src="http://localhost:1001/${Sach.Ma_so}.png" alt="">
   <div class="card-body">
       <h5 class="card-title text-primary">${Sach.Ten}</h5>
+      <h6>Mã số: ${Sach.Ma_so}</h6>
       <p class="card-text text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</p>
       Thể loại: ${Sach.Nhom_Sach.Ten_the_loai}<br>
       Tác giả: ${Sach.Nhom_Sach.Tac_gia}<br>
@@ -993,43 +943,24 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
-
-
+//Tạo thể hiện danh sách nhà phát hành
 function Tao_The_hien_Nha_phat_hanh(Nha_phat_hanh, Th_Cha) {
     var the_hien = document.createElement("div")
-    the_hien.setAttribute("data", JSON.stringify(Nha_phat_hanh))
+    the_hien.setAttribute("data",JSON.stringify(Nha_phat_hanh))
     Th_Cha.appendChild(the_hien)
     var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Nha_phat_hanh.Ma_so}">
   
   <div class="card-body">
-      <h5 class="card-title text-primary"> TÃªn:${Nha_phat_hanh.Nha_phat_hanh}</h5>
-      <p class="card-text text-danger">MÃ´ táº£: ${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</p>
-      MÃ£ sá»‘: ${Nha_phat_hanh.Ma_so}
+      <h5 class="card-title text-primary"> Tên:${Nha_phat_hanh.Nha_phat_hanh}</h5>
+      <p class="card-text text-danger">Mô tả: ${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</p>
+      Mã số: ${Nha_phat_hanh.Ma_so}
   </div>
 </div>
-
 `
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
-
-
-// function Tao_The_hien_Dien_thoai(Dien_thoai, Th_Cha) {
-//     var the_hien = document.createElement("div")
-//     the_hien.setAttribute("data", JSON.stringify(Dien_thoai))
-//     Th_Cha.appendChild(the_hien)
-//     var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Dien_thoai.Ma_so}">
-//   <img class="card-img-top" src="http://localhost:1001/${Dien_thoai.Ma_so}.png" alt="">
-//   <div class="card-body">
-//       <h5 class="card-title text-primary">${Dien_thoai.Ten}</h5>
-//       <p class="card-text text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Dien_thoai.Don_gia_Ban)} đ</p>
-//       Loại nhóm: ${Dien_thoai.Nhom_Sach.Ten}
-//   </div>
-// </div>`
-//     the_hien.innerHTML = Chuoi_HTML;
-//     return the_hien
-// }
-
+//Tạo thể hiện danh sách thể loại
 function Tao_The_hien_The_loai(The_loai, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(The_loai))
@@ -1042,7 +973,7 @@ function Tao_The_hien_The_loai(The_loai, Th_Cha) {
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
-
+//Tạo thể hiện danh sách tác giả
 function Tao_The_hien_Tac_gia(Tac_gia, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(Tac_gia))
@@ -1057,21 +988,31 @@ function Tao_The_hien_Tac_gia(Tac_gia, Th_Cha) {
 }
 
 
-function Tao_The_hien_Dang_nhap(Th_Cha) {
-    var noi_dung_HTML = `<div  style="width:30rem; margin:auto; padding:10px" id="Th_Khung_Dang_nhap" class="table-bordered">
-    <div class="form-group">
-      <label for="Th_Ten_Dang_nhap">Tên đăng nhập</label>
-      <input type="text" class="form-control" id="Th_Ten_Dang_nhap" placeholder="Nhập Tên đăng nhập" value="QL_1">
-    </div>
-    <div class="form-group">
-      <label for="Th_Mat_khau">Mật khẩu</label>
-      <input type="password" class="form-control" id="Th_Mat_khau" placeholder="Nhập mật khẩu" value="QL_1">
-    </div>
-    
-    <button type="button" class="btn btn-primary" id="Th_Dang_nhap">Đăng nhập</button>
-  </div>`
-    Th_Cha.innerHTML = noi_dung_HTML
 
+
+//Thể hiện đăng nhập
+function Tao_The_hien_Dang_nhap(Th_Cha) {
+    var noi_dung_HTML = `
+    
+  <div class="col-md-6">
+  <div class="ibox-content">
+      <form class="m-t" role="form" action="#">
+          <div class="form-group">
+            <label for="Th_Ten_Dang_nhap">Tên đăng nhập</label>
+              <input type="email" class="form-control" id="Th_Ten_Dang_nhap" placeholder="Nhập tên đăng nhập" required="" value="QL_1">
+          </div>
+          <div class="form-group">
+          <label for="Th_Mat_khau">Mật khẩu</label>
+              <input type="password" class="form-control" id="Th_Mat_khau" placeholder="Nhập mật khẩu" required="" value="QL_1">
+          </div>
+          <button type="button" class="btn btn-primary block full-width m-b" id="Th_Dang_nhap">Đăng nhập</button>
+      </form>
+  </div>
+</div>
+
+  
+  `
+    Th_Cha.innerHTML = noi_dung_HTML
 }
 
 //==============================================================================
@@ -1117,6 +1058,8 @@ function Tao_Chuoi_The_hien_So_nguyen_duong(So_nguyen) {
     }
     return Chuoi_The_hien
 }
+
+
 // Xử lý Biến Số thực
 function Nhap_So_thuc_duong(Th_So_thuc) {
     var Kq = {}
@@ -1207,3 +1150,12 @@ function Nhap_Ngay(Th_Ngay) {
 
     return Kq
 }
+
+
+
+
+
+
+
+
+

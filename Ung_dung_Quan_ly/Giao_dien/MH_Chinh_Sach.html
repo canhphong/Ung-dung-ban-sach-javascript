@@ -27,7 +27,6 @@
 
 <body>
     <div class="container-fluid btn" id="Th_Nguoi_dung">
-
     </div>
     <div class="container-fluid btn" id="Th_PET">
 
@@ -56,15 +55,7 @@
             <button type="button" class="btn btn-lg btn-outline-info" id="Th_Phuc_hoi">
                 <i class="fa">Phục hồi Xóa</i>
             </button>
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-lg btn-danger" id="Th_Thong_ke_Nhap_Xuat">
-                    <i class="fa">Thống kê Nhập Xuất</i>
-                </button>
-                
-                <button type="button" class="btn btn-lg btn-danger" id="Th_Thong_ke_Doanh_thu">
-                    <i class="fa">Thống kê Doanh thu</i>
-                </button>
-            </div>
+            
         </div>
 
     </div>
@@ -87,6 +78,7 @@
             window.location = "MH_Dang_nhap.html"
         }
         var Du_lieu = Doc_Danh_sach_Sach();
+
         var Cua_hang = Du_lieu.Cua_hang
         Xuat_Thong_tin_Cua_hang(Cua_hang)
         
@@ -113,7 +105,6 @@
                 </div>`
                 Th_Nguoi_dung.innerHTML = noi_dung_HTML
             }
-
         }
         Th_Trang_chu.onclick = () => {
             var trang = "MH_Danh_sach_Sach.html"
@@ -138,14 +129,7 @@
             var trang = "MH_Phuc_hoi_Sach.html"
             Hien_thi_Trang(trang)
         }
-        Th_Thong_ke_Doanh_thu.onclick=()=>{
-            var trang = "MH_Thong_ke_Doanh_thu.html"
-            Hien_thi_Trang(trang)
-        }
-        Th_Thong_ke_Nhap_Xuat.onclick=()=>{
-            var trang = "MH_Thong_ke_Nhap_Xuat.html"
-            Hien_thi_Trang(trang)
-        }
+        
         
         
         Th_Trang_chu.click()

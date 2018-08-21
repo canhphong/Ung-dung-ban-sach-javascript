@@ -46,6 +46,7 @@
     <script>
         var Du_lieu = Doc_Danh_sach_Tac_gia();
         var Danh_sach_Tac_gia = Du_lieu.Danh_sach_Tac_gia
+        var Danh_sach_Xoa_Tac_gia = Doc_Danh_sach_Xoa_Tac_gia().Danh_sach_Xoa_Tac_gia
         Tao_The_hien_Them_Tac_gia(Th_Cha)
         Th_Nhom_Tac_gia.onchange()
 
@@ -74,6 +75,15 @@
                 var Thanh_phan_con = Tac_gia.Ma_so.trim().split("_")
                 Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[2]))
 
+            })
+            Danh_sach_Xoa_Tac_gia.forEach(Tac_gia => {
+                var Thanh_phan_con = Tac_gia.Ma_so.trim().split("_")
+                Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[2]))
+
+            })
+
+            Danh_sach_Ma_so.sort(function (a, b) {
+                return a - b
             })
 
             var Ma_so_Sau_cung = Danh_sach_Ma_so[Danh_sach_Ma_so.length - 1]
