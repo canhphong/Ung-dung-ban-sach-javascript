@@ -9,9 +9,7 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(Sach))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `
-<!-- giao diện hiển thị -->
-<div class="col-md-3 product-men">
+    var Chuoi_HTML = `<div class="col-md-3 product-men">
     <div class="info-book">
 	<div class="men-pro-item simpleCart_shelfItem">
 		<div class="men-thumb-item">
@@ -19,7 +17,7 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-back img-full">
 			<div class="men-cart-pro">
 				<div class="inner-men-cart-pro">
-					<a href="#" class="link-product-add-cart" data-toggle="modal" data-target="#modelId">Xem nhanh</a>
+					<a href="#" class="link-product-add-cart" data-toggle="modal" data-target="#myModal">Xem nhanh</a>
 				</div>
 			</div>
 			<span class="product-new-top">New</span>
@@ -32,12 +30,12 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
             <h5 class="text-muted"><strong>Thể loại:</strong> ${Sach.Nhom_Sach.Ten_the_loai}</h5>
             <h5 class="text-muted"><strong>Tác giả:</strong> ${Sach.Nhom_Sach.Tac_gia}</h5>
             <h5 class="text-muted"><strong>Nhà phát hành:</strong> ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modelId">Xem chi tiết</button>
-		</div>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Xem chi tiết</button>
+            </div>
     </div>
     </div>
 </div>
-    `
+`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
@@ -48,53 +46,43 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
     Danh_sach_Sach.forEach(Sach => {
         var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
         The_hien.childNodes[0].onclick = () => {
-
-            //The_hien.childNodes[0].classList.toggle("CHON")
-            // var Sach = The_hien.childNodes[0].parentNode.getAttribute("data")
-            // sessionStorage.setItem("giohang", Sach)
-            // window.location = "MH_Gio_hang.html"
-        }
-        The_hien.childNodes[2].onclick = () => {
-            //console.log(The_hien.childNodes[1].parentNode.getAttribute("data"))
-            var Sach_Chon = JSON.parse(The_hien.childNodes[2].parentNode.getAttribute("data"))
-            var noi_dung_HTML =
-                `
-                <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" id="Th_Close" data-dismiss="modal">&times;</button>
-                    <h1 class="modal-title text-success text-center info-book" id="modelTitleId">${Sach_Chon.Ten}</h1>
-                </div>
-                <div class="modal-body">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <img class="img-full" src="http://localhost:1001/${Sach_Chon.Ma_so}.png" />
-                        </div>
-                        <div class="col-md-6">
-                        <h2 class="text-success">Thể loại: ${Sach_Chon.Nhom_Sach.Ten_the_loai}</h2>
-                        <h2 class="text-warning">Nhà xuất bản: ${Sach_Chon.Nhom_Sach.Nha_phat_hanh}</h2>
-                        <h2 class="text-danger">Tác giả: ${Sach_Chon.Nhom_Sach.Tac_gia} </h2>
-                        <h2 class="text-success">Giá bán: <span class="bg-success">${Sach_Chon.Don_gia_Ban}</span> đồng</h2>
-                        <h2 class="text-muted">Mô tả:</h2> <p>${Sach_Chon.Mo_ta}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+          
+            var Sach_Chon = JSON.parse(The_hien.childNodes[0].parentNode.getAttribute("data"))
+            var noi_dung_HTML = `<div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
             
-            <p>modal phong test</p>
-            `
+              <!-- Modal content-->
+              <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" id="Th_Close" data-dismiss="modal">&times;</button>
+                                  <h1 class="modal-title text-success text-center info-book" id="modelTitleId">${Sach_Chon.Ten}</h1>
+                              </div>
+                              <div class="modal-body">
+                                      <div class="row">
+                                      <div class="col-md-6">
+                                          <img class="img-full" src="http://localhost:1001/${Sach_Chon.Ma_so}.png" />
+                                      </div>
+                                      <div class="col-md-6">
+                                      <h4 class="text-success">Thể loại: ${Sach_Chon.Nhom_Sach.Ten_the_loai}</h4>
+                                      <h4 class="text-warning">Nhà xuất bản: ${Sach_Chon.Nhom_Sach.Nha_phat_hanh}</h4>
+                                      <h4 class="text-danger">Tác giả: ${Sach_Chon.Nhom_Sach.Tac_gia} </h4>
+                                      <h4 class="text-success">Giá bán: <span class="bg-success">${Sach_Chon.Don_gia_Ban}</span> đồng</h4>
+                                      <h4 class="text-muted">Mô tả:</h4> <p>${Sach_Chon.Mo_ta}</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <a href="MH_Lien_he.html" target="_blank"><button type="button" class="btn btn-warning">Liên hệ mua sách</button></a>
+                              </div>
+                          </div>
+            </div>
+          </div>`
             Th_Chi_tiet.innerHTML = noi_dung_HTML
-             
+            // Th_Show.click()
         }
     });
-    Th_Thong_bao.innerHTML = `<h4> Cửa hàng có tất cả <span class="text-danger">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
+    Th_Thong_bao.innerHTML = `<h3>Danh sách Sách (${Danh_sach_Sach.length}) </h3>`
 }
-
-
-
 
 function Doc_Danh_sach_Sach() {
     var Du_lieu = {}
