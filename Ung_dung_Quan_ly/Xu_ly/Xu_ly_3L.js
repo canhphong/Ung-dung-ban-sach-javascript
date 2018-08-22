@@ -17,10 +17,10 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 			<span class="product-new-top">New</span>
 		</div>
 		<div class="item-info-product ">
-        <h4 class="">${Sach.Ten}</h4>
-			<div class="info-product-price">
+        <h3 class="text-success">${Sach.Ten}</h3>
+			<h4 class="info-product-price">
 				<span class="item_price">${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</span>
-            </div>
+            </h4>
             <h5 class="text-muted"><strong>Thể loại:</strong> ${Sach.Nhom_Sach.Ten_the_loai}</h5>
             <h5 class="text-muted"><strong>Tác giả:</strong> ${Sach.Nhom_Sach.Tac_gia}</h5>
             <h5 class="text-muted"><strong>Nhà phát hành:</strong> ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
@@ -39,31 +39,11 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
         The_hien.onclick = () => {
             The_hien.childNodes[0].classList.toggle("CHON");
         }
-
     });
-    Th_Thong_bao.innerHTML = `<h3>Danh sách Sách (${Danh_sach_Sach.length}) </h3>`
+    Th_Thong_bao.innerHTML = `<h4 class="text-center">Danh sách Sách (${Danh_sach_Sach.length}) </h4>`
 }
 
-// function Tao_The_hien_Sach(Sach, Th_Cha) {
-//     var the_hien = document.createElement("div")
-//     the_hien.setAttribute("data",JSON.stringify(Sach))
-//     Th_Cha.appendChild(the_hien)
-//     var Chuoi_HTML = `<div class="card m-2 p-2" style="width:20rem" Ma_so="${Sach.Ma_so}">
-//   <img class="card-img-top" src="http://localhost:1001/${Sach.Ma_so}.png" alt="">
-//   <div class="card-body">
-//       <h5 class="card-title text-primary">${Sach.Ten}</h5>
-//       <h6>Mã số: ${Sach.Ma_so}</h6>
-//       <p class="card-text text-danger">Đơn giá Bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</p>
-//       Thể loại: ${Sach.Nhom_Sach.Ten_the_loai}<br>
-//       Tác giả: ${Sach.Nhom_Sach.Tac_gia}<br>
-//       Nhà phát hành: ${Sach.Nhom_Sach.Nha_phat_hanh}
-//   </div>
-// </div>`
-//     the_hien.innerHTML = Chuoi_HTML;
-//     return the_hien
-// }
 
-//========================================
 // Đọc danh sách
 function Doc_Danh_sach_Sach() {
     var Du_lieu = {}
@@ -991,7 +971,7 @@ function Tao_The_hien_Nha_phat_hanh(Nha_phat_hanh, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data",JSON.stringify(Nha_phat_hanh))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="col-md-4 style="width:20rem">
+    var Chuoi_HTML = `<div class="col-md-4">
     <div class="contact-box">
         <div class="col-sm-4">
             <div class="text-center">
@@ -1014,7 +994,7 @@ function Tao_The_hien_The_loai(The_loai, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(The_loai))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="col-md-4 style="width:20rem">
+    var Chuoi_HTML = `<div class="col-md-4">
     <div class="contact-box">
         <div class="col-sm-4">
             <div class="text-center">
@@ -1037,7 +1017,7 @@ function Tao_The_hien_Tac_gia(Tac_gia, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(Tac_gia))
     Th_Cha.appendChild(the_hien)
-    var Chuoi_HTML = `<div class="col-md-4 style="width:20rem">
+    var Chuoi_HTML = `<div class="col-md-4">
     <div class="contact-box">
         <div class="col-sm-4">
             <div class="text-center">

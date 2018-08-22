@@ -12,8 +12,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Elite Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -25,165 +23,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!--//tags -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 	<link href="css/style_client.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/my_custom.css">
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
-    <style>
-            .CHON {
-               border: 2px solid red;
-               opacity: 0.5;
-           }
-           </style>
+	<style>
+		.CHON {
+			opacity: 0.2;
+			filter: alpha(opacity=20);
+			/*IE 5-7*/
+		}
+	</style>
 </head>
+
 <body>
-	<!-- header -->
-
-	<!--/grids-->
-
-	<!-- /new_arrivals -->
-	<div class="new_arrivals_agile_w3ls_info">
-		<div class="container">
-			<h3 class="wthree_text_info">Quản lý
-				<span>Sách</span>
-			</h3>
-			<div id="horizontalTab">
-				<ul class="resp-tabs-list">
-					<li>Tất cả</li>
-					<li>Thể loại
-						<select class="btn btn-outline-danger" onclick="Xuat_Sach_theo_The_loai(this.value)">
-							<option value="khoahoc">Khoa học</option>
-							<option value="thethao">Thể thao</option>
-							<option value="thieunhi">Thiếu nhi</option>
-							<option value="tinhcam">Tình cảm</option>
-							<option value="vanhoc">Văn học</option>
-						</select>
-					</li>
-					<li>Tác giả
-						<select class="btn btn-outline-danger" onclick="Xuat_Sach_theo_Tac_gia(this.value)">
-							<option value="ngoctrinh">Ngọc Trinh</option>
-							<option value="kimdung">Kim Dung</option>
-							<option value="nguyenanh">Nguyễn Ánh</option>
-							<option value="tohuu">Tố Hữu</option>
-							<option value="quoctuan">Quốc Tuấn</option>
-						</select>
-					</li>
-					<li>Nhà phát hành
-						<select class="btn btn-outline-danger" onclick="Xuat_Sach_theo_NPH(this.value)">
-							<option value="kimdong">Kim Đồng</option>
-							<option value="nxbtre">Nhà Xuất Bản Trẻ</option>
-							<option value="fahasha">FAHASHA</option>
-							<option value="nxbvannghe">Nhà Xuất Bản Văn Nghệ</option>
-							<option value="nxbvanhoc">Nhà Xuất Bản Văn Học</option>
-						</select>
-					</li>
-				</ul>
-				<div class="resp-tabs-container">
-					<!--/tab_one-->
-					<div class="tab1">
-						<!-- giao dien chuan -->
-						<div class="container">
-							<div class="row">
-								<div id="Th_Thong_bao">
-									KHUNG THÔNG BÁO
-								</div>
-							</div>
-							<div class="row">
-								<div class="btn">
-									<input placeholder="Bạn muốn tìm sách gì ?" type="text" class="btn btn-outline-danger" onkeyup="KeyCode(event)" style="width:20rem"
-									    id="Th_Gia_tri_Tim">
-									<i class="fa fa-search mr-3" id="Th_Tim"></i>
-								</div>
-								<div class="btn">
-									<select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
-										<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
-										<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
-										<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
-										<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
-									</select>
-								</div>
-								<button type="button" class="btn btn-outline" id="Th_Tang" onclick="Sap_Tang()">
-									<i class="fa fa-sort-alpha-asc"></i>
-								</button>
-								<button type="button" class="btn btn-outline" id="Th_Giam" onclick="Sap_Giam()">
-									<i class="fa fa-sort-alpha-desc"></i>
-								</button>
-							</div>
-						</div>
-						<div class="container">
-							<div class="row" id="Th_Cha"></div>
-						</div>
-
-						<div class="modal fade" id="modelId" role="dialog" aria-labelledby="modelTitleId">
-								<div class="modal-dialog">
-									<div class="modal-content" id="Th_Chi_tiet">
-									</div>
-								</div>
-						</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<input placeholder="Bạn muốn tìm sách gì ?" type="text" class="btn btn-outline-danger" onkeyup="KeyCode(event)" style="width:20rem"
+				    id="Th_Gia_tri_Tim">
+				<i class="fa fa-search" id="Th_Tim"></i>
+			</div>
 			
-							<button type="button" style="display:none" id="Th_Show" data-toggle="modal" data-target="#modelId">
-								Show
-							</button>
-
-						<!-- Modal -->
-						<!-- <div class="modal fade" id="myModal" role="dialog">
-							<div class="modal-dialog">
-							
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Modal Header</h4>
-									</div>
-									<div class="modal-body">
-										<div id="Th_Chi_tiet"></div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									</div>
-								</div>
-							</div>
-						</div> -->
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<!--//tab_one-->
-			<div class="tab2">
-
-			</div>
-			<!--/tab_2-->
-
-			<!--//tab_2-->
+			<div class="col-md-6">
+					<select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
+						<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
+						<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
+						<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
+						<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
+					</select>
+				<button class="btn btn-primary" type="button" id="Th_Tang" onclick="Sap_Tang()">
+						<i class="fa fa-sort-alpha-asc">&nbsp;Sắp tăng</i>
+				<button class="btn btn-primary" type="button" id="Th_Giam" onclick="Sap_Giam()">
+						<i class="fa fa-sort-alpha-desc">&nbsp;Sắp giảm</i>
+						</div>
+		
+			
 		</div>
 	</div>
+	<div class="container-fluid">
+		<div id="Th_Thong_bao">
+			KHUNG THÔNG BÁO
+		</div>
+		<div class="row" id="Th_Cha"></div>
 	</div>
 	</div>
-	<!-- //new_arrivals -->
+	</div>
 
-	<a href="#home" class="scroll" id="toTop" style="display: block;">
-		<span id="toTopHover" style="opacity: 1;"> </span>
-	</a>
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
 	<script src="js/modernizr.custom.js"></script>
 	<!-- Custom-JavaScript-File-Links -->
-
-	<!-- cart-js -->
-	<!-- <script src="js/minicart.min.js"></script> -->
-
-	<!-- <script>
-		// Mini Cart
-		paypal.minicart.render({
-			action: '#'
-		});
-
-		if (~window.location.search.indexOf('reset=true')) {
-			paypal.minicart.reset();
-		}
-	</script> -->
-
-	<!-- //cart-js -->
 	<!-- script for responsive tabs -->
 
 	<script src="js/easy-responsive-tabs.js"></script>
@@ -255,29 +145,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script src="../Xu_ly/Xu_ly_3L.js"></script>
 	<script>
-        var Du_lieu = Doc_Danh_sach_Sach();
-        var Danh_sach_Sach = Du_lieu.Danh_sach_Sach
-        // var Cua_hang = Du_lieu.Cua_hang
+		var Du_lieu = Doc_Danh_sach_Sach();
+		var Danh_sach_Sach = Du_lieu.Danh_sach_Sach
+		// var Cua_hang = Du_lieu.Cua_hang
 
-        if (Danh_sach_Sach.length > 0) {
-            Danh_sach_Sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
-            Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
-        }
-        else {
-            Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
-        }
+		if (Danh_sach_Sach.length > 0) {
+			Danh_sach_Sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
+			Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
+		} else {
+			Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
+		}
 
 		function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
-		Th_Cha.innerHTML = ""
-		Danh_sach_Sach.forEach(Sach => {
-			var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
-			The_hien.onclick = () => {
-				The_hien.childNodes[0].classList.toggle("CHON");
-			}
+			Th_Cha.innerHTML = ""
+			Danh_sach_Sach.forEach(Sach => {
+				var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
+				The_hien.onclick = () => {
+					The_hien.childNodes[0].classList.toggle("CHON");
+				}
 
-		});
-		Th_Thong_bao.innerHTML = `<h3>Danh sách Sách (${Danh_sach_Sach.length}) </h3>`
-	}
+			});
+			Th_Thong_bao.innerHTML = `<h4 class="text-center">Danh sách có tất cả <span style="color:red">${Danh_sach_Sach.length}</span> cuốn sách</h5>`
+		}
 
 		Th_Tim.onclick = () => {
 			var gtTim = Th_Gia_tri_Tim.value;
@@ -294,8 +183,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			}
 		}
 
-
-
 		function Xuat_Sach_theo_Don_gia(chuoi_dieu_kien) {
 			var Thanh_phan_con = chuoi_dieu_kien.split('-')
 			if (Thanh_phan_con.length > 0) {
@@ -304,102 +191,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					Thanh_phan_con[0] &&
 					x.Don_gia_Ban <= Thanh_phan_con[1])
 				Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Gia, Th_Thong_bao)
-			}
-		}
-
-		function Xuat_Sach_theo_The_loai(theloai) {
-			switch (theloai) {
-				case 'khoahoc':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-						"Khoa học")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'thethao':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-						"Thể thao")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'thieunhi':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-						"Thiếu nhi")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'tinhcam':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-						"Tình cảm")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'vanhoc':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-						"Văn học")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				default:
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-			}
-		}
-
-		function Xuat_Sach_theo_Tac_gia(tacgia) {
-			switch (tacgia) {
-				case 'ngoctrinh':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-						"Ngọc Trinh")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'kimdung':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-						"Kim Dung")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'nguyenanh':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-						"Nguyễn Ánh")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'tohuu':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-						"Tố Hữu")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'quoctuan':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-						"Quốc Tuấn")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				default:
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-			}
-		}
-
-		function Xuat_Sach_theo_NPH(nhaphathanh) {
-			switch (nhaphathanh) {
-				case 'kimdong':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-						"Kim Đồng")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'nxbtre':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-						"NXB Trẻ")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'fahasha':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-						"Fahasha")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'nxbvannghe':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-						"NXB Văn Nghệ")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				case 'nxbvanhoc':
-					var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-						"NXB Văn Học")
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-					break;
-				default:
-					Xuat_Danh_Sach_Tong(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
 			}
 		}
 
