@@ -4,13 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUẢN LÝ THỂ LOẠI</title>
-
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
     <style>
         #Khung_Chuc_nang {
             width: 100%;
@@ -22,84 +19,88 @@
 </head>
 
 <body class="">
-    <div id="wrapper">
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav metismenu" id="side-menu">
-                    <li class="nav-header">
-                        <div id="Th_Nguoi_dung"></div>  
-                    </li>
-                    <li><a href="MH_Chinh_Sach_Admin.html"><i class="fa fa-book"></i><span class="nav-label">TRANG CHỦ SÁCH</span></a></li>
-                    <li><a href="MH_Chinh_The_loai_Admin.html"><i class="fa fa-list-alt"></i><span class="nav-label">TRANG CHỦ THỂ LOẠI</span></a></li>
-                    <li><a href="MH_Chinh_Tac_gia_Admin.html"><i class="fa fa-user"></i><span class="nav-label">TRANG CHỦ TÁC GIẢ</span></a></li>
-                    <li><a href="MH_Chinh_Nha_phat_hanh_Admin.html"><i class="fa fa-car"></i><span class="nav-label">TRANG CHỦ NHÀ PHÁT HÀNH</span></a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <div id="page-wrapper" class="gray-bg">
-        <div class="row border-bottom">
-        <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" action="http://webapplayers.com/inspinia_admin-v2.7.1/search_results.html">
-                <div class="form-group">
-                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                </div>
-            </form>
-        </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                   
-                    <span class="m-r-sm text-muted welcome-message"><i class="fa fa-bell"></i>Chào mừng bạn đến với trang Quản lý</span>
-                </li>
-                <li>
-                        <button type="button" class="btn btn-outline-danger" id="Th_Thoat" onclick="XL_Thoat_Dang_nhap()">
-                                <i class="fa fa-sign-out"></i>
-                            </button>
-                </li>
-            </ul>
-
-        </nav>
-        </div>
-            <div class="row wrapper border-bottom white-bg page-heading">
-                    <button type="button" class="btn btn-lg btn-outline-info" id="Th_Trang_chu">
-                            <i class="fa fa-home"></i>
-                    </button>
-            
-                        <button type="button" class="btn btn-lg btn-outline-info" id="Th_Them">
-                            <i class="fa">Thêm</i>
-                        </button>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-lg btn-outline-warning" id="Th_Sua">
-                                <i class="fa">Sửa</i>
-                            </button>
-                            <button type="button" class="btn btn-lg btn-outline-warning" id="Th_Xoa">
-                                <i class="fa">Xóa</i>
-                            </button>
-                            
-                        </div>
-                        <button type="button" class="btn btn-lg btn-outline-info" id="Th_Phuc_hoi">
-                            <i class="fa">Phục hồi Xóa</i>
-                        </button>
-            </div>
-
-            <div class="wrapper wrapper-content">
-                    <div class="container-fluid">
-                            <iframe id="Khung_Chuc_nang"></iframe>
+        <div id="wrapper">
+                <nav class="navbar-default navbar-static-side" role="navigation">
+                    <div class="sidebar-collapse">
+                        <ul class="nav metismenu" id="side-menu">
+                            <li class="nav-header">
+                                <div id="Th_Nguoi_dung"></div>
+                            </li>
+                            <li>
+                                <a href="MH_Chinh_Sach_Admin.html">
+                                    <i class="fa fa-book"></i>
+                                    <span class="nav-label">TRANG CHỦ SÁCH</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="MH_Chinh_The_loai_Admin.html">
+                                    <i class="fa fa-list-alt"></i>
+                                    <span class="nav-label">TRANG CHỦ THỂ LOẠI</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="MH_Chinh_Tac_gia_Admin.html">
+                                    <i class="fa fa-user"></i>
+                                    <span class="nav-label">TRANG CHỦ TÁC GIẢ</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="MH_Chinh_Nha_phat_hanh_Admin.html">
+                                    <i class="fa fa-car"></i>
+                                    <span class="nav-label">TRANG CHỦ NHÀ PHÁT HÀNH</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-            </div>
-            <div class="footer">
-                <div class="pull-right">
-                    10GB of <strong>250GB</strong> Free.
+                </nav>
+                <div id="page-wrapper" class="gray-bg">
+                    <div class="row border-bottom">
+                        <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+                            <div class="navbar-header">
+                                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                            <ul class="nav navbar-top-links navbar-right">
+                                <li>
+                                    <span class="m-r-sm text-muted welcome-message">
+                                        <i class="fa fa-bell"></i> Chào mừng bạn đến với trang Quản lý</span>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-outline-danger" id="Th_Thoat" onclick="XL_Thoat_Dang_nhap()">
+                                        <i class="fa fa-sign-out"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <button class="btn btn-success dim" type="button" id="Th_Trang_chu">
+                                <i class="fa fa-home"></i>&nbsp;Home</button>
+                            <button class="btn btn-info dim" type="button" id="Th_Them">
+                                <i class="fa fa-plus"></i>&nbsp;Thêm</button>
+                            <button class="btn btn-warning dim" type="button" id="Th_Sua">
+                                <i class="fa fa-edit"></i>&nbsp;Sửa</button>
+                            <button class="btn btn-danger dim" type="button" id="Th_Xoa">
+                                <i class="fa fa-trash"></i>&nbsp;Xoá</button>
+                            <button class="btn btn-primary dim" type="button" id="Th_Phuc_hoi">
+                                <i class="fa fa-undo"></i>&nbsp;Phục hồi</button>
+                        </div>
+                    </div>
+        
+                    <div class="wrapper wrapper-content">
+                        <div class="container-fluid">
+                            <iframe id="Khung_Chuc_nang"></iframe>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div>
+                            <strong>Trang quản trị sách Admin | 2018</strong>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <strong>Copyright</strong> Example Company &copy; 2014-2017
-                </div>
             </div>
-
-        </div>
-        </div>
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -138,9 +139,6 @@
                              </span>
                        
                        <span class="block m-t-xs"> <strong class="font-bold text-white">Chào  ${Kq.Nhom_Nguoi_dung.Ten} ${Kq.Ten}</strong>
-                                <button type="button" class="btn btn-outline-danger" id="Th_Thoat" onclick="XL_Thoat_Dang_nhap()">
-                                    <i class="fa fa-sign-out"></i>
-                                </button>
                                 </span>     
                     </div>
                     `
@@ -171,12 +169,8 @@
                 var trang = "MH_Phuc_hoi_The_loai_Admin.html"
                 Hien_thi_Trang(trang)
             }
-            
-            
-            
+
             Th_Trang_chu.click()
-            
-            
             function Hien_thi_Trang(trang_hien_thi) {
                 Khung_Chuc_nang.src = trang_hien_thi
             }
@@ -196,11 +190,6 @@
                     Hien_thi_Trang(trang_hien_thi)
                 }
             }
-    
-    
-    
-    
-    
         </script>
 </body>
 </html>

@@ -38,26 +38,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<input placeholder="Bạn muốn tìm sách gì ?" type="text" class="btn btn-outline-danger" onkeyup="KeyCode(event)" style="width:20rem"
 				    id="Th_Gia_tri_Tim">
 				<i class="fa fa-search" id="Th_Tim"></i>
-			</div>
-			
-			<div class="col-md-6">
-					<select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
-						<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
-						<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
-						<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
-						<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
-					</select>
+				<select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
+					<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
+					<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
+					<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
+					<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
+				</select>
 				<button class="btn btn-primary" type="button" id="Th_Tang" onclick="Sap_Tang()">
-						<i class="fa fa-sort-alpha-asc">&nbsp;Sắp tăng</i>
+					<i class="fa fa-sort-alpha-asc">&nbsp;Sắp tăng</i>
 				<button class="btn btn-primary" type="button" id="Th_Giam" onclick="Sap_Giam()">
-						<i class="fa fa-sort-alpha-desc">&nbsp;Sắp giảm</i>
-						</div>
-		
-			
+					<i class="fa fa-sort-alpha-desc">&nbsp;Sắp giảm</i>
 		</div>
 	</div>
 	<div class="container-fluid">
@@ -165,7 +159,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				}
 
 			});
-			Th_Thong_bao.innerHTML = `<h4 class="text-center">Danh sách có tất cả <span style="color:red">${Danh_sach_Sach.length}</span> cuốn sách</h5>`
+			Th_Thong_bao.innerHTML =
+				`<h4 class="text-center">Danh sách có tất cả <span style="color:red">${Danh_sach_Sach.length}</span> cuốn sách</h5>`
 		}
 
 		Th_Tim.onclick = () => {
