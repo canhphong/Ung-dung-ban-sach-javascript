@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 
 <head>
-	<title>Elite Shoppy</title>
+	<title>Danh sách Sách</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,10 +22,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		}
 	</script>
 	<!--//tags -->
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style_client.css" rel="stylesheet" type="text/css" media="all" />
 	<link rel="stylesheet" href="css/my_custom.css">
 	<link href="css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/my_custom.css">
 	<style>
 		.CHON {
 			opacity: 0.2;
@@ -39,18 +40,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<input placeholder="Bạn muốn tìm sách gì ?" type="text" class="btn btn-outline-danger" onkeyup="KeyCode(event)" style="width:20rem"
-				    id="Th_Gia_tri_Tim">
+				<input placeholder="Bạn muốn tìm sách gì ?" type="text" onkeyup="KeyCode(event)" id="Th_Gia_tri_Tim">
 				<i class="fa fa-search" id="Th_Tim"></i>
-				<select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
+				<select class="btn btn-success" style="margin-left: 10px;" onchange="Xuat_Sach_theo_Don_gia(this.value)">
 					<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
 					<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
 					<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
 					<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
 				</select>
-				<button class="btn btn-primary" type="button" id="Th_Tang" onclick="Sap_Tang()">
+				<button class="btn btn-primary" style="margin-left: 5px;" id="Th_Tang" onclick="Sap_Tang()">
 					<i class="fa fa-sort-alpha-asc">&nbsp;Sắp tăng</i>
-				<button class="btn btn-primary" type="button" id="Th_Giam" onclick="Sap_Giam()">
+				<button class="btn btn-primary" style="margin-left:5px;"  id="Th_Giam" onclick="Sap_Giam()">
 					<i class="fa fa-sort-alpha-desc">&nbsp;Sắp giảm</i>
 		</div>
 	</div>
@@ -71,28 +71,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- script for responsive tabs -->
 
 	<script src="js/easy-responsive-tabs.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('#horizontalTab').easyResponsiveTabs({
-				type: 'default', //Types: default, vertical, accordion           
-				width: 'auto', //auto or any width like 600px
-				fit: true, // 100% fit in a container
-				closed: 'accordion', // Start closed if in accordion view
-				activate: function (event) { // Callback function if tab is switched
-					var $tab = $(this);
-					var $info = $('#tabInfo');
-					var $name = $('span', $info);
-					$name.text($tab.text());
-					$info.show();
-				}
-			});
-			$('#verticalTab').easyResponsiveTabs({
-				type: 'vertical',
-				width: 'auto',
-				fit: true
-			});
-		});
-	</script>
 	<!-- //script for responsive tabs -->
 	<!-- stats -->
 	<script src="js/jquery.waypoints.min.js"></script>
@@ -114,26 +92,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 	</script>
-	<!-- here stars scrolling icon -->
-	<script type="text/javascript">
-		$(document).ready(function () {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
-
-		});
-	</script>
-	<!-- //here ends scrolling icon -->
-
 
 	<!-- for bootstrap working -->
 	<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -160,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 			});
 			Th_Thong_bao.innerHTML =
-				`<h4 class="text-center">Danh sách có tất cả <span style="color:red">${Danh_sach_Sach.length}</span> cuốn sách</h5>`
+				`<h2 class="alert alert-success book-mt10 text-center">Danh sách có tất cả <span style="color:red">${Danh_sach_Sach.length}</span> cuốn sách</h2>`
 		}
 
 		Th_Tim.onclick = () => {

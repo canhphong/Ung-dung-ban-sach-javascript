@@ -2,26 +2,29 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
+    <title>Sách</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="css/my_custom.css">
 </head>
 
 <body>
     <div class="container">
+        <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
                 Đồng ý
             </button>
             <button type="button" class="btn btn-danger" id="Th_Bo_qua">
                 Bỏ qua
             </button>
+        </div>
     </div>
+
     <div class="container">
-        <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
             THÊM SÁCH
         </div>
     </div>
@@ -44,24 +47,6 @@
         Tao_The_hien_List_The_loai(Th_Nhom_The_loai,Danh_sach_The_loai)
         Tao_The_hien_List_Tac_gia(Th_Nhom_Tac_gia,Danh_sach_Tac_gia)
         Tao_The_hien_List_Nha_phat_hanh(Th_Nhom_Nha_phat_hanh,Danh_sach_Nha_phat_hanh)
-
-
-        // function XL_Ghi_Media() {
-
-        //     // //console.log(Th_file.files[0])
-        //     var reader = new FileReader()
-        //     var Chuoi_nhi_phan = ""
-        //     var Ten = "temp.png"
-        //     var Kq = ""
-        //     reader.onload = function (e) {
-        //         Chuoi_nhi_phan = e.target.result;
-        //         var Doi_tuong = { "Ten": Ten, "Chuoi_nhi_phan": Chuoi_nhi_phan }
-        //         Kq = Ghi_Media(Doi_tuong)
-        //     }
-        //     reader.readAsDataURL(Th_file.files[0])
-        //     return Kq
-        // }
-        // Xử lý lấy Ma_so
         
 
         function Lay_Ma_so_cuoi_Sach() {

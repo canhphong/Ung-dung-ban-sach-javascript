@@ -13,7 +13,7 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-front img-full">
 			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-back img-full">
 		
-			<span class="product-new-top">New</span>
+			<span class="product-new-top">Sách</span>
 		</div>
 		<div class="item-info-product ">
         <h3 class="text-success">${Sach.Ten}</h3>
@@ -409,28 +409,24 @@ function Tao_The_hien_Them_Sach(Th_Cha) {
         
         <div class="form-group">
             <label for="Th_Nhom_The_loai">Thể loại</label>
-            <select id="Th_Nhom_The_loai" >
+            <select id="Th_Nhom_The_loai" class="btn btn-success">
         
             </select>
             </div>
         <div class="form-group">
-            <label for="Th_Nhom_Tac_gia">Tác giả</label>
-            <select id="Th_Nhom_Tac_gia" >
+            <label for="Th_Nhom_Tac_gia" >Tác giả</label>
+            <select id="Th_Nhom_Tac_gia" class="btn btn-warning">
         
             </select>
             </div>
             <div class="form-group">
-                <label for="Th_Nhom_Nha_phat_hanh">Nhà phát hành</label>
-                <select id="Th_Nhom_Nha_phat_hanh" >
-            
+                <label for="Th_Nhom_Nha_phat_hanh" >Nhà phát hành</label>
+                <select id="Th_Nhom_Nha_phat_hanh" class="btn btn-primary">
                 </select>
                 </div>
-                
-                
-                
                 <div class="form-group">
                     <label for="Th_file">Chọn hình</label>
-                    <input id="Th_file" type="file" onchange="Xem_truoc_Media()" accept="image/png" />
+                    <input id="Th_file" type="file" onchange="Xem_truoc_Media()" accept="image/png" class="btn btn-success"/>
                     <img id="Th_Hinh_Xem_truoc" style="width:10rem" />
                 </div>
                 </div>

@@ -2,34 +2,30 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
+    <title>Sách</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="css/my_custom.css">
 </head>
 
 <body>
-    <div class="container-fluid btn">
-        <div class="float-left">
+    <div class="container">
+        <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
                 Đồng ý
             </button>
-
             <button type="button" class="btn btn-danger" id="Th_Bo_qua">
                 Bỏ qua
             </button>
-
-
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
-            XÓA THỂ LOẠI
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+           XOÁ
         </div>
     </div>
     <div class="container-fluid">
@@ -64,11 +60,8 @@
                 Danh_sach.push(The_loai_Xoa)
             })
 
-            //console.log(Danh_sach)
-            // Ghi Sửa  Điện thoai
             var Kq = Ghi_Xoa_The_loai(Danh_sach)
             return Kq
-            
         }
 
         Th_Dong_y.onclick = () => {

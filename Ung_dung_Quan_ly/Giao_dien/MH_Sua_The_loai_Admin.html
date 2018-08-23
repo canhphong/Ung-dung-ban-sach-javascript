@@ -2,49 +2,38 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
+    <title>Sách</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="css/my_custom.css">
 </head>
 
 <body>
-    <div class="container-fluid btn">
-        <div class="float-left">
+    <div class="container">
+        <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
                 Đồng ý
             </button>
-
             <button type="button" class="btn btn-danger" id="Th_Bo_qua">
                 Bỏ qua
             </button>
-
-
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
-            CẬP NHẬT THỂ LOẠI
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            SỬA THỂ LOẠI
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row" id="Th_Cha">
 
         </div>
     </div>
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
     <script src="../Xu_ly/Xu_ly_3L.js"></script>
     <script>
         Danh_sach_Cap_nhat = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"))
@@ -78,8 +67,7 @@
                 //console.log(Dien_thoai_Cap_nhat)
                 Danh_sach.push(The_loai_Cap_nhat)
             })
-            //console.log(Danh_sach)
-            // Ghi Sửa  Điện thoai
+
             var Kq = Ghi_Cap_nhap_The_loai(Danh_sach)
             return Kq
         }
