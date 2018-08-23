@@ -19,42 +19,36 @@
             border: none;
             overflow: hidden;
         }
+
         .CHON {
             opacity: 0.5;
         }
     </style>
 </head>
+
 <body class="">
-                <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">KHUNG THÔNG BÁO</div>
-          
-            <div class="container-fluid">
-                    <div class="row" id="Th_Cha"></div>
-            </div>
+    <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">KHUNG THÔNG BÁO</div>
+
+    <div class="container-fluid">
+        <div class="row" id="Th_Cha"></div>
+    </div>
 
 
     <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-    <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
     <script src="../Xu_ly/Xu_ly_3L.js"></script>
 
     <script>
-
-    var Du_lieu = Doc_Danh_sach_Nha_phat_hanh();
+        var Du_lieu = Doc_Danh_sach_Nha_phat_hanh();
         var Danh_sach_Nha_phat_hanh = Du_lieu.Danh_sach_Nha_phat_hanh
-        
+
         //var Cua_hang = Du_lieu.Cua_hang
 
         if (Danh_sach_Nha_phat_hanh.length > 0) {
             Danh_sach_Nha_phat_hanh.sort((a, b) => a.Nha_phat_hanh.localeCompare(b.Nha_phat_hanh))
             Xuat_Danh_sach(Danh_sach_Nha_phat_hanh, Th_Thong_bao)
-        }
-        else {
+        } else {
             Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
         }
 
@@ -66,9 +60,10 @@
                     The_hien.childNodes[0].classList.toggle("CHON")
                 }
             });
-            Th_Thong_bao.innerHTML = `<h2 class"book-notification" style="color:white">Danh sách có ${Danh_sach_Nha_phat_hanh.length} Nhà phát hành</h2>`
+            Th_Thong_bao.innerHTML =
+                `<h2 class"book-notification" style="color:white">Danh sách có ${Danh_sach_Nha_phat_hanh.length} Nhà phát hành</h2>`
         }
-          
     </script>
 </body>
+
 </html>

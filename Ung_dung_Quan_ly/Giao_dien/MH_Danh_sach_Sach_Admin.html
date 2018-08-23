@@ -21,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<!--//tags -->
+
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style_client.css" rel="stylesheet" type="text/css" media="all" />
 	<link rel="stylesheet" href="css/my_custom.css">
@@ -37,70 +37,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-4 col-xs-12 book-mt10">
 				<input placeholder="Bạn muốn tìm sách gì ?" type="text" onkeyup="KeyCode(event)" id="Th_Gia_tri_Tim">
 				<i class="fa fa-search" id="Th_Tim"></i>
-				<select class="btn btn-success" style="margin-left: 10px;" onchange="Xuat_Sach_theo_Don_gia(this.value)">
-					<option value="0-50000000">Lọc Điện thoại theo Đơn giá Bán</option>
-					<option value="0-200000">Đơn giá Bán dưới 2 triệu </option>
-					<option value="200000-400000">Đơn giá Bán lớn 2 triệu và nhỏ 4 triệu </option>
-					<option value="400000-900000">Đơn giá Bán lớn 4 triệu </option>
+			</div>
+			<div class="col-md-8 col-xs-12 book-mt10">
+				<select class="btn btn-success" onchange="Xuat_Sach_theo_Don_gia(this.value)">
+					<option value="0-900000">Lọc Sách theo Đơn giá Bán</option>
+					<option value="0-200000">Giá dưới 200.000</option>
+					<option value="200000-400000">Giá lớn từ 200.000 đến 400.000</option>
+					<option value="400000-900000">Giá từ 400.000 đến 900.000</option>
 				</select>
 				<button class="btn btn-primary" style="margin-left: 5px;" id="Th_Tang" onclick="Sap_Tang()">
 					<i class="fa fa-sort-alpha-asc">&nbsp;Sắp tăng</i>
-				<button class="btn btn-primary" style="margin-left:5px;"  id="Th_Giam" onclick="Sap_Giam()">
-					<i class="fa fa-sort-alpha-desc">&nbsp;Sắp giảm</i>
+					<button class="btn btn-primary" style="margin-left:5px;" id="Th_Giam" onclick="Sap_Giam()">
+						<i class="fa fa-sort-alpha-desc">&nbsp;Sắp giảm</i>
+			</div>
 		</div>
 	</div>
-	<div class="container-fluid">
-		<div id="Th_Thong_bao">
-			KHUNG THÔNG BÁO
-		</div>
+	<div class="container">
+		<div id="Th_Thong_bao"></div>
 		<div class="row" id="Th_Cha"></div>
 	</div>
 	</div>
 	</div>
 
-	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<!-- //js -->
-	<script src="js/modernizr.custom.js"></script>
-	<!-- Custom-JavaScript-File-Links -->
-	<!-- script for responsive tabs -->
-
-	<script src="js/easy-responsive-tabs.js"></script>
-	<!-- //script for responsive tabs -->
-	<!-- stats -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.countup.js"></script>
-	<script>
-		$('.counter').countUp();
-	</script>
-	<!-- //stats -->
-	<!-- start-smoth-scrolling -->
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function ($) {
-			$(".scroll").click(function (event) {
-				event.preventDefault();
-				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top
-				}, 1000);
-			});
-		});
-	</script>
-
-	<!-- for bootstrap working -->
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script src="../Xu_ly/Xu_ly_3L.js"></script>
 	<script>
 		var Du_lieu = Doc_Danh_sach_Sach();
 		var Danh_sach_Sach = Du_lieu.Danh_sach_Sach
-		// var Cua_hang = Du_lieu.Cua_hang
-
 		if (Danh_sach_Sach.length > 0) {
 			Danh_sach_Sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
 			Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)

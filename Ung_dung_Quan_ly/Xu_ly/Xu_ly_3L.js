@@ -16,7 +16,7 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 			<span class="product-new-top">Sách</span>
 		</div>
 		<div class="item-info-product ">
-        <h3 class="text-success">${Sach.Ten}</h3>
+        <h4 class="text-success">${Sach.Ten}</h4>
 			<h4 class="info-product-price">
 				<span class="item_price">${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</span>
             </h4>
