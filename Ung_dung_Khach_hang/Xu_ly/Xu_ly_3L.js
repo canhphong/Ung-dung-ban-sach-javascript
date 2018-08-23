@@ -34,8 +34,7 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
             </div>
     </div>
     </div>
-</div>
-`
+</div>`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
