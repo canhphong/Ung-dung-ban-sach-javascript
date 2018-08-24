@@ -23,7 +23,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
 	<!-- header -->
-	<!-- code header here		 -->
+	<!-- code header here -->
 	<!--/grids-->
 
 	<!-- /new_arrivals -->
@@ -32,87 +32,77 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h3 class="wthree_text_info">Cửa hàng
 				<span>Sách</span>
 			</h3>
-			<div id="horizontalTab">
-				<ul class="resp-tabs-list">
-					<li>Tất cả</li>
-					<li>Thể loại
-						<select class="btn btn-outline-danger" onclick="Xuat_Sach_theo_The_loai(this.value)">
+
+			<div class="container">
+				<div class="row">
+					<div id="Th_Thong_bao">
+						KHUNG THÔNG BÁO
+					</div>
+				</div>
+				<div class="row">
+					<div class="btn">
+						<input placeholder="Bạn muốn tìm sách gì ?" type="text" class="btn btn-outline-danger" onkeyup="KeyCode(event)" style="width:20rem"
+						    id="Th_Gia_tri_Tim">
+						<i class="fa fa-search mr-3" id="Th_Tim"></i>
+					</div>
+					<div class="btn">
+						<select class="btn btn-success" onchange="Xuat_Sach_theo_Don_gia(this.value)">
+							<option value="0-900000">Lọc Sách theo Đơn giá Bán</option>
+							<option value="0-200000">Giá dưới 200.000</option>
+							<option value="200000-400000">Giá lớn từ 200.000 đến 400.000</option>
+							<option value="400000-900000">Giá từ 400.000 đến 900.000</option>
+						</select>
+					</div>
+					<button type="button" class="btn btn-info" id="Th_Tang" onclick="Sap_Tang()">
+						<i class="fa fa-sort-alpha-asc"></i>
+					</button>
+					<button type="button" class="btn btn-info" id="Th_Giam" onclick="Sap_Giam()">
+						<i class="fa fa-sort-alpha-desc"></i>
+					</button>
+				</div>
+				<div class="row book-category">
+					<div class="col-md-4">
+						<span>Thể loại</span>
+						<select class="btn btn-success" onclick="Xuat_Sach_theo_The_loai(this.value)">
 							<option value="khoahoc">Khoa học</option>
 							<option value="thethao">Thể thao</option>
 							<option value="thieunhi">Thiếu nhi</option>
 							<option value="tinhcam">Tình cảm</option>
 							<option value="vanhoc">Văn học</option>
 						</select>
-					</li>
-					<li>Tác giả
-						<select class="btn btn-outline-danger" onclick="Xuat_Sach_theo_Tac_gia(this.value)">
+					</div>
+					<div class="col-md-4">
+						<span>Tác giả</span>
+						<select class="btn btn-warning" onclick="Xuat_Sach_theo_Tac_gia(this.value)">
 							<option value="ngoctrinh">Ngọc Trinh</option>
 							<option value="kimdung">Kim Dung</option>
 							<option value="nguyenanh">Nguyễn Ánh</option>
 							<option value="tohuu">Tố Hữu</option>
 							<option value="quoctuan">Quốc Tuấn</option>
 						</select>
-					</li>
-					<li>Nhà phát hành
-						<select class="btn btn-outline-danger" onclick="Xuat_Sach_theo_NPH(this.value)">
+					</div>
+					<div class="col-md-4">
+						<span>Nhà phát hành</span>
+						<select class="btn btn-danger" onclick="Xuat_Sach_theo_NPH(this.value)">
 							<option value="kimdong">Kim Đồng</option>
 							<option value="nxbtre">Nhà Xuất Bản Trẻ</option>
 							<option value="fahasha">FAHASHA</option>
 							<option value="nxbvannghe">Nhà Xuất Bản Văn Nghệ</option>
 							<option value="nxbvanhoc">Nhà Xuất Bản Văn Học</option>
 						</select>
-					</li>
-				</ul>
-				<div class="resp-tabs-container">
-					<!--/tab_one-->
-					<div class="tab1">
-						<!-- giao dien chuan -->
-						<div class="container">
-							<div class="row">
-								<div id="Th_Thong_bao">
-									KHUNG THÔNG BÁO
-								</div>
-							</div>
-							<div class="row">
-								<div class="btn">
-									<input placeholder="Bạn muốn tìm sách gì ?" type="text" class="btn btn-outline-danger" onkeyup="KeyCode(event)" style="width:20rem"
-									    id="Th_Gia_tri_Tim">
-									<i class="fa fa-search mr-3" id="Th_Tim"></i>
-								</div>
-								<div class="btn">
-									<select class="btn btn-outline-danger" onchange="Xuat_Sach_theo_Don_gia(this.value)">
-										<option value="0-900000">Lọc Sách theo Đơn giá Bán</option>
-										<option value="0-200000">Giá dưới 200.000</option>
-										<option value="200000-400000">Giá lớn từ 200.000 đến 400.000</option>
-										<option value="400000-900000">Giá từ 400.000 đến 900.000</option>
-									</select>
-								</div>
-								<button type="button" class="btn btn-outline" id="Th_Tang" onclick="Sap_Tang()">
-									<i class="fa fa-sort-alpha-asc"></i>
-								</button>
-								<button type="button" class="btn btn-outline" id="Th_Giam" onclick="Sap_Giam()">
-									<i class="fa fa-sort-alpha-desc"></i>
-								</button>
-							</div>
-						</div>
-
-						<div class="container">
-							<div class="row">
-								<p id="pagination-here"></p>
-								<p id="content">
-									<div id="Th_Cha"></div>
-									<div id="Th_Chi_tiet"></div>
-								</p>
-							</div>
-						</div>
 					</div>
 				</div>
-				<div class="clearfix"></div>
 			</div>
 
-			<!--/tab_2-->
-			<div class="tab2"></div>
-			<!--//tab_2-->
+			<div class="container">
+				<div class="row">
+					<p id="pagination-here"></p>
+					<p id="content">
+						<div id="Th_Cha"></div>
+						<div id="Th_Chi_tiet"></div>
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 	</div>

@@ -32,18 +32,20 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 					<a href="#" class="link-product-add-cart" data-toggle="modal" data-target="#myModal">Xem nhanh</a>
 				</div>
 			</div>
-			<span class="product-new-top">New</span>
+			<span class="product-new-top">Sách</span>
 		</div>
 		<div class="item-info-product ">
-        <h4 class="">${Sach.Ten}</h4>
+        <h4 class="book-title-product">${Sach.Ten}</h4>
 			<div class="info-product-price">
 				<span class="item_price">${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</span>
             </div>
+            <div class="book-mb5">
             <h5 class="text-muted"><strong>Thể loại:</strong> ${Sach.Nhom_Sach.Ten_the_loai}</h5>
             <h5 class="text-muted"><strong>Tác giả:</strong> ${Sach.Nhom_Sach.Tac_gia}</h5>
             <h5 class="text-muted"><strong>Nhà phát hành:</strong> ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Xem chi tiết</button>
-            </div>
+            <button type="button" class="book-btn-detail" data-toggle="modal" data-target="#myModal">Xem chi tiết</button>
+           </div>
+             </div>
     </div>
     </div>
 </div>`
@@ -74,11 +76,13 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
                                           <img class="img-full" src="http://localhost:1001/${Sach_Chon.Ma_so}.png" />
                                       </div>
                                       <div class="col-md-6">
-                                      <h4 class="text-success">Thể loại: ${Sach_Chon.Nhom_Sach.Ten_the_loai}</h4>
-                                      <h4 class="text-warning">Nhà xuất bản: ${Sach_Chon.Nhom_Sach.Nha_phat_hanh}</h4>
-                                      <h4 class="text-danger">Tác giả: ${Sach_Chon.Nhom_Sach.Tac_gia} </h4>
-                                      <h4 class="text-success">Giá bán: <span class="bg-success">${Sach_Chon.Don_gia_Ban}</span> đồng</h4>
-                                      <h4 class="text-muted">Mô tả:</h4> <p>${Sach_Chon.Mo_ta}</p>
+                                      <div class="book-mb5">
+                                        <h4 class="text-danger"><i class="fa fa-money" aria-hidden="true"></i> <strong>Giá bán: ${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đồng</strong></h4>
+                                        <h4 class="text-success"><i class="fa fa-list-alt" aria-hidden="true"></i> Thể loại: ${Sach_Chon.Nhom_Sach.Ten_the_loai}</h4>
+                                        <h4 class="text-warning"><i class="fa fa-address-book" aria-hidden="true"></i> Nhà xuất bản: ${Sach_Chon.Nhom_Sach.Nha_phat_hanh}</h4>
+                                        <h4 class="text-danger"><i class="fa fa-user" aria-hidden="true"></i> Tác giả: ${Sach_Chon.Nhom_Sach.Tac_gia} </h4>
+                                        <h4 class="text-muted"><i class="fa fa-info" aria-hidden="true"></i> Mô tả:</h4> <p>${Sach_Chon.Mo_ta}</p>
+                                     </div>
                                       </div>
                                   </div>
                               </div>
@@ -92,7 +96,7 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
             // Th_Show.click()
         }
     });
-    Th_Thong_bao.innerHTML = `<h3>Danh sách Sách (${Danh_sach_Sach.length}) </h3>`
+    Th_Thong_bao.innerHTML = `<h4 class="alert alert-success text-center">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
 }
 
 function Doc_Danh_sach_Sach() {
