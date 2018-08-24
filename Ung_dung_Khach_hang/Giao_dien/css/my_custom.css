@@ -16,10 +16,7 @@ input[type=text] {
 input[type=text]:focus {
   border: 3px solid rgb(189, 189, 189);
 }
-.book-mt10 {
-  margin-top: 10px;
-  font-size: 17px;
-}
+
 .welcome-message {
   color: green;
   font-size: 14px;
@@ -58,4 +55,28 @@ input[type=text]:focus {
 .book-category span {
   color: #fc636b;
   font-size: 20px;
+}
+.book-category {
+  border: 1px solid #fc636b;
+  padding: 7px;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 768px){
+  .book-mt15 {
+    margin-top: 10px;
+  }
+}
+
+.book-mt10 {
+  margin-top: 10px;
+  font-size: 17px;
+}
+.book-mt15 {
+  margin-top: 15px;
+}
+.book-mt7 {
+  margin-top: 7px;
 }

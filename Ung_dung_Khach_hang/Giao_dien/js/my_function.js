@@ -6,6 +6,12 @@ if (Danh_sach_Sach.length > 0) {
     Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
 }
 
+Th_Trang_chu.onclick = () => {
+    Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao);
+}
+
+
+
 Th_Tim.onclick = () => {
     var gtTim = Th_Gia_tri_Tim.value;
     var Danh_sach_Sach_tim = Danh_sach_Sach.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()));
