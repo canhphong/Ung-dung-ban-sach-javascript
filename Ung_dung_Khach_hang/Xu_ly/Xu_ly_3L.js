@@ -5,6 +5,18 @@ var Thu_muc_PDF = "../Tap_tin_PDF"
 
 //========================================
 
+function Khach_hang_lien_he(noi_dung) {
+    var Kq = ""
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Tham_so = `Ma_so_Xu_ly=Gui_thu`
+    var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
+    Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
+    var Chuoi_goi = noi_dung
+    Xu_ly_HTTP.send(Chuoi_goi)
+    Kq = Xu_ly_HTTP.responseText
+    return Kq
+}
+
 function Tao_The_hien_Sach(Sach, Th_Cha) {
     var the_hien = document.createElement("div")
     the_hien.setAttribute("data", JSON.stringify(Sach))

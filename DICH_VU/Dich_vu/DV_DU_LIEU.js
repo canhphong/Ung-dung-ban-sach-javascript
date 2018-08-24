@@ -1,6 +1,7 @@
 var http = require("http");
 var Luu_tru = require("../Xu_ly/XL_LUU_TRU.js")
 var Xu_ly_Tham_so = require('querystring')
+var Gui_thu = require('../Xu_ly/XL_GUI_THU_DIEN_TU')
 var Port = 1000
 var Du_lieu = {}
 Du_lieu.Danh_sach_Sach = Luu_tru.Doc_Danh_sach("SACH")
@@ -293,7 +294,36 @@ var Dich_vu = http.createServer(
 
                 })
                 console.log(Du_lieu.Danh_sach_Nha_phat_hanh)
-            } else {
+            } 
+            
+            else if (Ma_so_Xu_ly == "Gui_thu") {
+                var from = "canhphong550@gmail.com"
+                var to = "phonglecanh@gmail.com"
+                var subject = "Khách hàng Liên hệ "
+                var body = Chuoi_Nhan
+                Kq = Gui_thu.Gui_Thu_Lien_he(from, to, subject, body)
+                //console.log(Kq)
+                Kq.then(result => {
+                    //console.log(result)
+                    Dap_ung.setHeader("Access-Control-Allow-Origin", '*')
+                    Dap_ung.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                    Dap_ung.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type');
+                    Dap_ung.setHeader('Access-Control-Allow-Credentials', true);
+                    var Chuoi_Kq = "OK"
+                    Dap_ung.end(Chuoi_Kq);
+                }).catch(err => {
+                    //console.log(err)
+                    Dap_ung.setHeader("Access-Control-Allow-Origin", '*')
+                    Dap_ung.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                    Dap_ung.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type');
+                    Dap_ung.setHeader('Access-Control-Allow-Credentials', true);
+                    var Chuoi_Kq = "Error"
+                    Dap_ung.end(Chuoi_Kq);
+                })
+            }
+
+            
+            else {
                 Chuoi_Kq = Luu_tru.Doc_Thong_tin_Dich_vu()
             }
             Dap_ung.setHeader("Access-Control-Allow-Origin", '*')
