@@ -96,7 +96,7 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
             // Th_Show.click()
         }
     });
-    Th_Thong_bao.innerHTML = `<h4 class="alert alert-success text-center">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
+    Th_Thong_bao.innerHTML = `<h4 class="book-alert">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
 }
 
 function Doc_Danh_sach_Sach() {

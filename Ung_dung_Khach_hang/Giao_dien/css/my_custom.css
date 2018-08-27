@@ -53,13 +53,12 @@ input[type=text]:focus {
   margin-bottom: 7px;
 }
 .book-category span {
-  color: #fc636b;
+  color: #000;
   font-size: 20px;
 }
 .book-category {
-  border: 1px solid #fc636b;
+  border: 1px solid #000;
   padding: 7px;
-  border-radius: 25px;
   margin-top: 10px;
 }
 
@@ -79,4 +78,15 @@ input[type=text]:focus {
 }
 .book-mt7 {
   margin-top: 7px;
+}
+
+.book-select {
+  font-size: 18px;
+}
+h4.book-alert {
+  text-align: center;
+  color: green;
+  border: 1px solid green;
+  padding: 5px 10px;
+  font-size: 20px;
 }

@@ -62,6 +62,21 @@
                     Th_Thong_bao.innerHTML = "Thông tin đăng nhập không hợp lệ ..."
                 }
             }
+
+            function validate() {
+            if (document.myForm.name.value == "") {
+                alert("Vui lòng nhập Tên đăng nhập.");
+                document.myForm.name.focus();
+                return false;
+            }
+            if (document.myForm.password.value == "") {
+                alert("Vui lòng nhập Mật khẩu.");
+                document.myForm.name.focus();
+                return false;
+            }
+
+            return (true);
+        }
         </script>
 </body>
 

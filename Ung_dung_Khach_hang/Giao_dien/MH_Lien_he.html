@@ -119,25 +119,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<form name="myForm" onsubmit="return(validate());">
 							<div class="styled-input agile-styled-input-top">
 								<input type="text" class="form-control" id="Th_Ho_ten" name="name">
-								<div id="Th_Validate1"></div>
 								<label>Tên</label>
 								<span></span>
 							</div>
 							<div class="styled-input">
-								<input type="text" class="form-control" id="Th_Email" name="email">
-								<div id="Th_Validate2"></div>
+								<input type="email" class="form-control" id="Th_Email" name="email" onsubmit="return(validateEmail())">
 								<label>Email</label>
 								<span></span>
 							</div>
 							<div class="styled-input">
 								<input type="text" class="form-control" id="Th_Tieu_de" name="title">
-								<div id="Th_Validate3"></div>
 								<label>Tiêu đề</label>
 								<span></span>
 							</div>
 							<div class="styled-input">
 								<textarea class="ckeditor" id="Th_Noi_dung" name="content"></textarea>
-								<div id="Th_Validate4"></div>
 								<label>Nội dung</label>
 								<span></span>
 							</div>
@@ -433,39 +429,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	<script>
 		function validate() {
-
 			if (document.myForm.name.value == "") {
-				Th_Validate1.innerHTML = "Vui lòng nhập tên của bạn";
+				alert("Vui lòng nhập Tên của bạn.");
 				document.myForm.name.focus();
 				return false;
-			} else if (document.myForm.email.value == "") {
-				Th_Validate2.innerHTML = "Vui lòng nhập email của bạn";
-				document.myForm.email.focus();
+			}
+			if (document.myForm.email.value == "") {
+				alert("Vui lòng nhập Email của bạn.");
+				document.myForm.name.focus();
 				return false;
-				validateEmail();
-			} else if (document.myForm.title.value == "") {
-				Th_Validate3.innerHTML = "Vui lòng nhập tiêu đề";
+			}
+			if (document.myForm.title.value == "") {
+				alert("Vui lòng nhập Tiêu đề.");
 				document.myForm.title.focus();
 				return false;
-			} else if (document.myForm.content.value == "") {
-				Th_Validate4.innerHTML = "Vui lòng nhập nội dung";
-				document.myForm.content.focus();
-				return false;
-			} else {
-				return (true);
 			}
-		}
-
-
-		// VALIDATE EMAIL
-		function validateEmail() {
-			var emailID = document.myForm.email.value;
-			atpos = emailID.indexOf("@");
-			dotpos = emailID.lastIndexOf(".");
-
-			if (atpos < 1 || (dotpos - atpos < 2)) {
-				alert("Please enter correct email ID")
-				document.myForm.email.focus();
+			if (document.myForm.content.value == "") {
+				alert("Vui lòng nhập Nội dung.");
+				document.myForm.content.focus();
 				return false;
 			}
 			return (true);

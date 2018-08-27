@@ -384,9 +384,10 @@ function Tao_The_hien_Them_Sach(Th_Cha) {
     var Chuoi_HTML =
         `
     <div class="form m-3 p-3">
+    <form name="myForm" onsubmit="return(validate());">
     <div class="form-group">
     <label for="Th_Ten">Tên Sách</label>
-    <input type="text" class="form-control" id="Th_Ten" placeholder="Nhập Tên Sách">
+    <input type="text" class="form-control" id="Th_Ten" placeholder="Nhập Tên Sách" name="tensach">
     </div>
     <div class="form-group">
         <label style="display:none" for="Th_Nhom_Sach"></label>
@@ -429,6 +430,7 @@ function Tao_The_hien_Them_Sach(Th_Cha) {
                     <input id="Th_file" type="file" onchange="Xem_truoc_Media()" accept="image/png" class="btn btn-success"/>
                     <img id="Th_Hinh_Xem_truoc" style="width:10rem" />
                 </div>
+                </form>
                 </div>
                 `
 
@@ -1049,14 +1051,14 @@ function Tao_The_hien_Dang_nhap(Th_Cha) {
     
   <div class="col-md-6">
   <div class="ibox-content">
-      <form class="m-t" role="form" action="#">
+      <form class="m-t" name="myForm" onsubmit="return(validate());">
           <div class="form-group">
             <label for="Th_Ten_Dang_nhap">Tên đăng nhập</label>
-              <input type="email" class="form-control" id="Th_Ten_Dang_nhap" placeholder="Nhập tên đăng nhập" required="" value="QL_1">
+              <input type="email" class="form-control" id="Th_Ten_Dang_nhap" placeholder="Nhập tên đăng nhập" name="name">
           </div>
           <div class="form-group">
           <label for="Th_Mat_khau">Mật khẩu</label>
-              <input type="password" class="form-control" id="Th_Mat_khau" placeholder="Nhập mật khẩu" required="" value="QL_1">
+              <input type="password" class="form-control" id="Th_Mat_khau" placeholder="Nhập mật khẩu" name="password">
           </div>
           <button type="button" class="btn btn-primary block full-width m-b" id="Th_Dang_nhap">Đăng nhập</button>
       </form>
