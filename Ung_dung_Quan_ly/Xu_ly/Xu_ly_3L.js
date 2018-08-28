@@ -382,9 +382,16 @@ function Dang_nhap_He_thong(Thong_tin) {
 function Tao_The_hien_Them_Sach(Th_Cha) {
 
     var Chuoi_HTML =
-        `
-    <div class="form m-3 p-3">
+        `<div class="form m-3 p-3">
     <form name="myForm" onsubmit="return(validate());">
+    <div class="form-group">
+    <button type="submit" class="btn btn-success" id="Th_Dong_y">
+        Đồng ý
+    </button>
+    <button type="button" class="btn btn-danger" id="Th_Bo_qua">
+        Bỏ qua
+    </button>
+</div>
     <div class="form-group">
     <label for="Th_Ten">Tên Sách</label>
     <input type="text" class="form-control" id="Th_Ten" placeholder="Nhập Tên Sách" name="tensach">
@@ -397,40 +404,39 @@ function Tao_The_hien_Them_Sach(Th_Cha) {
         </div>
     <div class="form-group">
                     <label for="Th_Ma_so">Mã số Sách</label>
-                    <input  type="text" class="form-control" id="Th_Ma_so" readonly>
+                    <input  type="text" class="form-control" id="Th_Ma_so" readonly name="masosach">
                 </div>
                 <div class="form-group">
                     <label for="Th_Don_gia_Ban">Đơn giá Bán</label>
-                    <input type="text" class="form-control" id="Th_Don_gia_Ban" placeholder="Nhập Đơn giá Bán">
+                    <input type="text" class="form-control" id="Th_Don_gia_Ban" placeholder="Nhập Đơn giá Bán" name="dongiaban">
                 </div>
                 <div class="form-group">
                     <label for="Th_Mo_ta">Mô tả</label>
-                    <textarea class="form-control" id="Th_Mo_ta" placeholder="Nhập mô tả"></textarea>
+                    <textarea class="form-control" id="Th_Mo_ta" placeholder="Nhập mô tả" name="mota"></textarea>
                 </div>
         
         <div class="form-group">
             <label for="Th_Nhom_The_loai">Thể loại</label>
-            <select id="Th_Nhom_The_loai" class="btn btn-success">
-        
+            <select id="Th_Nhom_The_loai" class="btn btn-success" name="theloai">
             </select>
             </div>
         <div class="form-group">
             <label for="Th_Nhom_Tac_gia" >Tác giả</label>
-            <select id="Th_Nhom_Tac_gia" class="btn btn-warning">
+            <select id="Th_Nhom_Tac_gia" class="btn btn-warning" name="tacgia">
         
             </select>
             </div>
             <div class="form-group">
                 <label for="Th_Nhom_Nha_phat_hanh" >Nhà phát hành</label>
-                <select id="Th_Nhom_Nha_phat_hanh" class="btn btn-primary">
+                <select id="Th_Nhom_Nha_phat_hanh" class="btn btn-primary" name="nhaphathanh">
                 </select>
                 </div>
                 <div class="form-group">
                     <label for="Th_file">Chọn hình</label>
-                    <input id="Th_file" type="file" onchange="Xem_truoc_Media()" accept="image/png" class="btn btn-success"/>
+                    <input id="Th_file" type="file" onchange="Xem_truoc_Media()" accept="image/png" class="btn btn-success" name="chonhinh"/>
                     <img id="Th_Hinh_Xem_truoc" style="width:10rem" />
                 </div>
-                </form>
+            </form>
                 </div>
                 `
 
