@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Giới thiệu</title>
 	<!--/tags -->
@@ -9,12 +8,11 @@
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<!-- //for bootstrap working -->
 </head>
 
 <body>
 	<!-- header-bot -->
-	<div class="header-bot">
+	<div class="header-bot" id="home">
 		<div class="header-bot_inner_wthreeinfo_header_mid">
 			<!-- header-bot -->
 			<div class="col-md-4 logo_agile">
@@ -416,21 +414,6 @@
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
-	<!-- cart-js -->
-	<script src="js/minicart.min.js"></script>
-	<script>
-		// Mini Cart
-		paypal.minicart.render({
-			action: '#'
-		});
-
-		if (~window.location.search.indexOf('reset=true')) {
-			paypal.minicart.reset();
-		}
-	</script>
-
-	<!-- //cart-js -->
-
 	<!-- stats -->
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/jquery.countup.js"></script>
@@ -454,15 +437,6 @@
 	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function () {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-
 			$().UItoTop({
 				easingType: 'easeOutQuart'
 			});

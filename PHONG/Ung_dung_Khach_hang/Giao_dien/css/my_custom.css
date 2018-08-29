@@ -10,7 +10,6 @@
 }
 input[type=text] {
   border: 2px solid #ddd;
-  border-radius: 4px;
   padding: 5px 10px;
 }
 input[type=text]:focus {
@@ -89,4 +88,19 @@ h4.book-alert {
   border: 1px solid green;
   padding: 5px 10px;
   font-size: 20px;
+}
+
+.contact-form {
+  background: #fff;
+  border: 1px solid #000;
+  padding: 30px 20px;
+}
+
+.contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
+  color: #000;
+  border: 1px solid #000;
+}
+
+.styled-input input:valid ~ label {
+  top: -26px;
 }

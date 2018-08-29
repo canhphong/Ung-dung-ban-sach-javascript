@@ -3,7 +3,6 @@ var limit = 8;
 var Du_lieu = Doc_Danh_sach_Sach();
 var Danh_sach_Sach = Du_lieu.Danh_sach_Sach;
 if (Danh_sach_Sach.length > 0) {
-    // Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
     Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
     Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
 
@@ -14,35 +13,6 @@ if (Danh_sach_Sach.length > 0) {
 function Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, vt, limit) {
     Th_Cha.innerHTML = "";
     var dem = 0;
-    // Danh_sach_Sach.forEach((Sach, index) => {
-    //     var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
-    //     if (index >= vt && dem < limit) {
-
-    //         The_hien.onclick = () => {
-
-    //             var Sach = The_hien.getAttribute("data")
-    //             sessionStorage.setItem("giohang", Sach)
-    //             //window.location = "MH_Gio_hang.html"
-    //         }
-    //         // The_hien.childNodes[1].onclick = () => {
-    //         //     //console.log(The_hien.childNodes[1].parentNode.getAttribute("data"))
-    //         //     var Sach_Chon = JSON.parse(The_hien.childNodes[1].parentNode.getAttribute("data"))
-    //         //     var noi_dung_HTML = `
-    //         //     <h4 class="text-primary">${Sach_Chon.Ten}</h4>
-    //         //     <img src="${Dia_chi_Media}/${Sach_Chon.Ma_so}.png" />
-    //         // `
-    //         //     Th_Chi_tiet.innerHTML = noi_dung_HTML
-    //         //     Th_Show.click()
-    //         // }
-    //         dem++
-    //     } else {
-    //         The_hien.style.cssText = "display:none"
-    //     }
-
-    // });
-    // Th_Thong_bao.innerHTML = `<h3>Danh sách Điện thoại (${Danh_sach_Sach.length}) </h3>`
-
-
     Danh_sach_Sach.forEach((Sach, index) => {
         var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
         if (index >= vt && dem < limit) {
