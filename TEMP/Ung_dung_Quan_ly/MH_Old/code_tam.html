@@ -1,0 +1,43 @@
+<div class="row CAP_NHAP" Ma_so="${Sach.Ma_so}">
+    <div class="form col-md-6">
+        <div class="form-group">
+            <label for="Th_Ten">Tên Sách</label>
+            <input type="text" class="form-control" id="Th_Ten" value="${Sach.Ten}" placeholder="Nhập Tên Sách">
+        </div>
+        <div class="form-group">
+            <label for="Th_Ma_so">Mã số Sách</label>
+            <input type="text" class="form-control" id="Th_Ma_so" value="${Sach.Ma_so}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="Th_Don_gia_Ban">Đơn giá Bán</label>
+            <input type="text" class="form-control" id="Th_Don_gia_Ban" value="${Sach.Don_gia_Ban}" placeholder="Nhập Đơn giá Bán">
+        </div>
+        <div class="form-group">
+            <label for="Th_Mo_ta">Mô tả</label>
+            <textarea class="form-control" id="Th_Mo_ta" placeholder="Nhập mô tả">${Sach.Mo_ta}</textarea>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Th_Nhom_The_loai">Thể loại</label>
+            <input type="text" class="form-control" id="Th_The_loai" value="${Nhom.Ten_the_loai}" readonly>
+            <select id="Th_Nhom_The_loai" onchange="Lay_Ma_so_cuoi_The_loai()">
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Th_Nhom_Tac_gia">Tác giả</label>
+            <input type="text" class="form-control" id="Th_Tac_gia" value="${Nhom.Tac_gia}" readonly>
+            <select id="Th_Nhom_Tac_gia" onchange="Lay_Ma_so_cuoi_Tac_gia()">
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Th_Nhom_Nha_phat_hanh">Nhà phát hành</label>
+            <input type="text" class="form-control" id="Th_Nha_phat_hanh" value="${Nhom.Nha_phat_hanh}" readonly>
+            <select id="Th_Nhom_Nha_phat_hanh" onchange="Lay_Ma_so_cuoi_Nha_phat_hanh()">
+
+            </select>
+        </div>
+    </div>
+</div>
