@@ -15,14 +15,13 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 		
 			<span class="product-new-top">Sách</span>
 		</div>
-		<div class="item-info-product ">
-        <h4 class="text-success">${Sach.Ten}</h4>
+        <div class="item-info-product">
+        <div class="book-title">
+            <p class="text-success">${Sach.Ten}</p>
+        </div>
 			<h4 class="info-product-price">
 				<span class="item_price">${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</span>
             </h4>
-            <h5 class="text-muted"><strong>Thể loại:</strong> ${Sach.Nhom_Sach.Ten_the_loai}</h5>
-            <h5 class="text-muted"><strong>Tác giả:</strong> ${Sach.Nhom_Sach.Tac_gia}</h5>
-            <h5 class="text-muted"><strong>Nhà phát hành:</strong> ${Sach.Nhom_Sach.Nha_phat_hanh}</h3>
 		</div>
     </div>
     </div>

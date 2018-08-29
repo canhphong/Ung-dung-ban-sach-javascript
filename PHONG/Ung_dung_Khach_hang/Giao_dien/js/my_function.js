@@ -1,4 +1,4 @@
-var limit = 8;
+var limit = 8;  
 
 var Du_lieu = Doc_Danh_sach_Sach();
 var Danh_sach_Sach = Du_lieu.Danh_sach_Sach;
@@ -105,6 +105,18 @@ function KeyCode(event) {
         }
         Th_Gia_tri_Tim.value = "";
     }
+}
+
+function Sap_Tang() {
+    Danh_sach_Sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
+    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+    Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+}
+
+function Sap_Giam() {
+    Danh_sach_Sach.sort((a, b) => b.Ten.localeCompare(a.Ten))
+    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+    Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
 }
 
 function Xuat_Sach_theo_Don_gia(chuoi_dieu_kien) {
@@ -261,15 +273,7 @@ function Xuat_Sach_theo_NPH(nhaphathanh) {
     }
 }
 
-function Sap_Tang() {
-    Danh_sach_Sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
-    Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
-}
 
-function Sap_Giam() {
-    Danh_sach_Sach.sort((a, b) => b.Ten.localeCompare(a.Ten))
-    Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
-}
 
 function validate() {
     if (document.myForm.name.value == "") {
