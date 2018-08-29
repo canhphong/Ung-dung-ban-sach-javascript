@@ -998,7 +998,7 @@ color: #2fdab8;
 	margin: 2em 0 1em;
 	position: relative;
 }
-.styled-input label {
+/* .styled-input label {
 	color: #555;
     padding: 0.5em 0em;
     position: absolute;
@@ -1013,7 +1013,7 @@ color: #2fdab8;
 	letter-spacing:1px;
     display: block;
     line-height: 1em;
-}
+} */
 .styled-input input ~ span, .styled-input textarea ~ span {
     display: block;
     width: 0;
@@ -1652,7 +1652,7 @@ a.single-item{
 }
 /*-- /sale --*/
    .sale-w3ls {
-    background: url(../images/banner3.jpg)no-repeat 0px 0px;
+    background: url(../images/banner2.jpg)no-repeat 0px 0px;
     background-attachment: fixed;
     background-size: cover;
 	-webkit-background-size: cover;
@@ -1904,7 +1904,7 @@ color: #545454;
 /*-- //coupons --*/
 /*-- /about --*/
 .page-head_agile_info_w3l {
-    background: url(../images/inner1.jpg) no-repeat center;
+    background: url(../images/banner1.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;

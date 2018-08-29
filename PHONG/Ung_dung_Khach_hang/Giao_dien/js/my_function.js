@@ -270,3 +270,27 @@ function Sap_Giam() {
     Danh_sach_Sach.sort((a, b) => b.Ten.localeCompare(a.Ten))
     Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_Thong_bao)
 }
+
+function validate() {
+    if (document.myForm.name.value == "") {
+        alert("Vui lòng nhập Tên của bạn.");
+        document.myForm.name.focus();
+        return false;
+    }
+    if (document.myForm.email.value == "") {
+        alert("Vui lòng nhập Email của bạn.");
+        document.myForm.name.focus();
+        return false;
+    }
+    if (document.myForm.title.value == "") {
+        alert("Vui lòng nhập Tiêu đề.");
+        document.myForm.title.focus();
+        return false;
+    }
+    if (document.myForm.content.value == "") {
+        alert("Vui lòng nhập Nội dung.");
+        document.myForm.content.focus();
+        return false;
+    }
+    return (true);
+}

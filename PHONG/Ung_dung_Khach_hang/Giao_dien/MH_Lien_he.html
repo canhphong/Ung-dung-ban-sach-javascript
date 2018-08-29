@@ -48,16 +48,17 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav menu__list">
-								<li class="active menu__item menu__item--current">
-									<a class="menu__link" href="MH_Index.html">Trang chủ
-										<span class="sr-only">(current)</span>
-									</a>
+								<li class=" menu__item">
+									<a class="menu__link" href="MH_Index.html">Trang chủ</a>
 								</li>
+
 								<li class=" menu__item">
 									<a class="menu__link" href="MH_Gioi_thieu.html">Giới thiệu</a>
 								</li>
-								<li class=" menu__item">
-									<a class="menu__link" href="MH_Lien_he.html">Liên hệ</a>
+								<li class="active menu__item menu__item--current">
+									<a class="menu__link" href="MH_Lien_he.html">Liên hệ
+										<span class="sr-only">(current)</span>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -112,23 +113,21 @@
 						</h4>
 						<form name="myForm" onsubmit="return(validate());">
 							<div class="styled-input agile-styled-input-top">
-								<input type="text" id="Th_Ho_ten" name="name">
 								<label>Tên</label>
-								
+								<input type="text" id="Th_Ho_ten" name="name">
 							</div>
 							<div class="styled-input">
-								<input type="email" id="Th_Email" name="email" onsubmit="return(validateEmail())">
 								<label>Email</label>
-								
+								<input type="email" id="Th_Email" name="email" onsubmit="return(validateEmail())">
+
 							</div>
 							<div class="styled-input">
-								<input type="text" id="Th_Tieu_de" name="title">
 								<label>Tiêu đề</label>
-								
+								<input type="text" id="Th_Tieu_de" name="title">
 							</div>
 							<div class="styled-input">
-								<textarea class="ckeditor" id="Th_Noi_dung" name="content"></textarea>
 								<label>Nội dung</label>
+								<textarea class="ckeditor" id="Th_Noi_dung" name="content"></textarea>
 							</div>
 							<input type="submit" value="GỬI" id="Th_Dong_y">
 						</form>
@@ -141,8 +140,10 @@
 	<!--//contact-->
 
 	<div class="contact-w3-agile1 map" data-aos="flip-right">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2411534043235!2d106.65078941414936!3d10.792833192310392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529355c454633%3A0xf4ebb14b62772996!2zU2nDqnUgVGjhu4sgU8OhY2ggTmjDom4gVsSDbg!5e0!3m2!1svi!2s!4v1535516732222" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>" class="map" style="border:0" allowfullscreen=""></iframe>
-</div>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2411534043235!2d106.65078941414936!3d10.792833192310392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529355c454633%3A0xf4ebb14b62772996!2zU2nDqnUgVGjhu4sgU8OhY2ggTmjDom4gVsSDbg!5e0!3m2!1svi!2s!4v1535516732222"
+		    width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>" class="map" style="border:0"
+		allowfullscreen=""></iframe>
+	</div>
 
 	<!--/grids-->
 	<div class="coupons">
@@ -198,8 +199,10 @@
 					<a href="MH_Index.html">
 						<span>TP</span>BOOKSTORE </a>
 				</h2>
-				<p>Công ty Cổ phần văn hóa Nhân Văn là đơn vị kinh doanh đã nhiều năm trong lĩnh vực xuất bản, in và phát hành. Từ năm 1991,
-					nhà sách Nhân Văn đầu tiên đi vào hoạt động tại quận Tân Bình đã nhận được sự ủng hộ nhiệt tình của đông đảo bạn đọc
+				<p>Công ty Cổ phần văn hóa Nhân Văn là đơn vị kinh doanh đã nhiều năm trong lĩnh vực xuất bản, in và phát hành. Từ
+					năm 1991,
+					nhà sách Nhân Văn đầu tiên đi vào hoạt động tại quận Tân Bình đã nhận được sự ủng hộ nhiệt tình của đông đảo bạn
+					đọc
 					và khách hàng.</p>
 				<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
 					<li>
@@ -310,19 +313,13 @@
 	<a href="#home" class="scroll" id="toTop" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
 	</a>
-	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<!-- //js -->
-	<!-- stats -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.countup.js"></script>
-	<script>
-		$('.counter').countUp();
-	</script>
-	<!-- //stats -->
-	<!-- start-smoth-scrolling -->
 	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script src="../ckeditor/ckeditor.js"></script>
+	<script src="../Xu_ly/Xu_ly_3L.js"></script>
+	<script src="js/my_function.js"></script>
+
 	<script type="text/javascript">
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -332,63 +329,30 @@
 				}, 1000);
 			});
 		});
-	</script>
-	<!-- here stars scrolling icon -->
-	<script type="text/javascript">
+		
+		// here stars scrolling icon
 		$(document).ready(function () {
 			$().UItoTop({
 				easingType: 'easeOutQuart'
 			});
 
 		});
-	</script>
-	<!-- //here ends scrolling icon -->
 
-	<!-- for bootstrap working -->
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="../ckeditor/ckeditor.js"></script>
-	<script src="../Xu_ly/Xu_ly_3L.js"></script>
-	<script>
+		// Noi dung hien thi CKEDITOR
 		CKEDITOR.replace('Th_Noi_dung', {
 			customConfig: 'lien_he.js'
 		});
 
 		Th_Dong_y.onclick = () => {
 			var noi_dung = CKEDITOR.instances.Th_Noi_dung.getData();
-			var ho_ten = Th_Ho_ten.value
-			var email = Th_Email.value
-			var tieu_de = Th_Tieu_de.value
+			var ho_ten = Th_Ho_ten.value;
+			var email = Th_Email.value;
+			var tieu_de = Th_Tieu_de.value;
 
 			var str = `Họ tên: ${ho_ten}<br>Email: ${email}<h3>${tieu_de}</h3>`
-			str += `${noi_dung}`
+			str += `${noi_dung}`;
 			var Kq = Khach_hang_lien_he(str)
 			console.log(Kq);
-		}
-	</script>
-
-	<script>
-		function validate() {
-			if (document.myForm.name.value == "") {
-				alert("Vui lòng nhập Tên của bạn.");
-				document.myForm.name.focus();
-				return false;
-			}
-			if (document.myForm.email.value == "") {
-				alert("Vui lòng nhập Email của bạn.");
-				document.myForm.name.focus();
-				return false;
-			}
-			if (document.myForm.title.value == "") {
-				alert("Vui lòng nhập Tiêu đề.");
-				document.myForm.title.focus();
-				return false;
-			}
-			if (document.myForm.content.value == "") {
-				alert("Vui lòng nhập Nội dung.");
-				document.myForm.content.focus();
-				return false;
-			}
-			return (true);
 		}
 	</script>
 </body>
