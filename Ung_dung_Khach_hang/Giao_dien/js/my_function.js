@@ -143,6 +143,43 @@ function Xuat_Sach_theo_Don_gia(chuoi_dieu_kien) {
     }
 }
 
+function Xuat_Sach_theo_The_loai(theloai) {
+
+    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
+        theloai)
+    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+    if (Danh_sach_Sach.length > limit) {
+        Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+    } else {
+        Th_Phan_trang.innerHTML = "";
+    }
+}
+
+function Xuat_Sach_theo_Tac_gia(tacgia) {
+
+    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
+        tacgia)
+    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+    if (Danh_sach_Sach.length > limit) {
+        Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+    } else {
+        Th_Phan_trang.innerHTML = "";
+    }
+}
+
+function Xuat_Sach_theo_NPH(nhaphathanh) {
+
+    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
+        nhaphathanh)
+    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+    if (Danh_sach_Sach.length > limit) {
+        Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+    } else {
+        Th_Phan_trang.innerHTML = "";
+    }
+}
+
+
 // function Xuat_Sach_theo_The_loai(theloai) {
 
 //     switch (theloai) {
@@ -195,112 +232,99 @@ function Xuat_Sach_theo_Don_gia(chuoi_dieu_kien) {
 // }
 
 
-function Xuat_Sach_theo_The_loai(theloai) {
+// function Xuat_Sach_theo_Tac_gia(tacgia) {
+//     switch (tacgia) {
+//         case 'ngoctrinh':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+//                 "Ngọc Trinh")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         case 'kimdung':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+//                 "Kim Dung")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         case 'nguyenanh':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+//                 "Nguyễn Ánh")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         case 'tohuu':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+//                 "Tố Hữu")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         case 'quoctuan':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
+//                 "Quốc Tuấn")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         default:
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+//     }
+// }
 
-    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-        theloai)
-    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
-    if (Danh_sach_Sach.length > limit) {
-        Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
-    } else {
-        Th_Phan_trang.innerHTML = "";
-    }
-}
-
-
-function Xuat_Sach_theo_Tac_gia(tacgia) {
-    switch (tacgia) {
-        case 'ngoctrinh':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-                "Ngọc Trinh")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        case 'kimdung':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-                "Kim Dung")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        case 'nguyenanh':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-                "Nguyễn Ánh")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        case 'tohuu':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-                "Tố Hữu")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        case 'quoctuan':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-                "Quốc Tuấn")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        default:
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-    }
-}
-
-function Xuat_Sach_theo_NPH(nhaphathanh) {
-    switch (nhaphathanh) {
-        case 'kimdong':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-                "Kim Đồng")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        case 'nxbtre':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-                "NXB Trẻ")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        case 'fahasha':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-                "Fahasha")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        case 'nxbvannghe':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-                "NXB Văn Nghệ")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        case 'nxbvanhoc':
-            var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-                "NXB Văn Học")
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-            if (Danh_sach_Sach_theo_Nhom.length > limit) {
-                Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-            }
-            break;
-        default:
-            Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-    }
-}
+// function Xuat_Sach_theo_NPH(nhaphathanh) {
+//     switch (nhaphathanh) {
+//         case 'kimdong':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+//                 "Kim Đồng")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         case 'nxbtre':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+//                 "NXB Trẻ")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         case 'fahasha':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+//                 "Fahasha")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         case 'nxbvannghe':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+//                 "NXB Văn Nghệ")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         case 'nxbvanhoc':
+//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
+//                 "NXB Văn Học")
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
+//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
+//             }
+//             break;
+//         default:
+//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
+//     }
+// }
 
 
 
