@@ -1,5 +1,5 @@
-var Dia_chi_Dich_vu = "http://localhost:1000"
-var Dia_chi_Media = "http://localhost:1001"
+var Dia_chi_Dich_vu = "https://book-data.herokuapp.com/"
+var Dia_chi_Media = "https://book-media.herokuapp.com"
 //************** Xử lý Lưu trữ ***********
 var Thu_muc_PDF = "../Tap_tin_PDF"
 
@@ -26,8 +26,8 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
     <div class="info-book">
 	<div class="men-pro-item simpleCart_shelfItem">
 		<div class="men-thumb-item">
-			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-front img-full">
-			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-back img-full">
+			<img src="https://book-media.herokuapp.com/${Sach.Ma_so}.png" alt="" class="pro-image-front img-full">
+			<img src="https://book-media.herokuapp.com/${Sach.Ma_so}.png" alt="" class="pro-image-back img-full">
 			<div class="men-cart-pro">
 				<div class="inner-men-cart-pro">
 					<a href="#" class="link-product-add-cart" data-toggle="modal" data-target="#myModal">Xem nhanh</a>
@@ -74,7 +74,7 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
                               <div class="modal-body">
                                       <div class="row">
                                       <div class="col-md-6">
-                                          <img class="img-full" src="http://localhost:1001/${Sach_Chon.Ma_so}.png" />
+                                          <img class="img-full" src="https://book-media.herokuapp.com/${Sach_Chon.Ma_so}.png" />
                                       </div>
                                       <div class="col-md-6">
                                       <div class="book-mb5">
@@ -190,7 +190,7 @@ function Xuat_Thong_tin_Cua_hang(Cua_hang, Th_Cha) {
     var The_hien = document.createElement("div")
 
     Th_Cha.appendChild(The_hien)
-    var noi_dung_HTML = `<img src="http://localhost:1001/${Cua_hang.Ma_so}.png" class="img-fluid float-left" />
+    var noi_dung_HTML = `<img src="https://book-media.herokuapp.com/${Cua_hang.Ma_so}.png" class="img-fluid float-left" />
 <h2 class="text-center text-primary">${Cua_hang.Ten}
     <br>
     <small> ${Cua_hang.Dia_chi} - ${Cua_hang.Dien_thoai}</small>
