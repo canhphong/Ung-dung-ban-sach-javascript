@@ -1,5 +1,5 @@
-var Dia_chi_Dich_vu = "http://localhost:1000"
-var Dia_chi_Media = "http://localhost:1001"
+var Dia_chi_Dich_vu = "https://book-data.herokuapp.com"
+var Dia_chi_Media = "https://book-media.herokuapp.com"
 //************** Xử lý Lưu trữ ***********
 
 function Tao_The_hien_Sach(Sach, Th_Cha) {
@@ -10,8 +10,8 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
     <div class="info-book">
 	<div class="men-pro-item simpleCart_shelfItem">
 		<div class="men-thumb-item">
-			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-front img-full">
-			<img src="http://localhost:1001/${Sach.Ma_so}.png" alt="" class="pro-image-back img-full">
+			<img src="https://book-media.herokuapp.com/${Sach.Ma_so}.png" alt="" class="pro-image-front img-full">
+			<img src="https://book-media.herokuapp.com/${Sach.Ma_so}.png" alt="" class="pro-image-back img-full">
 		
 			<span class="product-new-top">Sách</span>
 		</div>
@@ -28,17 +28,6 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 </div>`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
-}
-
-function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
-    Th_Cha.innerHTML = ""
-    Danh_sach_Sach.forEach(Sach => {
-        var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
-        The_hien.onclick = () => {
-            The_hien.childNodes[0].classList.toggle("CHON");
-        }
-    });
-    Th_Thong_bao.innerHTML = `<h4 class="text-center">Danh sách Sách (${Danh_sach_Sach.length}) </h4>`
 }
 
 
