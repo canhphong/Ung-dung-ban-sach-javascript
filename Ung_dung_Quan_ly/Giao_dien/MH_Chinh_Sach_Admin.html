@@ -33,25 +33,25 @@
                     <li>
                         <a href="MH_Chinh_Sach_Admin.html">
                             <i class="fa fa-book"></i>
-                            <span class="nav-label">TRANG CHỦ SÁCH</span>
+                            <span class="nav-label">QUẢN LÝ SÁCH</span>
                         </a>
                     </li>
                     <li>
                         <a href="MH_Chinh_The_loai_Admin.html">
                             <i class="fa fa-list-alt"></i>
-                            <span class="nav-label">TRANG CHỦ THỂ LOẠI</span>
+                            <span class="nav-label">QUẢN LÝ THỂ LOẠI</span>
                         </a>
                     </li>
                     <li>
                         <a href="MH_Chinh_Tac_gia_Admin.html">
                             <i class="fa fa-user"></i>
-                            <span class="nav-label">TRANG CHỦ TÁC GIẢ</span>
+                            <span class="nav-label">QUẢN LÝ TÁC GIẢ</span>
                         </a>
                     </li>
                     <li>
                         <a href="MH_Chinh_Nha_phat_hanh_Admin.html">
                             <i class="fa fa-car"></i>
-                            <span class="nav-label">TRANG CHỦ NHÀ PHÁT HÀNH</span>
+                            <span class="nav-label">QUẢN LÝ NHÀ PHÁT HÀNH</span>
                         </a>
                     </li>
                 </ul>
@@ -137,7 +137,7 @@
                 var Kq = JSON.parse(sessionStorage.getItem("Nguoi_dung"))
                 var noi_dung_HTML =
                     `<div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="http://localhost:1001/${Kq.Ma_so}.png" style="width:5em" />
+                            <img alt="image" class="img-circle" src="https://book-media.herokuapp.com/${Kq.Ma_so}.png" style="width:5em" />
                              </span>
                                 <span class="block m-t-xs"> <strong class="font-bold text-white">Chào  ${Kq.Nhom_Nguoi_dung.Ten} ${Kq.Ten}</strong>
                                 </span>

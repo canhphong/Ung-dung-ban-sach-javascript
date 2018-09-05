@@ -1,5 +1,5 @@
-var Dia_chi_Dich_vu = "https://book-data.herokuapp.com"
-var Dia_chi_Media = "https://book-media.herokuapp.com"
+var Dia_chi_Dich_vu = "https://book-data.herokuapp.com/"
+var Dia_chi_Media = "https://book-media.herokuapp.com/"
 //************** Xử lý Lưu trữ ***********
 
 function Tao_The_hien_Sach(Sach, Th_Cha) {
@@ -15,10 +15,8 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 		
 			<span class="product-new-top">Sách</span>
 		</div>
-        <div class="item-info-product">
-        <div class="book-title">
-            <p class="text-success">${Sach.Ten}</p>
-        </div>
+		<div class="item-info-product ">
+        <h5 class="book-title">${Sach.Ten}</h5>
 			<h4 class="info-product-price">
 				<span class="item_price">${Tao_Chuoi_The_hien_So_nguyen_duong(Sach.Don_gia_Ban)} đ</span>
             </h4>
@@ -28,6 +26,17 @@ function Tao_The_hien_Sach(Sach, Th_Cha) {
 </div>`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
+}
+
+function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
+    Th_Cha.innerHTML = ""
+    Danh_sach_Sach.forEach(Sach => {
+        var The_hien = Tao_The_hien_Sach(Sach, Th_Cha)
+        The_hien.onclick = () => {
+            The_hien.childNodes[0].classList.toggle("CHON");
+        }
+    });
+    Th_Thong_bao.innerHTML = `<h4 class="text-center">Danh sách Sách (${Danh_sach_Sach.length}) </h4>`
 }
 
 
@@ -371,15 +380,8 @@ function Tao_The_hien_Them_Sach(Th_Cha) {
 
     var Chuoi_HTML =
         `<div class="form m-3 p-3">
-    <form name="myForm" onsubmit="return(validate());">
-    <div class="form-group">
-    <button type="submit" class="btn btn-success" id="Th_Dong_y">
-        Đồng ý
-    </button>
-    <button type="button" class="btn btn-danger" id="Th_Bo_qua">
-        Bỏ qua
-    </button>
-</div>
+    
+    
     <div class="form-group">
     <label for="Th_Ten">Tên Sách</label>
     <input type="text" class="form-control" id="Th_Ten" placeholder="Nhập Tên Sách" name="tensach">
@@ -396,35 +398,35 @@ function Tao_The_hien_Them_Sach(Th_Cha) {
                 </div>
                 <div class="form-group">
                     <label for="Th_Don_gia_Ban">Đơn giá Bán</label>
-                    <input type="text" class="form-control" id="Th_Don_gia_Ban" placeholder="Nhập Đơn giá Bán" name="dongiaban">
+                    <input type="number" class="form-control" id="Th_Don_gia_Ban" placeholder="Nhập Đơn giá Bán" name="dongiaban">
                 </div>
                 <div class="form-group">
                     <label for="Th_Mo_ta">Mô tả</label>
-                    <textarea class="form-control" id="Th_Mo_ta" placeholder="Nhập mô tả" name="mota"></textarea>
+                    <textarea style="min-height:120px;resize:none" class="form-control" id="Th_Mo_ta" placeholder="Nhập mô tả" name="mota"></textarea>
                 </div>
         
         <div class="form-group">
-            <label for="Th_Nhom_The_loai">Thể loại</label>
-            <select id="Th_Nhom_The_loai" class="btn btn-success" name="theloai">
+            <label for="Th_Nhom_The_loai">Thể loại:</label>
+            <select id="Th_Nhom_The_loai" class="btn btn-danger" name="theloai">
             </select>
             </div>
         <div class="form-group">
-            <label for="Th_Nhom_Tac_gia" >Tác giả</label>
+            <label for="Th_Nhom_Tac_gia" >Tác giả:</label>
             <select id="Th_Nhom_Tac_gia" class="btn btn-warning" name="tacgia">
         
             </select>
             </div>
             <div class="form-group">
-                <label for="Th_Nhom_Nha_phat_hanh" >Nhà phát hành</label>
+                <label for="Th_Nhom_Nha_phat_hanh" >Nhà phát hành:</label>
                 <select id="Th_Nhom_Nha_phat_hanh" class="btn btn-primary" name="nhaphathanh">
                 </select>
                 </div>
                 <div class="form-group">
-                    <label for="Th_file">Chọn hình</label>
+                    <label for="Th_file">Chọn hình:</label>
                     <input id="Th_file" type="file" onchange="Xem_truoc_Media()" accept="image/png" class="btn btn-success" name="chonhinh"/>
                     <img id="Th_Hinh_Xem_truoc" style="width:10rem" />
                 </div>
-            </form>
+            
                 </div>
                 `
 
@@ -478,7 +480,7 @@ function Tao_The_hien_Them_Nha_phat_hanh(Th_Cha) {
         </div>
         <div class="form-group">
             <label for="Th_Mo_ta_nha_phat_hanh">Mô tả</label>
-            <textarea rows="4" class="form-control" placeholder="Mô tả nhà phát hành" cols="50" id="Th_Mo_ta_nha_phat_hanh" form="usrform"></textarea>
+            <textarea style="min-height:120px;resize:none" rows="4" class="form-control" placeholder="Mô tả nhà phát hành" cols="50" id="Th_Mo_ta_nha_phat_hanh" form="usrform"></textarea>
         </div>
         
     </div>
@@ -504,7 +506,7 @@ function Tao_The_hien_Them_The_loai(Th_Cha) {
         </div>
         <div class="form-group">
             <label for="Th_Mo_ta_the_loai">Mô tả thể loại</label>
-            <textarea rows="4" class="form-control" placeholder="Mô tả  thể loại" cols="50" id="Th_Mo_ta_the_loai" form="usrform"></textarea>
+            <textarea style="min-height:120px;resize:none" rows="4" class="form-control" placeholder="Mô tả  thể loại" cols="50" id="Th_Mo_ta_the_loai" form="usrform"></textarea>
             </div>
     </div>
     `
@@ -529,7 +531,7 @@ function Tao_The_hien_Them_Tac_gia(Th_Cha) {
         </div>
         <div class="form-group">
             <label for="Th_Mo_ta_tac_gia">Mô tả Tác giả</label>
-            <textarea rows="4" class="form-control" placeholder="Nhập mô tả Tác giả" cols="50" id="Th_Mo_ta_Tac_gia" form="usrform"></textarea>
+            <textarea style="min-height:120px;resize:none" rows="4" class="form-control" placeholder="Nhập mô tả Tác giả" cols="50" id="Th_Mo_ta_tac_gia" form="usrform"></textarea>
         </div>
     </div>
     `
@@ -542,7 +544,7 @@ function Tao_The_hien_Cap_nhat_Sach(Th_Cha, Danh_sach_Cap_nhat) {
     Danh_sach_Cap_nhat.forEach(Sach => {
         var Nhom = Sach.Nhom_Sach
         noi_dung_HTML = `
-    <div class="form col-md-4 CAP_NHAP" Ma_so="${Sach.Ma_so}">
+    <div class="form col-md-12 CAP_NHAP" Ma_so="${Sach.Ma_so}">
     <div class="form-group">
     <label for="Th_Ten">Tên Sách</label>
     <input type="text" class="form-control" id="Th_Ten" value="${Sach.Ten}" placeholder="Nhập Tên Sách">
@@ -553,31 +555,31 @@ function Tao_The_hien_Cap_nhat_Sach(Th_Cha, Danh_sach_Cap_nhat) {
                 </div>
                 <div class="form-group">
                     <label for="Th_Don_gia_Ban">Đơn giá Bán</label>
-                    <input type="text" class="form-control" id="Th_Don_gia_Ban" value="${Sach.Don_gia_Ban}" placeholder="Nhập Đơn giá Bán">
+                    <input type="number" class="form-control" id="Th_Don_gia_Ban" value="${Sach.Don_gia_Ban}" placeholder="Nhập Đơn giá Bán">
                 </div>
                 <div class="form-group">
                     <label for="Th_Mo_ta">Mô tả</label>
-                    <textarea class="form-control" id="Th_Mo_ta" placeholder="Nhập mô tả">${Sach.Mo_ta}</textarea>
+                    <textarea style="min-height:120px;resize:none" class="form-control" id="Th_Mo_ta" placeholder="Nhập mô tả">${Sach.Mo_ta}</textarea>
                 </div>
-        
+    
         <div class="form-group">
             <label for="Th_Nhom_The_loai">Thể loại</label>
             <input type="text" class="form-control" id="Th_The_loai" value="${Nhom.Ten_the_loai}" readonly>
-            <select id="Th_Nhom_The_loai" onchange="Lay_Ma_so_cuoi_The_loai()">
+            <select id="Th_Nhom_The_loai" class="btn btn-danger" onchange="Lay_Ma_so_cuoi_The_loai()">
                 
             </select>
             </div>
         <div class="form-group">
             <label for="Th_Nhom_Tac_gia">Tác giả</label>
             <input type="text" class="form-control" id="Th_Tac_gia" value="${Nhom.Tac_gia}" readonly>
-            <select id="Th_Nhom_Tac_gia" onchange="Lay_Ma_so_cuoi_Tac_gia()">
+            <select id="Th_Nhom_Tac_gia" class="btn btn-warning" onchange="Lay_Ma_so_cuoi_Tac_gia()">
         
             </select>
             </div>
             <div class="form-group">
                 <label for="Th_Nhom_Nha_phat_hanh">Nhà phát hành</label>
                 <input type="text" class="form-control" id="Th_Nha_phat_hanh" value="${Nhom.Nha_phat_hanh}" readonly>
-                <select id="Th_Nhom_Nha_phat_hanh" onchange="Lay_Ma_so_cuoi_Nha_phat_hanh()">
+                <select id="Th_Nhom_Nha_phat_hanh" class="btn btn-primary" onchange="Lay_Ma_so_cuoi_Nha_phat_hanh()">
                 </select>
                 </div>`
     })
@@ -973,19 +975,17 @@ function Tao_The_hien_Nha_phat_hanh(Nha_phat_hanh, Th_Cha) {
     Th_Cha.appendChild(the_hien)
     var Chuoi_HTML = `<div class="col-md-4">
     <div class="contact-box">
-        <div class="col-sm-4">
-            <div class="text-center">
-                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a4.jpg">
-                <div class="m-t-xs font-bold">${Nha_phat_hanh.Ma_so}</div>
-            </div>
-        </div>
-        <div class="col-sm-8">
+        <div class="col-sm-12">
+            <div class="m-t-xs font-bold">${Nha_phat_hanh.Ma_so}</div>
             <h3 style="color:red; font-weight:bold">${Nha_phat_hanh.Nha_phat_hanh}</h3>
             <h4>${Nha_phat_hanh.Mo_ta_nha_phat_hanh}</h4>
         </div>
         <div class="clearfix"></div>
     </div>
-</div>`
+</div>
+
+
+`
     the_hien.innerHTML = Chuoi_HTML;
     return the_hien
 }
@@ -996,13 +996,9 @@ function Tao_The_hien_The_loai(The_loai, Th_Cha) {
     Th_Cha.appendChild(the_hien)
     var Chuoi_HTML = `<div class="col-md-4">
     <div class="contact-box">
-        <div class="col-sm-4">
-            <div class="text-center">
-                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a2.jpg">
-                <div class="m-t-xs font-bold">${The_loai.Ma_so}</div>
-            </div>
-        </div>
+        
         <div class="col-sm-8">
+        <div class="m-t-xs font-bold">${The_loai.Ma_so}</div>
             <h3 style="color:red; font-weight:bold">${The_loai.Ten_the_loai}</h3>
             <h4>${The_loai.Mo_ta_the_loai}</h4>
         </div>
@@ -1019,13 +1015,8 @@ function Tao_The_hien_Tac_gia(Tac_gia, Th_Cha) {
     Th_Cha.appendChild(the_hien)
     var Chuoi_HTML = `<div class="col-md-4">
     <div class="contact-box">
-        <div class="col-sm-4">
-            <div class="text-center">
-                <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a3.jpg">
-                <div class="m-t-xs font-bold">${Tac_gia.Ma_so}</div>
-            </div>
-        </div>
         <div class="col-sm-8">
+            <div class="m-t-xs font-bold">${Tac_gia.Ma_so}</div>
             <h3 style="color:red; font-weight:bold">${Tac_gia.Tac_gia}</h3>
             <h4>${Tac_gia.Mo_ta_tac_gia}</h4>
         </div>

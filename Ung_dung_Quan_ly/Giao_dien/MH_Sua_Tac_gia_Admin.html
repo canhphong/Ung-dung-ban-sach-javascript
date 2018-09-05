@@ -10,6 +10,13 @@
 </head>
 
 <body>
+    
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            CẬP NHẬT TÁC GIẢ
+        </div>
+    </div>
     <div class="container">
         <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
@@ -18,12 +25,6 @@
             <button type="button" class="btn btn-danger" id="Th_Bo_qua">
                 Bỏ qua
             </button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
-            CẬP NHẬT TÁC GIẢ
         </div>
     </div>
     <div class="container">
@@ -57,6 +58,12 @@
                         Tam.push(Tac_gia.cells[i].childNodes[0].value)
                     }
                 }
+                if (Tam[0] == "") {
+                    Tam[0] = `Tên ${Ma_so}`
+                }
+                if (Tam[1] == "") {
+                    Tam[1] = `Mô tả ${Ma_so}`
+                }
                 var Tac_gia_Cap_nhat = {
                     "Ma_so": Ma_so,
                     "Tac_gia": Tam[0],
@@ -73,10 +80,15 @@
 
         Th_Dong_y.onclick = () => {
             var Kq = XL_Cap_Nhat_Tac_gia()
+            document.getElementById("Th_Dong_y").disabled = true;
             //console.log(Kq)
             if (Kq == "OK") {
                 Th_Thong_bao.innerHTML = "Cập nhật thành công tác giả";
                 sessionStorage.removeItem("Danh_sach_Chon")
+                var delayInMilliseconds = 2000;
+                setTimeout(function () {
+                    window.location = "MH_Danh_sach_Tac_gia_Admin.html"
+                }, delayInMilliseconds);
             }
         }
 

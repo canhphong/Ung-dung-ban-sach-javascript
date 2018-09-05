@@ -7,11 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-  <link rel="stylesheet" href="css/my_custom.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/my_custom.css">
 </head>
 
 <body>
+
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            XOÁ SÁCH
+        </div>
+    </div>
+
     <div class="container">
         <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
@@ -22,13 +30,6 @@
             </button>
         </div>
     </div>
-
-    <div class="container">
-        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
-            XOÁ SÁCH
-        </div>
-    </div>
-
     <div class="container">
         <div class="row" id="Th_Cha">
 
@@ -51,15 +52,20 @@
                 Danh_sach.push(Sach_Xoa)
             })
             var Kq = Ghi_Xoa_Sach(Danh_sach)
-            return Kq  
+            return Kq
         }
 
         Th_Dong_y.onclick = () => {
             var Kq = XL_Xoa_Sach()
+            document.getElementById("Th_Dong_y").disabled = true;
             //console.log(Kq)
             if (Kq == "OK") {
                 Th_Thong_bao.innerHTML = "Xóa thành công Sách";
                 sessionStorage.removeItem("Danh_sach_Chon")
+                var delayInMilliseconds = 2000;
+                setTimeout(function () {
+                    window.location = "MH_Danh_sach_Sach_Admin.html"
+                }, delayInMilliseconds);
             }
         }
 
@@ -70,4 +76,5 @@
 
     </script>
 </body>
+
 </html>

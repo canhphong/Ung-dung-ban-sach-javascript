@@ -1,5 +1,5 @@
 var Dia_chi_Dich_vu = "https://book-data.herokuapp.com/"
-var Dia_chi_Media = "https://book-media.herokuapp.com"
+var Dia_chi_Media = "https://book-media.herokuapp.com/"
 //************** Xử lý Lưu trữ ***********
 var Thu_muc_PDF = "../Tap_tin_PDF"
 
@@ -100,10 +100,72 @@ function Xuat_Danh_Sach_Tong(Danh_sach_Sach, Th_thong_bao) {
     Th_Thong_bao.innerHTML = `<h4 class="book-alert">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
 }
 
+function Tao_The_hien_List_The_loai(Th_Nhom_The_loai, Danh_sach_Cap_nhat) {
+    var noi_dung_HTML = ``
+    Danh_sach_Cap_nhat.forEach(The_loai => {
+        noi_dung_HTML += `<option value="${The_loai.Ten_the_loai}">${The_loai.Ten_the_loai}</option>`
+    })
+    Th_Nhom_The_loai.innerHTML = noi_dung_HTML
+}
+
+function Tao_The_hien_List_Tac_gia(Th_Nhom_Tac_gia, Danh_sach_Cap_nhat) {
+    var noi_dung_HTML = ``
+    Danh_sach_Cap_nhat.forEach(Tac_gia => {
+        noi_dung_HTML += `<option value="${Tac_gia.Tac_gia}">${Tac_gia.Tac_gia}</option>`
+    })
+    Th_Nhom_Tac_gia.innerHTML = noi_dung_HTML
+}
+
+function Tao_The_hien_List_Nha_phat_hanh(Th_Nhom_Nha_phat_hanh, Danh_sach_Cap_nhat) {
+    var noi_dung_HTML = ``
+    Danh_sach_Cap_nhat.forEach(Nha_phat_hanh => {
+        noi_dung_HTML += `<option value="${Nha_phat_hanh.Nha_phat_hanh}">${Nha_phat_hanh.Nha_phat_hanh}</option>`
+    })
+    Th_Nhom_Nha_phat_hanh.innerHTML = noi_dung_HTML
+}
+
 function Doc_Danh_sach_Sach() {
     var Du_lieu = {}
     var Xu_ly_HTTP = new XMLHttpRequest()
     var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Sach`
+    var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
+    Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
+    Xu_ly_HTTP.send("")
+    var Chuoi_JSON = Xu_ly_HTTP.responseText
+    if (Chuoi_JSON != "")
+        Du_lieu = JSON.parse(Chuoi_JSON)
+    return Du_lieu
+}
+function Doc_Danh_sach_The_loai() {
+    var Du_lieu = {}
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_The_loai`
+    var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
+    Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
+    Xu_ly_HTTP.send("")
+    var Chuoi_JSON = Xu_ly_HTTP.responseText
+    if (Chuoi_JSON != "")
+        Du_lieu = JSON.parse(Chuoi_JSON)
+    return Du_lieu
+}
+
+function Doc_Danh_sach_Tac_gia() {
+    var Du_lieu = {}
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Tac_gia`
+    var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
+    Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
+    Xu_ly_HTTP.send("")
+    var Chuoi_JSON = Xu_ly_HTTP.responseText
+    if (Chuoi_JSON != "")
+        Du_lieu = JSON.parse(Chuoi_JSON)
+    return Du_lieu
+}
+
+function Doc_Danh_sach_Nha_phat_hanh() {
+    var Du_lieu = {}
+    var Xu_ly_HTTP = new XMLHttpRequest()
+    var Tham_so = `Ma_so_Xu_ly=Doc_Danh_sach_Nha_phat_hanh`
     var Dia_chi_Xu_ly = `${Dia_chi_Dich_vu}?${Tham_so}`
     Xu_ly_HTTP.open("POST", Dia_chi_Xu_ly, false)
     Xu_ly_HTTP.send("")

@@ -2,10 +2,10 @@ var limit = 8;
 
 var Du_lieu = Doc_Danh_sach_Sach();
 var Danh_sach_Sach = Du_lieu.Danh_sach_Sach;
+
 if (Danh_sach_Sach.length > 0) {
     Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
     Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
-
 } else {
     Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
 }
@@ -55,7 +55,6 @@ function Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, vt, limit) {
             The_hien.style.cssText = "display:none"
         }
     });
-    Th_Thong_bao.innerHTML = `<h4 class="book-alert">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
 }
 
 
@@ -79,7 +78,9 @@ function Tao_The_Hien_Phan_trang(Danh_sach, So_san_pham_cho_mot_trang, Th_Cha) {
 
 
 Th_Trang_chu.onclick = () => {
+    Danh_sach_Sach = Du_lieu.Danh_sach_Sach;
     Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+    Th_Thong_bao.innerHTML = `<h4 class="book-alert">Tất cả có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách</h4>`
     Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
 }
 
@@ -87,23 +88,28 @@ Th_Trang_chu.onclick = () => {
 
 Th_Tim.onclick = () => {
     var gtTim = Th_Gia_tri_Tim.value;
-    var Danh_sach_Sach_tim = Danh_sach_Sach.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()));
-    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_tim, Th_Thong_bao, 0, limit);
-    if (Danh_sach_Sach_tim.length > limit) {
-        Tao_The_Hien_Phan_trang(Danh_sach_Sach_tim, limit, Th_Phan_trang)
+    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()));
+    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+    Th_Thong_bao.innerHTML = `<h4 class="book-alert">Tìm thấy <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách với từ khoá <span style="color:red;font-size:17px;">${gtTim}</span></h4>`
+    if (Danh_sach_Sach.length > limit) {
+        Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+    } else {
+        Th_Phan_trang.innerHTML = "";
     }
-    Th_Gia_tri_Tim.value = "";
 }
+
 
 function KeyCode(event) {
     if (event.keyCode == 13) {
-        var gtTim = event.target.value;
-        var Danh_sach_Sach_tim = Danh_sach_Sach.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()));
-        Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_tim, Th_Thong_bao, 0, limit);
-        if (Danh_sach_Sach_tim.length > limit) {
-            Tao_The_Hien_Phan_trang(Danh_sach_Sach_tim, limit, Th_Phan_trang)
+        var gtTim = Th_Gia_tri_Tim.value;
+        Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()));
+        Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+        Th_Thong_bao.innerHTML = `<h4 class="book-alert">Tìm thấy <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách với từ khoá <span style="color:red;font-size:17px;">${gtTim}</span></h4>`
+        if (Danh_sach_Sach.length > limit) {
+            Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+        } else {
+            Th_Phan_trang.innerHTML = "";
         }
-        Th_Gia_tri_Tim.value = "";
     }
 }
 
@@ -122,229 +128,103 @@ function Sap_Giam() {
 function Xuat_Sach_theo_Don_gia(chuoi_dieu_kien) {
     var Thanh_phan_con = chuoi_dieu_kien.split('-')
     if (Thanh_phan_con.length > 0) {
-        // var Danh_sach_Sach_theo_Gia = Danh_sach_Sach.filter(x => x.Don_gia_Ban >=
-        //     Thanh_phan_con[0] && x.Don_gia_Ban <= Thanh_phan_con[1])
-        // Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Gia, Th_Thong_bao, 0, limit);
-        // if (Danh_sach_Sach_theo_Gia.length > limit) {
-        //     Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Gia, limit, Th_Phan_trang)
-        // }
-        // Danh_sach_Sach_theo_Gia.value = "";
-
         Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Don_gia_Ban >=
             Thanh_phan_con[0] && x.Don_gia_Ban <= Thanh_phan_con[1])
         Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+        Th_Thong_bao.innerHTML = `<h4 class="book-alert">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách theo Đơn giá bán ${Thanh_phan_con}</h4>`
         if (Danh_sach_Sach.length > limit) {
             Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
-        } else {
-            Th_Phan_trang.innerHTML = ""
         }
-
+        Danh_sach_Sach.value = "";
     }
 }
 
+// function Xuat_Sach_theo_The_loai(theloai) {
+
+//     var Danh_sach_Sach = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
+//         theloai)
+//     if (Danh_sach_Sach == "") {
+
+//     } else {
+//         Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+//         if (Danh_sach_Sach_theo_Nhom.length > limit) {
+//             Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+//         }
+//         else{
+//             Th_Phan_trang.innerHTML = "";
+//         }
+//     }
+
+// }
+
 function Xuat_Sach_theo_The_loai(theloai) {
 
-    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-        theloai)
-    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
-    if (Danh_sach_Sach.length > limit) {
-        Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai == theloai)
+    if (Danh_sach_Sach == "") {
+
     } else {
-        Th_Phan_trang.innerHTML = "";
+        Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+        Th_Thong_bao.innerHTML = `<h4 class="book-alert">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách của thể loại ${theloai}</h4>`
+        if (Danh_sach_Sach.length > limit) {
+            Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+        } else {
+            Th_Phan_trang.innerHTML = "";
+        }
     }
 }
 
 function Xuat_Sach_theo_Tac_gia(tacgia) {
 
-    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-        tacgia)
-    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
-    if (Danh_sach_Sach.length > limit) {
-        Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia == tacgia)
+    if (Danh_sach_Sach == "") {
+
     } else {
-        Th_Phan_trang.innerHTML = "";
+        Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+        Th_Thong_bao.innerHTML = `<h4 class="book-alert">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách của tác giả ${tacgia}</h4>`
+        if (Danh_sach_Sach.length > limit) {
+            Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+        } else {
+            Th_Phan_trang.innerHTML = "";
+        }
     }
 }
 
 function Xuat_Sach_theo_NPH(nhaphathanh) {
 
-    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-        nhaphathanh)
-    Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
-    if (Danh_sach_Sach.length > limit) {
-        Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+    Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh == nhaphathanh)
+    if (Danh_sach_Sach == "") {
+
     } else {
-        Th_Phan_trang.innerHTML = "";
+        Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
+        Th_Thong_bao.innerHTML = `<h4 class="book-alert">Danh sách hiện có <span style="color:red;font-size:17px;">${Danh_sach_Sach.length}</span> cuốn sách của nhà phát hành ${nhaphathanh}</h4>`
+        if (Danh_sach_Sach.length > limit) {
+            Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
+        } else {
+            Th_Phan_trang.innerHTML = "";
+        }
     }
 }
-
-
-// function Xuat_Sach_theo_The_loai(theloai) {
-
-//     switch (theloai) {
-//         case 'khoahoc':
-//             Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-//                 "Khoa học")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
-//             } else {
-//                 Th_Phan_trang.innerHTML = "";
-//             }
-
-//             break;
-//         case 'thethao':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-//                 "Thể thao")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'thieunhi':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-//                 "Thiếu nhi")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'tinhcam':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-//                 "Tình cảm")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'vanhoc':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-//                 "Văn học")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         default:
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-//     }
-// }
-
-
-// function Xuat_Sach_theo_Tac_gia(tacgia) {
-//     switch (tacgia) {
-//         case 'ngoctrinh':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-//                 "Ngọc Trinh")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'kimdung':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-//                 "Kim Dung")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'nguyenanh':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-//                 "Nguyễn Ánh")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'tohuu':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-//                 "Tố Hữu")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'quoctuan':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Tac_gia ==
-//                 "Quốc Tuấn")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         default:
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-//     }
-// }
-
-// function Xuat_Sach_theo_NPH(nhaphathanh) {
-//     switch (nhaphathanh) {
-//         case 'kimdong':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-//                 "Kim Đồng")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'nxbtre':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-//                 "NXB Trẻ")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'fahasha':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-//                 "Fahasha")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'nxbvannghe':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-//                 "NXB Văn Nghệ")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         case 'nxbvanhoc':
-//             var Danh_sach_Sach_theo_Nhom = Danh_sach_Sach.filter(x => x.Nhom_Sach.Nha_phat_hanh ==
-//                 "NXB Văn Học")
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao, 0, limit);
-//             if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//                 Tao_The_Hien_Phan_trang(Danh_sach_Sach_theo_Nhom, limit, Th_Phan_trang)
-//             }
-//             break;
-//         default:
-//             Xuat_Danh_sach_Phan_trang(Danh_sach_Sach_theo_Nhom, Th_Thong_bao)
-//     }
-// }
 
 
 
 function validate() {
     if (document.myForm.name.value == "") {
-        alert("Vui lòng nhập Tên của bạn.");
+        Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Tên của bạn."
         document.myForm.name.focus();
         return false;
     }
     if (document.myForm.email.value == "") {
-        alert("Vui lòng nhập Email của bạn.");
+        Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Email của bạn."
         document.myForm.name.focus();
         return false;
     }
     if (document.myForm.title.value == "") {
-        alert("Vui lòng nhập Tiêu đề.");
+        Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Tiêu đề."
         document.myForm.title.focus();
         return false;
     }
     if (document.myForm.content.value == "") {
-        alert("Vui lòng nhập Nội dung.");
+        Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Nội dung."
         document.myForm.content.focus();
         return false;
     }

@@ -7,11 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-  <link rel="stylesheet" href="css/my_custom.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/my_custom.css">
 </head>
 
 <body>
+
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            THÊM THỂ LOẠI
+        </div>
+    </div>
     <div class="container">
         <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
@@ -22,12 +29,7 @@
             </button>
         </div>
     </div>
-
-    <div class="container">
-        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
-            THÊM THỂ LOẠI
-        </div>
-    </div>
+    <br>
     <div class="container">
         <div class="row" id="Th_Cha"></div>
     </div>
@@ -36,7 +38,7 @@
     <script>
         var Du_lieu = Doc_Danh_sach_The_loai();
         var Danh_sach_The_loai = Du_lieu.Danh_sach_The_loai;
-        var Danh_sach_Xoa_The_loai=Doc_Danh_sach_Xoa_The_loai().Danh_sach_Xoa_The_loai
+        var Danh_sach_Xoa_The_loai = Doc_Danh_sach_Xoa_The_loai().Danh_sach_Xoa_The_loai
         Tao_The_hien_Them_The_loai(Th_Cha);
         Th_Nhom_The_loai.onchange();
 
@@ -49,7 +51,7 @@
                 Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[2]))
 
             })
-            Danh_sach_Xoa_The_loai.forEach(The_loai=>{
+            Danh_sach_Xoa_The_loai.forEach(The_loai => {
                 var Thanh_phan_con = The_loai.Ma_so.trim().split("_")
                 Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[2]))
             })
@@ -102,12 +104,28 @@
             }
 
         }
-        
+
         Th_Dong_y.onclick = () => {
-            var Kq = XL_Ghi_Them_The_loai()
-            if (Kq == "OK") {
-                Th_Thong_bao.innerHTML = "Thêm thành công Thể loại mới";
+            if (document.getElementById("Th_Ten_the_loai").value != "") {
+                if (document.getElementById("Th_Mo_ta_the_loai").value != "") {
+                    var Kq = XL_Ghi_Them_The_loai()
+                    document.getElementById("Th_Dong_y").disabled = true;
+                    //if (Kq == "OK") {
+                    Th_Thong_bao.innerHTML = "Thêm thành công Thể loại mới";
+                    var delayInMilliseconds = 2000;
+                    setTimeout(function () {
+                        window.location = "MH_Danh_sach_The_loai_Admin.html"
+                    }, delayInMilliseconds);
+                    //}
+                } else {
+                    Th_Thong_bao.innerHTML = "Vui lòng nhập Mô tả thể loại";
+                    document.getElementById("Th_Mo_ta_the_loai").focus();
+                }
+            } else {
+                Th_Thong_bao.innerHTML = "Vui lòng nhập Tên thể loại";
+                document.getElementById("Th_Ten_the_loai").focus();
             }
+
         }
 
         Th_Bo_qua.onclick = () => {

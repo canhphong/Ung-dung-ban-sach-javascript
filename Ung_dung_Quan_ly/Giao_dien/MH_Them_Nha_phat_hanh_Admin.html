@@ -13,6 +13,11 @@
 
 <body>
     <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            THÊM NHÀ PHÁT HÀNH
+        </div>
+    </div>
+    <div class="container">
         <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
                 Đồng ý
@@ -22,12 +27,9 @@
             </button>
         </div>
     </div>
+    <br>
 
-    <div class="container">
-        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
-            THÊM NHÀ PHÁT HÀNH
-        </div>
-    </div>
+
     <div class="container">
         <div class="row" id="Th_Cha"></div>
     </div>
@@ -36,7 +38,7 @@
     <script>
         var Du_lieu = Doc_Danh_sach_Nha_phat_hanh();
         var Danh_sach_Nha_phat_hanh = Du_lieu.Danh_sach_Nha_phat_hanh
-        var Danh_sach_Xoa_Nha_phat_hanh=Doc_Danh_sach_Xoa_Nha_phat_hanh().Danh_sach_Xoa_Nha_phat_hanh
+        var Danh_sach_Xoa_Nha_phat_hanh = Doc_Danh_sach_Xoa_Nha_phat_hanh().Danh_sach_Xoa_Nha_phat_hanh
         Tao_The_hien_Them_Nha_phat_hanh(Th_Cha)
         Th_Nhom_Nha_phat_hanh.onchange()
 
@@ -47,7 +49,7 @@
                 var Thanh_phan_con = Nha_phat_hanh.Ma_so.trim().split("_")
                 Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[3]))
             })
-            Danh_sach_Xoa_Nha_phat_hanh.forEach(Nha_phat_hanh=>{
+            Danh_sach_Xoa_Nha_phat_hanh.forEach(Nha_phat_hanh => {
                 var Thanh_phan_con = Nha_phat_hanh.Ma_so.trim().split("_")
                 Danh_sach_Ma_so.push(parseInt(Thanh_phan_con[3]))
             })
@@ -81,7 +83,7 @@
                 "Nha_phat_hanh": Nha_phat_hanh,
                 "Mo_ta_nha_phat_hanh": Mo_ta_nha_phat_hanh,
             }
-           
+
             var Nha_phat_hanh = Ghi_Nha_phat_hanh_Moi(Nha_phat_hanh)
             if (Nha_phat_hanh) {
                 Du_lieu.Danh_sach_Nha_phat_hanh.push(Nha_phat_hanh)
@@ -90,11 +92,26 @@
         }
 
         Th_Dong_y.onclick = () => {
-            var Kq=XL_Ghi_Them()
-            if(Kq=="OK"){
-                Th_Thong_bao.innerHTML="Thêm thành công Nha phat hanh mới";
-                
+            if (document.getElementById("Th_Ten").value != "") {
+                if (document.getElementById("Th_Mo_ta_nha_phat_hanh").value != "") {
+                    var Kq = XL_Ghi_Them()
+                    document.getElementById("Th_Dong_y").disabled = true;
+                    //if (Kq == "OK") {
+                        Th_Thong_bao.innerHTML = "Thêm thành công Nhà phát hành mới";
+                        var delayInMilliseconds = 2000;
+                        setTimeout(function () {
+                            window.location = "MH_Danh_sach_Nha_phat_hanh_Admin.html"
+                        }, delayInMilliseconds);
+                    //}
+                } else {
+                    Th_Thong_bao.innerHTML = "Vui lòng nhập Mô tả nhà phát hảnh";
+                    document.getElementById("Th_Mo_ta_nha_phat_hanh").focus();
+                }
+            } else {
+                Th_Thong_bao.innerHTML = "Vui lòng nhập Tên nhà phát hành";
+                document.getElementById("Th_Ten").focus();
             }
+
         }
 
         Th_Bo_qua.onclick = () => {

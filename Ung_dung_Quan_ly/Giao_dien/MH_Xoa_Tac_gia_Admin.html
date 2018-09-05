@@ -11,6 +11,13 @@
 </head>
 
 <body>
+    
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            XOÁ TÁC GIẢ
+        </div>
+    </div>
     <div class="container">
         <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
@@ -19,12 +26,6 @@
             <button type="button" class="btn btn-danger" id="Th_Bo_qua">
                 Bỏ qua
             </button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
-            XOÁ TÁC GIẢ
         </div>
     </div>
     <div class="container">
@@ -58,10 +59,15 @@
 
         Th_Dong_y.onclick = () => {
             var Kq = XL_Xoa_Tac_gia()
+            document.getElementById("Th_Dong_y").disabled = true;
             //console.log(Kq)
             if (Kq == "OK") {
                 Th_Thong_bao.innerHTML = "Xóa thành công Tác giả";
                 sessionStorage.removeItem("Danh_sach_Chon")
+                var delayInMilliseconds = 2000;
+                setTimeout(function () {
+                    window.location = "MH_Danh_sach_Tac_gia_Admin.html"
+                }, delayInMilliseconds);
             }
         }
 

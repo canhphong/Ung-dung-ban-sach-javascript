@@ -5,13 +5,10 @@
 	<title>TRANG BÁN SÁCH</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="images/favicon.png" type="image/x-png" />
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/my_custom.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/font-awesome.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -39,7 +36,7 @@
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-							    aria-expanded="false">
+							 aria-expanded="false">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
@@ -133,9 +130,7 @@
 
 			<div class="container">
 				<div class="row">
-					<div id="Th_Thong_bao">
-						KHUNG THÔNG BÁO
-					</div>
+					<div id="Th_Thong_bao"></div>
 				</div>
 				<div class="row">
 					<div class="btn">
@@ -144,10 +139,10 @@
 					</div>
 					<div class="btn">
 						<select class="book-select" onchange="Xuat_Sach_theo_Don_gia(this.value)">
-							<option value="0-900000">Lọc Sách theo Đơn giá Bán</option>
-							<option value="0-200000">Giá dưới 200.000</option>
-							<option value="200000-400000">Giá lớn từ 200.000 đến 400.000</option>
-							<option value="400000-900000">Giá từ 400.000 đến 900.000</option>
+							<option value="0-999000">Lọc Sách theo Đơn giá Bán</option>
+							<option value="0-300000">Giá dưới 300.000</option>
+							<option value="300000-600000">Giá lớn từ 300.000 đến 600.000</option>
+							<option value="600000-999000">Giá từ 600.000 đến 999.000</option>
 						</select>
 					</div>
 					<button type="button" class="btn btn-info" id="Th_Tang" onclick="Sap_Tang()">
@@ -165,34 +160,22 @@
 					<div class="col-md-3 col-xs-12 book-mt15">
 						<span>
 							<i class="fa fa-list-alt" aria-hidden="true"></i> Thể loại</span>
-						<select class="book-select" onclick="Xuat_Sach_theo_The_loai(this.value)">
-							<option value="khoahoc">Khoa học</option>
-							<option value="thethao">Thể thao</option>
-							<option value="thieunhi">Thiếu nhi</option>
-							<option value="tinhcam">Tình cảm</option>
-							<option value="vanhoc">Văn học</option>
+						<select id="Th_Nhom_the_loai_Index" class="book-select" onclick="Xuat_Sach_theo_The_loai(this.value)">
+
 						</select>
 					</div>
 					<div class="col-md-3 col-xs-12 book-mt15">
 						<span>
 							<i class="fa fa-user" aria-hidden="true"></i> Tác giả</span>
-						<select class="book-select" onclick="Xuat_Sach_theo_Tac_gia(this.value)">
-							<option value="ngoctrinh">Ngọc Trinh</option>
-							<option value="kimdung">Kim Dung</option>
-							<option value="nguyenanh">Nguyễn Ánh</option>
-							<option value="tohuu">Tố Hữu</option>
-							<option value="quoctuan">Quốc Tuấn</option>
+						<select id="Th_Nhom_tac_gia_Index" class="book-select" onclick="Xuat_Sach_theo_Tac_gia(this.value)">
+
 						</select>
 					</div>
 					<div class="col-md-3 col-xs-12">
 						<span>
 							<i class="fa fa-address-book" aria-hidden="true"></i> Nhà phát hành</span>
-						<select class="book-select" onclick="Xuat_Sach_theo_NPH(this.value)">
-							<option value="kimdong">Kim Đồng</option>
-							<option value="nxbtre">Nhà Xuất Bản Trẻ</option>
-							<option value="fahasha">FAHASHA</option>
-							<option value="nxbvannghe">Nhà Xuất Bản Văn Nghệ</option>
-							<option value="nxbvanhoc">Nhà Xuất Bản Văn Học</option>
+						<select id="Th_Nhom_nha_phat_hanh_Index" class="book-select" onclick="Xuat_Sach_theo_NPH(this.value)">
+
 						</select>
 					</div>
 				</div>
@@ -301,13 +284,10 @@
 			<div class="col-md-3 footer-left">
 				<h2>
 					<a href="MH_Index.html">
-						<span>TP</span>BOOKSTORE </a>
+						<span>LIB</span>BOOKSTORE </a>
 				</h2>
-				<p>Công ty Cổ phần văn hóa Nhân Văn là đơn vị kinh doanh đã nhiều năm trong lĩnh vực xuất bản, in và phát hành. Từ
-					năm 1991,
-					nhà sách Nhân Văn đầu tiên đi vào hoạt động tại quận Tân Bình đã nhận được sự ủng hộ nhiệt tình của đông đảo bạn
-					đọc
-					và khách hàng.</p>
+				<p>Công ty là đơn vị kinh doanh đã nhiều năm trong lĩnh vực xuất bản, in và phát hành. Từ năm 1991, nhà sách lần đầu
+					tiên đi vào hoạt động tại quận Tân Bình đã nhận được sự ủng hộ nhiệt tình của đông đảo bạn đọc và khách hàng.</p>
 				<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
 					<li>
 						<a href="#" class="facebook">
@@ -389,7 +369,7 @@
 								<div class="w3-address-right">
 									<h6>Địa chỉ Email</h6>
 									<p>Email :
-										<a href="mailto:sachtuanphong@gmail.com">sachtuanphong@gmail.com</a>
+										<a href="mailto:quanlywebsachTP@gmail.com">quanlywebsachTP@gmail.com</a>
 									</p>
 								</div>
 								<div class="clearfix"> </div>
@@ -400,7 +380,7 @@
 								</div>
 								<div class="w3-address-right">
 									<h6>Vị trí</h6>
-									<p>Số 1 Trường Chinh, P.11, Q.Tân Bình Tp.Hồ Chí Minh</p>
+									<p>137E Nguyễn Chí Thanh, Phường 9, Quận 5, Hồ Chí Minh</p>
 								</div>
 								<div class="clearfix"> </div>
 							</div>
@@ -410,7 +390,7 @@
 				</div>
 			</div>
 			<div class="clearfix"></div>
-			<p class="copy-right">&copy 2018 TPBOOKSTORE. All rights reserved.</p>
+			<p class="copy-right">&copy 2018 LIBBOOKSTORE. All rights reserved.</p>
 		</div>
 	</div>
 	<!-- //footer -->
@@ -437,6 +417,14 @@
 			});
 
 		});
+	</script>
+	<script>
+		var Danh_sach_The_loai = Doc_Danh_sach_The_loai().Danh_sach_The_loai
+		var Danh_sach_Tac_gia = Doc_Danh_sach_Tac_gia().Danh_sach_Tac_gia
+		var Danh_sach_Nha_phat_hanh = Doc_Danh_sach_Nha_phat_hanh().Danh_sach_Nha_phat_hanh
+		Tao_The_hien_List_The_loai(Th_Nhom_the_loai_Index, Danh_sach_The_loai)
+		Tao_The_hien_List_Tac_gia(Th_Nhom_tac_gia_Index, Danh_sach_Tac_gia)
+		Tao_The_hien_List_Nha_phat_hanh(Th_Nhom_nha_phat_hanh_Index, Danh_sach_Nha_phat_hanh)
 	</script>
 </body>
 

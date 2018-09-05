@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <title>Sách</title>
     <meta charset="utf-8">
@@ -10,6 +11,13 @@
 </head>
 
 <body>
+
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            THÊM TÁC GIẢ
+        </div>
+    </div>
     <div class="container">
         <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
@@ -20,12 +28,7 @@
             </button>
         </div>
     </div>
-
-    <div class="container">
-        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
-            THÊM TÁC GIẢ
-        </div>
-    </div>
+    <br>
     <div class="container">
         <div class="row" id="Th_Cha"></div>
     </div>
@@ -76,7 +79,7 @@
 
             var Ma_so = Th_Ma_so.value
             var Ten = Th_Tac_gia.value
-            var Mo_ta = Th_Mo_ta_Tac_gia.value
+            var Mo_ta = Th_Mo_ta_tac_gia.value
             var Tac_gia = {
                 "Ma_so": Ma_so,
                 "Tac_gia": Ten,
@@ -90,10 +93,26 @@
         }
 
         Th_Dong_y.onclick = () => {
-            var Kq = XL_Ghi_Them_Tac_gia()
-            if (Kq == "OK") {
-                Th_Thong_bao.innerHTML = "Thêm thành công Tác giả mới";
+            if (document.getElementById("Th_Tac_gia").value != "") {
+                if (document.getElementById("Th_Mo_ta_tac_gia").value != "") {
+                    var Kq = XL_Ghi_Them_Tac_gia()
+                    document.getElementById("Th_Dong_y").disabled = true;
+                    //if (Kq == "OK") {
+                    Th_Thong_bao.innerHTML = "Thêm thành công Tác giả mới";
+                    var delayInMilliseconds = 2000;
+                    setTimeout(function () {
+                        window.location = "MH_Danh_sach_Tac_gia_Admin.html"
+                    }, delayInMilliseconds);
+                    //}
+                } else {
+                    Th_Thong_bao.innerHTML = "Vui lòng nhập Mô tả tác giả";
+                    document.getElementById("Th_Mo_ta_tac_gia").focus();
+                }
+            } else {
+                Th_Thong_bao.innerHTML = "Vui lòng nhập Tên Tác giả";
+                document.getElementById("Th_Tac_gia").focus();
             }
+
         }
 
         Th_Bo_qua.onclick = () => {

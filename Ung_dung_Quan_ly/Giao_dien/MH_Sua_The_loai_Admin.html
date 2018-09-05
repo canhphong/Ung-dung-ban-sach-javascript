@@ -12,6 +12,13 @@
 </head>
 
 <body>
+    
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            SỬA THỂ LOẠI
+        </div>
+    </div>
     <div class="container">
         <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
@@ -20,12 +27,6 @@
             <button type="button" class="btn btn-danger" id="Th_Bo_qua">
                 Bỏ qua
             </button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
-            SỬA THỂ LOẠI
         </div>
     </div>
     <div class="container">
@@ -59,6 +60,12 @@
                         Tam.push(The_loai.cells[i].childNodes[0].value)
                     }
                 }
+                if (Tam[0] == "") {
+                    Tam[0] = `Tên ${Ma_so}`
+                }
+                if (Tam[1] == "") {
+                    Tam[1] = `Mô tả ${Ma_so}`
+                }
                 var The_loai_Cap_nhat = {
                     "Ma_so": Ma_so,
                     "Ten_the_loai" : Tam[0],
@@ -74,10 +81,15 @@
 
         Th_Dong_y.onclick = () => {
             var Kq = XL_Cap_Nhat_The_loai()
+            document.getElementById("Th_Dong_y").disabled = true;
             //console.log(Kq)
             if (Kq == "OK") {
                 Th_Thong_bao.innerHTML = "Cập nhật thành công Thể loại";
                 sessionStorage.removeItem("Danh_sach_Chon")
+                var delayInMilliseconds = 2000;
+                setTimeout(function () {
+                    window.location = "MH_Danh_sach_The_loai_Admin.html"
+                }, delayInMilliseconds);
 
             }
         }

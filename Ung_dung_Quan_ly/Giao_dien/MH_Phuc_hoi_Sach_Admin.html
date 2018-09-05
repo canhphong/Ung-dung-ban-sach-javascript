@@ -7,11 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-  <link rel="stylesheet" href="css/my_custom.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/my_custom.css">
 </head>
 
 <body>
+
+
+    <div class="container">
+        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
+            PHỤC HỒI SÁCH
+        </div>
+    </div>
     <div class="container">
         <div class="row book-mt10">
             <button type="button" class="btn btn-success" id="Th_Dong_y">
@@ -20,12 +27,6 @@
             <button type="button" class="btn btn-danger" id="Th_Bo_qua">
                 Bỏ qua
             </button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="alert alert-success text-center book-mt10" id="Th_Thong_bao">
-            PHỤC HỒI SÁCH
         </div>
     </div>
     <div class="container-fluid">
@@ -40,6 +41,9 @@
         var Du_lieu = Doc_Danh_sach_Xoa_Sach();
         var Danh_sach_Xoa_Sach = Du_lieu.Danh_sach_Xoa_Sach
         Tao_The_hien_Phuc_hoi_Sach(Th_Cha, Danh_sach_Xoa_Sach)
+        if (Danh_sach_Xoa_Sach.length == 0) {
+            document.getElementById("Th_Dong_y").disabled = true;
+        }
 
         function XL_Phuc_hoi_Sach() {
             var Danh_sach_Phuc_hoi = document.querySelectorAll(".PHUC_HOI")
@@ -59,11 +63,23 @@
         }
 
         Th_Dong_y.onclick = () => {
-            var Kq = XL_Phuc_hoi_Sach()
-            if (Kq == "OK") {
-                Th_Thong_bao.innerHTML = "Phục hồi thành công Sách";
-                sessionStorage.removeItem("Danh_sach_Chon")
-            }
+            var Danh_sach_Phuc_hoi = document.querySelectorAll(".PHUC_HOI")
+            Danh_sach_Phuc_hoi.forEach(Sach => {
+                Th_Thong_bao.innerHTML = "Vui lòng check vào ô vuông để chọn Sách cần phục hồi";
+                if (Sach.checked) {
+                    var Kq = XL_Phuc_hoi_Sach()
+                    document.getElementById("Th_Dong_y").disabled = true;
+                    if (Kq == "OK") {
+                        Th_Thong_bao.innerHTML = "Phục hồi thành công Sách";
+                        sessionStorage.removeItem("Danh_sach_Chon")
+                        var delayInMilliseconds = 1500;
+                        setTimeout(function () {
+                            window.location = "MH_Phuc_hoi_Sach_Admin.html"
+                        }, delayInMilliseconds);
+                    }
+                } 
+            })
+
         }
 
         Th_Bo_qua.onclick = () => {
