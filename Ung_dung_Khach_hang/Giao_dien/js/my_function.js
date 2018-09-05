@@ -2,7 +2,6 @@ var limit = 8;
 
 var Du_lieu = Doc_Danh_sach_Sach();
 var Danh_sach_Sach = Du_lieu.Danh_sach_Sach;
-console.log(Danh_sach_Sach)
 if (Danh_sach_Sach.length > 0) {
     Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
     Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
