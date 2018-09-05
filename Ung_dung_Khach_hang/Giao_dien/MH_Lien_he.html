@@ -318,7 +318,6 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script src="../ckeditor/ckeditor.js"></script>
 	<script src="../Xu_ly/Xu_ly_3L.js"></script>
-	<script src="js/my_function.js"></script>
 
 	<script type="text/javascript">
 		jQuery(document).ready(function ($) {
@@ -329,7 +328,7 @@
 				}, 1000);
 			});
 		});
-		
+
 		// here stars scrolling icon
 		$(document).ready(function () {
 			$().UItoTop({
@@ -353,6 +352,31 @@
 			str += `${noi_dung}`;
 			var Kq = Khach_hang_lien_he(str)
 			console.log(Kq);
+		}
+
+
+		function validate() {
+			if (document.myForm.name.value == "") {
+				Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Tên của bạn."
+				document.myForm.name.focus();
+				return false;
+			}
+			if (document.myForm.email.value == "") {
+				Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Email của bạn."
+				document.myForm.name.focus();
+				return false;
+			}
+			if (document.myForm.title.value == "") {
+				Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Tiêu đề."
+				document.myForm.title.focus();
+				return false;
+			}
+			if (document.myForm.content.value == "") {
+				Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Nội dung."
+				document.myForm.content.focus();
+				return false;
+			}
+			return (true);
 		}
 	</script>
 </body>

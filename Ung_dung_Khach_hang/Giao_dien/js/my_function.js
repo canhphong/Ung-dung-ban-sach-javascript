@@ -139,24 +139,6 @@ function Xuat_Sach_theo_Don_gia(chuoi_dieu_kien) {
     }
 }
 
-// function Xuat_Sach_theo_The_loai(theloai) {
-
-//     var Danh_sach_Sach = Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai ==
-//         theloai)
-//     if (Danh_sach_Sach == "") {
-
-//     } else {
-//         Xuat_Danh_sach_Phan_trang(Danh_sach_Sach, Th_Thong_bao, 0, limit);
-//         if (Danh_sach_Sach_theo_Nhom.length > limit) {
-//             Tao_The_Hien_Phan_trang(Danh_sach_Sach, limit, Th_Phan_trang)
-//         }
-//         else{
-//             Th_Phan_trang.innerHTML = "";
-//         }
-//     }
-
-// }
-
 function Xuat_Sach_theo_The_loai(theloai) {
 
     Danh_sach_Sach = Du_lieu.Danh_sach_Sach.filter(x => x.Nhom_Sach.Ten_the_loai == theloai)
@@ -203,30 +185,4 @@ function Xuat_Sach_theo_NPH(nhaphathanh) {
             Th_Phan_trang.innerHTML = "";
         }
     }
-}
-
-
-
-function validate() {
-    if (document.myForm.name.value == "") {
-        Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Tên của bạn."
-        document.myForm.name.focus();
-        return false;
-    }
-    if (document.myForm.email.value == "") {
-        Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Email của bạn."
-        document.myForm.name.focus();
-        return false;
-    }
-    if (document.myForm.title.value == "") {
-        Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Tiêu đề."
-        document.myForm.title.focus();
-        return false;
-    }
-    if (document.myForm.content.value == "") {
-        Th_Thong_bao_LH.innerHTML = "Vui lòng nhập Nội dung."
-        document.myForm.content.focus();
-        return false;
-    }
-    return (true);
 }
